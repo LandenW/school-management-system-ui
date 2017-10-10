@@ -24,9 +24,9 @@ import { AssignmentsComponent } from './assignments/assignments.component';
     AnnouncementsComponent,
     AnnouncementsFormComponent,
     GradesFormComponent,
-    PreferencesComponent
+    PreferencesComponent,
     CalendarComponent,
-    AddAccountsComponent
+    AddAccountsComponent,
     LogInComponent,
     NavigationComponent,
     AssignmentsComponent
