@@ -15,6 +15,16 @@ import { PreferencesComponent }   from '../preferences/preferences.component';
 
 const routes: Routes = [
   { path: 'assignments',  component: AssignmentsComponent },
+  { path: 'add-accounts',  component: AddAccountsComponent },
+  { path: 'add-accounts-form',  component: AddAccountsFormComponent },
+  { path: 'announcements',  component: AnnouncementsComponent },
+  { path: 'announcements-form',  component: AnnouncementsFormComponent },
+  { path: 'calendar',  component: CalendarComponent },
+  { path: 'grades',  component: GradesComponent },
+  { path: 'grades-form',  component: GradesFormComponent },
+  { path: 'log-in',  component: LogInComponent },
+  { path: 'navigation',  component: NavigationComponent },
+  { path: 'preferences',  component: PreferencesComponent }
 ] 
  
 @NgModule({
