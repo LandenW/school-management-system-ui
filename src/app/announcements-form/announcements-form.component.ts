@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-assignments-form',
-  templateUrl: './assignments-form.component.html',
-  styleUrls: ['./assignments-form.component.css']
+  selector: 'app-announcements-form',
+  templateUrl: './announcements-form.component.html',
+  styleUrls: ['./announcements-form.component.css']
 })
-export class AssignmentsFormComponent implements OnInit {
+export class AnnouncementsFormComponent implements OnInit {
 
   constructor() { }
 
@@ -13,4 +13,3 @@ export class AssignmentsFormComponent implements OnInit {
   }
 
 }
-
