@@ -15,6 +15,7 @@ import { AppRoutingModule } from './routing/routing.module';
 import { LogInComponent } from './log-in/log-in.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { AssignmentsComponent } from './assignments/assignments.component';
+import { AddAccountsFormComponent } from './add-accounts-form/add-accounts-form.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { AssignmentsComponent } from './assignments/assignments.component';
     AddAccountsComponent,
     LogInComponent,
     NavigationComponent,
-    AssignmentsComponent
+    AssignmentsComponent,
+    AddAccountsFormComponent
   ],
   
   imports: [

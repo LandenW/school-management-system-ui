@@ -1,47 +1,5 @@
-<ol class="breadcrumb">
-  <li><a routerLink="/home">Home</a></li>
-  <li><a routerLink="/announcement">Announcements</a></li>
-  <li class="active">Manage Announcements</li>
-</ol>
-
-<br/>
-
-<a class="btn btn-primary" routerLink="/announcement">Return to Announcements</a>
-
-<h1>Manage Announcement</h1>
-
-<app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
-
-<form novalidate (ngSubmit)="saveAnnouncement(announcementForm)"  #announcementForm="ngForm" class="form-horizontal">
-<input [ngModel]="announcement?.announcement_id" ngModel #announcement_id="ngModel" type="hidden" name="announcement_id">
-<div class="form-group">
-  <label for="name" class="col-sm-2 control-label">Name</label>
-  <div class="col-sm-10">
-    <span *ngIf="formErrors.name" class="text-danger">
-      {{ formErrors.name }}
-    </span>
-  </div>
-</div>
-<div class="form-group">
-  <label for="description" class="col-sm-2 control-label">Description</label>
-  <div class="col-sm-10">
-    <input [ngModel]="announcement?.description" ngModel #description="ngModel" type="text" class="form-control" id="description" name="description"  placeholder="Description" required minlength="2" maxlength="30">
-  </div>
-</div>
-<div class="form-group">
-  <label for="start_date" class="col-sm-2 control-label">Start Date</label>
-  <div class="col-sm-10">
-    <input [ngModel]="student?.start_date" ngModel #start_date="ngModel" type="text" class="form-control" id="start_date" name="start_date" placeholder="2017-01-01" pattern="(\d{4})-(\d{2})-(\d{2})">
-    <span *ngIf="formErrors.start_date" class="text-danger">
-      {{ formErrors.start_date }}
-    </span>
-  </div>
-</div>
-<div class="form-group">
-<div class="col-sm-offset-2 col-sm-10">
-  <button [disabled]="!announcementForm.form.valid" type="submit" class="btn btn-primary">Submit</button>
-</div>
-</div>
-</form>
+<p>
+  assignments-form works!
+</p>
 
 

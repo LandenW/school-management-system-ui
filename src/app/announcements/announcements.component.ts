@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-announcements',
@@ -7,8 +6,11 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./announcements.component.css']
 })
 export class AnnouncementsComponent implements OnInit {
+
   constructor() { }
-  
-    ngOnInit() {
-    }
- }
+
+  ngOnInit() {
+  }
+
+}
+
