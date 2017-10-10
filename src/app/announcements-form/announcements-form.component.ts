@@ -13,4 +13,3 @@ export class AnnouncementsFormComponent implements OnInit {
   }
 
 }
-

@@ -13,4 +13,3 @@ export class AnnouncementsComponent implements OnInit {
   }
 
 }
-
