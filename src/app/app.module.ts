@@ -25,9 +25,9 @@ import { AddAccountsFormComponent } from './add-accounts-form/add-accounts-form.
     AnnouncementsComponent,
     AnnouncementsFormComponent,
     GradesFormComponent,
-    PreferencesComponent
+    PreferencesComponent,
     CalendarComponent,
-    AddAccountsComponent
+    AddAccountsComponent,
     LogInComponent,
     NavigationComponent,
     AssignmentsComponent,
