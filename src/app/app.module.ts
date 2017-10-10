@@ -16,6 +16,8 @@ import { LogInComponent } from './log-in/log-in.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { AssignmentsComponent } from './assignments/assignments.component';
 import { AddAccountsFormComponent } from './add-accounts-form/add-accounts-form.component';
+import { AssignmentsFormComponent } from './assignments-form/assignments-form.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { AddAccountsFormComponent } from './add-accounts-form/add-accounts-form.
     LogInComponent,
     NavigationComponent,
     AssignmentsComponent,
-    AddAccountsFormComponent
+    AddAccountsFormComponent,
+    AssignmentsFormComponent,
+    HomeComponent
   ],
   
   imports: [
