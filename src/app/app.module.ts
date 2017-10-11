@@ -24,7 +24,7 @@ import { HomeComponent } from './home/home.component';
 
 import { DataService } from './data.service';
 import { DeleteConfirmComponent } from './delete-confirm/delete-confirm.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -52,6 +52,7 @@ import { DeleteConfirmComponent } from './delete-confirm/delete-confirm.componen
     AppRoutingModule,
     FormsModule,
     HttpModule,
+    BrowserAnimationsModule,
     MatDialogModule
   ],
   
