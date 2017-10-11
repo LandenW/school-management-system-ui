@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material';
+
+import { DataService } from '../data.service';
+
 
 @Component({
   selector: 'app-assignments',
@@ -7,9 +11,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AssignmentsComponent implements OnInit {
 
-  constructor() { }
+  errorMessage: string;
+  successMessage: string;
+  assignments: any[];
+  mode = 'Observable';
 
-  ngOnInit() {
+  constructor (private dataService: DataService, public dialog: MatDialog) {}
+
+
+  ngOnInit() { this.getAssignments(); }
+  
+  getAssignments() {
+    this.dataService.getRecords("assignments")
+      .subscribe(
+        assignments => this.assignments = assignments,
+        error =>  this.errorMessage = <any>error);
   }
+
+  deleteAssignment(id:number) {
+    
+        let dialogRef = this.dialog.open(DeleteConfirmComponent);
+    
+        dialogRef.afterClosed().subscribe(result => {
+          if(result){
+            this.dataService.deleteRecord("assignments", id)
+              .subscribe(
+                assignment => {this.successMessage = "Record(s) deleted succesfully"; this.getAssignments(); },
+                error =>  this.errorMessage = <any>error);
+          }
+        });
+      }
+  }
+
 
 }
