@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material';
+
+import { DataService } from '../data.service'
 
 @Component({
   selector: 'app-announcements',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AnnouncementsComponent implements OnInit {
 
-  constructor() { }
+  errorMessage: string;
+  successMessage: string;
+  announcements: any[];
+  mode = 'Observable';
 
-  ngOnInit() {
-  }
+  constructor(private dataService: DataService, public dialog: MatDialog) { }
 
-}
+  ngOnInit() { this.getAnnouncements(); }
+  
+   getAnnouncements() {
+     this.dataService.getRecords("announcements")
+       .subscribe(
+         announcements => this.announcements = announcements,
+         error =>  this.errorMessage = <any>error);
+   }
+  } 
