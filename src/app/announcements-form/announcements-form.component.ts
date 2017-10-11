@@ -27,6 +27,7 @@ export class AnnouncementsFormComponent implements OnInit {
     private location: Location
   ) { }
 
+
   getRecordForEdit(){
     this.route.params
       .switchMap((params: Params) => this.dataService.getRecord("announcements", +params['id']))
