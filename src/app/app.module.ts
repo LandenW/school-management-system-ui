@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
 import { RouterModule }   from '@angular/router';
 import { HttpModule } from '@angular/http';
-import { MatDialogModule} from '@angular/material';
+import { MatDialogModule } from '@angular/material';
 
 
 import { AppComponent } from './app.component';
@@ -25,7 +25,6 @@ import { HomeComponent } from './home/home.component';
 import { DataService } from './data.service';
 import { DeleteConfirmComponent } from './delete-confirm/delete-confirm.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 
 
 @NgModule({
