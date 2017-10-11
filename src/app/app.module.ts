@@ -19,6 +19,9 @@ import { AddAccountsFormComponent } from './add-accounts-form/add-accounts-form.
 import { AssignmentsFormComponent } from './assignments-form/assignments-form.component';
 import { HomeComponent } from './home/home.component';
 
+import { DataService } from './data.service';
+import { HttpModule } from '@angular/http';
+import { DeleteConfirmComponent } from './delete-confirm/delete-confirm.component';
 
 @NgModule({
   declarations: [
@@ -35,16 +38,18 @@ import { HomeComponent } from './home/home.component';
     AssignmentsComponent,
     AddAccountsFormComponent,
     AssignmentsFormComponent,
-    HomeComponent
+    HomeComponent,
+    DeleteConfirmComponent
   ],
   
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpModule
   ],
   
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

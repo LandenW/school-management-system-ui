@@ -26,14 +26,14 @@
   </tr>
 </thead>
 <tbody>
-  <tr>
-    <td>1</td>
+  <tr *ngFor="let student of students">
+    <td>{{student.id}}</td>
     <td>Student</td>
-    <td>John</td>
-    <td>Smith</td>
-    <td>johnsmith@gmail.com</td>
-    <td>Grade 5</td>
-    <td>Jane Doe</td>
+    <td>{{student.firstName}}</td>
+    <td>{{student.lastName}}</td>
+    <td>{{student.email}}</td>
+    <td>{{student.gradeLevel}}</td>
+    <td>{{student.teacher}}</td>
     <td class="text-center">
       <a class="btn btn-primary">Edit</a>&nbsp;
       <button class="btn btn-danger">Delete</button>
