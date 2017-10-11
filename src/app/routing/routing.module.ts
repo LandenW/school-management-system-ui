@@ -15,6 +15,7 @@ import { LogInComponent }   from '../log-in/log-in.component';
 import { NavigationComponent }   from '../navigation/navigation.component';
 import { PreferencesComponent }   from '../preferences/preferences.component';
 
+
 const routes: Routes = [
   { path: 'home',  component: HomeComponent },
   { path: 'assignments',  component: AssignmentsComponent },

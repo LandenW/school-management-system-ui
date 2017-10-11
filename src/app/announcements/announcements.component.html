@@ -29,8 +29,8 @@
     <td>{{announcement.description}}</td>
     <td>{{announcement.date}}</td>
     <td class="text-center">
-      <a class="btn btn-primary">Edit</a>&nbsp;
-      <button class="btn btn-danger">Delete</button>
+      <a class="btn btn-primary" [routerLink]="['announcements/edit/', announcements.announcements_id]">Edit</a>&nbsp;
+      <button (click)="deleteAnnouncements(announcements.announcements_id)" class="btn btn-danger">Delete</button>
     </td>
   </tr>
 

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-// import { MatDialog, MatDialogRef } from '@angular/material';
+import { MatDialog, MatDialogRef } from '@angular/material';
 
 import { DataService } from '../data.service'
 
@@ -15,7 +15,7 @@ export class AnnouncementsComponent implements OnInit {
   announcements: any[];
   mode = 'Observable';
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, public dialog: MatDialog) { }
 
   ngOnInit() { this.getAnnouncements(); }
   

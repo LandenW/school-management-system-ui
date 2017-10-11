@@ -20,7 +20,9 @@ import { AddAccountsFormComponent } from './add-accounts-form/add-accounts-form.
 import { AssignmentsFormComponent } from './assignments-form/assignments-form.component';
 import { HomeComponent } from './home/home.component';
 import { DataService } from './data.service';
+import { MatDialogModule } from '@angular/material';
 
+import { DeleteConfirmComponent } from './delete-confirm/delete-confirm.component';
 
 @NgModule({
   declarations: [
@@ -37,14 +39,16 @@ import { DataService } from './data.service';
     AssignmentsComponent,
     AddAccountsFormComponent,
     AssignmentsFormComponent,
-    HomeComponent
+    HomeComponent,
+    DeleteConfirmComponent
   ],
   
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     HttpModule,
-    FormsModule
+    MatDialogModule
   ],
   
   providers: [DataService],
