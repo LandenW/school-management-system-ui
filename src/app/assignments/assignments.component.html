@@ -12,15 +12,15 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>1</td>
-        <td>Final Project</td>
-        <td>10/30</td>
-        <td>Group project assignment 6+ people</td>
-        <td>A+</td>
+      <tr *ngFor="let assignment of assignments">
+        <td>{{assignment.id}}</td>
+        <td>{{assignment.name}}</td>
+        <td>{{assignment.date}}</td>
+        <td>{{assignment.description}}</td>
+        <td>{{assignment.comment}}</td>
         <td class="text-center">
           <a class="btn btn-primary">Edit</a>&nbsp;
-          <button class="btn btn-danger">Delete</button>
+          <button (click)="deleteAssignment(assignment.id)" class="btn btn-danger">Delete</button>
         </td>
       </tr>
     </tbody>
