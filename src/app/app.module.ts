@@ -26,6 +26,8 @@ import { HomeComponent } from './home/home.component';
 import { DataService } from './data.service';
 import { HttpModule } from '@angular/http';
 import { DeleteConfirmComponent } from './delete-confirm/delete-confirm.component';
+import { MatDialogModule } from '@angular/material';
+
 
 @NgModule({
   declarations: [
@@ -52,9 +54,11 @@ import { DeleteConfirmComponent } from './delete-confirm/delete-confirm.componen
     MatDialogModule,
     AppRoutingModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    MatDialogModule
+    
   ],
-  
+  entryComponents: [DeleteConfirmComponent],
   providers: [DataService],
   bootstrap: [AppComponent]
 })
