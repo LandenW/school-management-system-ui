@@ -20,7 +20,7 @@
         <td>{{assignment.comment}}</td>
         <td class="text-center">
           <a class="btn btn-primary">Edit</a>&nbsp;
-          <button class="btn btn-danger">Delete</button>
+          <button (click)="deleteAssignment(assignment.id)" class="btn btn-danger">Delete</button>
         </td>
       </tr>
     </tbody>

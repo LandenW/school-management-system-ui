@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
+import { DeleteConfirmComponent } from '../delete-confirm/delete-confirm.component'
 
 import { DataService } from '../data.service';
 
@@ -43,5 +44,3 @@ export class AssignmentsComponent implements OnInit {
       }
   }
 
-
-}

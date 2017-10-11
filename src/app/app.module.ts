@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
 import { RouterModule }   from '@angular/router';
-import { DataService } from './data.service';
+import { MatDialogModule} from '@angular/material';
+
 
 
 import { AppComponent } from './app.component';
@@ -20,8 +21,11 @@ import { AssignmentsComponent } from './assignments/assignments.component';
 import { AddAccountsFormComponent } from './add-accounts-form/add-accounts-form.component';
 import { AssignmentsFormComponent } from './assignments-form/assignments-form.component';
 import { HomeComponent } from './home/home.component';
-import { HttpModule } from '@angular/http';
 
+
+import { DataService } from './data.service';
+import { HttpModule } from '@angular/http';
+import { DeleteConfirmComponent } from './delete-confirm/delete-confirm.component';
 
 @NgModule({
   declarations: [
@@ -38,14 +42,17 @@ import { HttpModule } from '@angular/http';
     AssignmentsComponent,
     AddAccountsFormComponent,
     AssignmentsFormComponent,
-    HomeComponent
+    HomeComponent,
+    DeleteConfirmComponent
   ],
   
   imports: [
     BrowserModule,
     HttpModule,
+    MatDialogModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpModule
   ],
   
   providers: [DataService],
