@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
 import { RouterModule }   from '@angular/router';
 import { HttpModule } from '@angular/http';
+import { MatDialogModule} from '@angular/material';
+
 
 import { AppComponent } from './app.component';
 import { GradesComponent } from './grades/grades.component';
@@ -19,10 +21,13 @@ import { AssignmentsComponent } from './assignments/assignments.component';
 import { AddAccountsFormComponent } from './add-accounts-form/add-accounts-form.component';
 import { AssignmentsFormComponent } from './assignments-form/assignments-form.component';
 import { HomeComponent } from './home/home.component';
+
 import { DataService } from './data.service';
 import { MatDialogModule } from '@angular/material';
 
 import { DeleteConfirmComponent } from './delete-confirm/delete-confirm.component';
+import { MatDialogModule } from '@angular/material';
+
 
 @NgModule({
   declarations: [
@@ -45,12 +50,15 @@ import { DeleteConfirmComponent } from './delete-confirm/delete-confirm.componen
   
   imports: [
     BrowserModule,
+    HttpModule,
+    MatDialogModule,
     AppRoutingModule,
     FormsModule,
     HttpModule,
     MatDialogModule
   ],
   
+  entryComponents: [DeleteConfirmComponent],
   providers: [DataService],
   bootstrap: [AppComponent]
 })
