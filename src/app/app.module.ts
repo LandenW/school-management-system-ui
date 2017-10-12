@@ -23,10 +23,10 @@ import { AssignmentsFormComponent } from './assignments-form/assignments-form.co
 import { HomeComponent } from './home/home.component';
 
 import { DataService } from './data.service';
-import { MatDialogModule } from '@angular/material';
-
 import { DeleteConfirmComponent } from './delete-confirm/delete-confirm.component';
-import { MatDialogModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AddTeachersComponent } from './add-teachers/add-teachers.component';
+
 
 
 @NgModule({
@@ -45,7 +45,8 @@ import { MatDialogModule } from '@angular/material';
     AddAccountsFormComponent,
     AssignmentsFormComponent,
     HomeComponent,
-    DeleteConfirmComponent
+    DeleteConfirmComponent,
+    AddTeachersComponent
   ],
   
   imports: [
@@ -53,9 +54,8 @@ import { MatDialogModule } from '@angular/material';
     HttpModule,
     MatDialogModule,
     AppRoutingModule,
-    FormsModule,
-    HttpModule,
-    MatDialogModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   
   entryComponents: [DeleteConfirmComponent],
