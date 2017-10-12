@@ -1,0 +1,58 @@
+<ol class="breadcrumb">
+  <li><a routerLink="/home">Home</a></li>
+  <li><a routerLink="/grade">Accounts</a></li>
+  <li class="active">Manage Teachers</li>
+</ol>
+
+<br/>
+
+<a class="btn btn-primary" routerLink="/add-accounts">Return to Accounts</a>
+
+<h1>Manage Teachers</h1>
+
+<form novalidate (ngSubmit)="saveTeacher(teacherForm)"  #teacherForm="ngForm" class="form-horizontal">
+  <input [ngModel]="teacher.id" ngModel #id="ngModel" type="hidden" name="id">
+<div class="form-group">
+  <label for="firstName" class="col-sm-2 control-label">First Name</label>
+  <div class="col-sm-10">
+    <input [(ngModel)]="teacher.firstName" ngModel #firstName="ngModel" type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required>
+  </div>
+</div>
+<div class="form-group">
+  <label for="lastName" class="col-sm-2 control-label">Last Name</label>
+  <div class="col-sm-10">
+    <input [(ngModel)]="teacher.lastName" ngModel #lastName="ngModel" type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required>
+  </div>
+</div>
+<div class="form-group">
+  <label for="email" class="col-sm-2 control-label">Email</label>
+  <div class="col-sm-10">
+    <input [(ngModel)]="teacher.email" ngModel #email="ngModel" type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+  </div>
+</div>
+<div class="form-group">
+    <label for="gradeLevel" class="col-sm-2 control-label">Grade Level</label>
+      <select name="gradeLevel" id="gradeLevel" [(ngModel)]="teacher.gradeLevel">
+        <option value="default">Select Grade Level...</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+      </select>
+  </div>
+  <div class="form-group">
+    <label for="password" class="col-sm-2 control-label">Password</label>
+    <div class="col-sm-10">
+      <input [(ngModel)]="teacher.password" ngModel #password="ngModel" type="password" class="form-control" id="password" name="password" placeholder="" required>
+    </div>
+  </div>
+ <div class="form-group">
+  <div class="col-sm-offset-2 col-sm-10">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</div>
+</form>
+

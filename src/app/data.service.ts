@@ -39,6 +39,13 @@ export class DataService {
             .catch(this.handleError);
     }
 
+    getMultRecords(endpoint: string, gradeLevel:number, endpoint2: string): Observable<any[]> {
+        let apiUrl = `${this.baseUrl}${endpoint}/${gradeLevel}/${endpoint2}`;
+        return this.http.get(apiUrl)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
+
     deleteRecord(endpoint: string, id:number): Observable<object> {
         let apiUrl = `${this.baseUrl}${endpoint}/${id}`;
         return this.http.delete(apiUrl)
@@ -55,6 +62,14 @@ export class DataService {
 
     addRecord(endpoint: string, record:object): Observable<any> {
         let apiUrl = `${this.baseUrl}${endpoint}`;
+        console.log(apiUrl)
+        return this.http.post(apiUrl, record)
+            .map(this.extractData);
+    }
+
+
+    addStudentRecord(endpoint: string, teacherId:number, record:object): Observable<any> {
+        let apiUrl = `${this.baseUrl}${endpoint}/${teacherId}`;
         console.log(apiUrl)
         return this.http.post(apiUrl, record)
             .map(this.extractData);
