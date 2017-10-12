@@ -1,31 +1,34 @@
 <h1>Manage Assignments</h1>
 
-<form novalidate class="form-horizontal">
-<input type="hidden" name="">
+
+<form novalidate (ngSubmit)="saveAssignment(assignmentForm)" #assignmentForm="ngForm" class="form-horizontal">
+<input [ngModel]="assignments?.id" ngModel #id="ngModel" type="hidden" name="id">
 <div class="form-group">
-  <label for="" class="col-sm-2 control-label">Assignment Name</label>
+  <label for="name" class="col-sm-2 control-label">Assignment Name</label>
   <div class="col-sm-10">
-    <input   type="text" class="form-control"  placeholder="Name" required >
+    <input [ngModel]="assignments?.name" ngModel #assignmentData="ngModel" type="text" class="form-control" id="name" name="name" placeholder="Assignment Name" required>
   </div>
 </div>
 <div class="form-group">
-  <label class="col-sm-2 control-label">Due Date</label>
+  <label for="dueDate" class="col-sm-2 control-label">Due Date</label>
   <div class="col-sm-10">
-    <input type="date" class="form-control" placeholder="Date" required>
+    <input [ngModel]="assignments?.dueDate" ngModel #dueDate="ngModel" type="date" class="form-control" id="dueDate" name="dueDate"  placeholder="Due Date" required>
   </div>
 </div>
 <div class="form-group">
-    <label class="col-sm-2 control-label">Comments</label>
+    <label for="comment" class="col-sm-2 control-label">Comments</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" placeholder="Comments" required>
+      <input [ngModel]="assignments?.comment" ngModel #dueDate="ngModel" type="text" class="form-control" id="comment" name="comment"  placeholder="Comment" required>
     </div>
 </div>
 <div class="form-group">
-    <label class="col-sm-2 control-label">Grade</label>
+    <label for="description" class="col-sm-2 control-label">Description</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" placeholder="Grade" required>
+      <input [ngModel]="assignments?.description" ngModel #description="ngModel" type="text" class="form-control" id="description" name="description"  placeholder="Description" required>
     </div>
 </div>
+<!-- hidden feild to send back teacherId with the assignment -->
+<input type="hidden" name="teacherId">
  <div class="form-group">
   <div class="col-sm-offset-2 col-sm-10">
     <button type="submit" class="btn btn-primary">Submit</button>

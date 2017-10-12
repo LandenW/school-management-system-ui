@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
+import { Subject } from "rxjs/Subject";
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
@@ -7,15 +8,28 @@ import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/expand';
 import 'rxjs/add/observable/empty';
+import 'rxjs/add/operator/do';
+
+
+class User {
+    id: number;
+    email: string;
+    firstName: string;
+    lastName: string;
+    roleName: string;
+  };
 
 @Injectable()
 export class DataService {
 
     private baseUrl = 'https://aqueous-everglades-19542.herokuapp.com/api/'
 
+    options = { withCredentials: true};
+    private currentUser: User;
     found = false;
+    userChanged: Subject<User>;
 
-    constructor (private http: Http) {}
+    constructor (private http: Http) {this.userChanged = new Subject<User>();}
 
     getRecords(endpoint: string): Observable<any[]> {
         let apiUrl = this.baseUrl+endpoint;
@@ -59,12 +73,40 @@ export class DataService {
             .map(this.extractData);
     }
 
+
     addStudentRecord(endpoint: string, teacherId:number, record:object): Observable<any> {
         let apiUrl = `${this.baseUrl}${endpoint}/${teacherId}`;
         console.log(apiUrl)
         return this.http.post(apiUrl, record)
             .map(this.extractData);
     }
+
+    login(endpoint: string, username: string, password: string): Observable<User>{
+        let apiUrl = `${this.baseUrl}${endpoint}`;
+        console.log(apiUrl)        
+        const payload = { username, password }; //creates property with name email to value of the same name; like email: email, password: password
+        console.log(payload)                
+        return this.http
+          .put(apiUrl, payload, this.options)
+          .map(response => response.status === 200 ? response.json(): null) //this produces a User object; response is juat a variable name
+          .do(user=> this.currentUser = user) //resets current user field
+          .do(user => this.userChanged.next(user));//when a user goes by - emit an event; user here is just a variable name
+      }
+    
+      logout(endpoint: string): Observable<User>{
+        let apiUrl = `${this.baseUrl}${endpoint}`;        
+        return this.http
+          .delete(apiUrl, this.options)
+          .map(response => null) //TODO come back and finish failure
+          .do(user=> this.currentUser = user) //resets current user field
+          .do(user=> this.userChanged.next(user)); //broadcast stuff happened    
+      }
+    
+      getCurrentUser() {
+        console.log(this.currentUser);
+       return this.currentUser;
+      }
+
     private extractData(res: Response) {
         let results = res.json();
         return results || [];
