@@ -26,6 +26,7 @@ import { DataService } from './data.service';
 import { DeleteConfirmComponent } from './delete-confirm/delete-confirm.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StatusMessageComponent } from './status-message/status-message.component';
+import { LogOutComponent } from './log-out/log-out.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { StatusMessageComponent } from './status-message/status-message.componen
     AssignmentsFormComponent,
     HomeComponent,
     DeleteConfirmComponent,
-    StatusMessageComponent
+    StatusMessageComponent,
+    LogOutComponent
   ],
   
   imports: [
