@@ -25,6 +25,9 @@ import { HomeComponent } from './home/home.component';
 import { DataService } from './data.service';
 import { DeleteConfirmComponent } from './delete-confirm/delete-confirm.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { AddTeachersComponent } from './add-teachers/add-teachers.component';
+
 import { StatusMessageComponent } from './status-message/status-message.component';
 
 
@@ -45,6 +48,7 @@ import { StatusMessageComponent } from './status-message/status-message.componen
     AssignmentsFormComponent,
     HomeComponent,
     DeleteConfirmComponent,
+    AddTeachersComponent,
     StatusMessageComponent
   ],
   
@@ -54,7 +58,7 @@ import { StatusMessageComponent } from './status-message/status-message.componen
     MatDialogModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule,
+    FormsModule
   ],
   
   entryComponents: [DeleteConfirmComponent],
