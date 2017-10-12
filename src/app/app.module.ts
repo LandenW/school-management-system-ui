@@ -47,7 +47,7 @@ import { LogOutComponent } from './log-out/log-out.component';
     HomeComponent,
     DeleteConfirmComponent,
     StatusMessageComponent,
-    LogOutComponent
+    LogOutComponent,
     AddTeachersComponent
   ],
   

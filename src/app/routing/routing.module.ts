@@ -1,6 +1,5 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
- 
 import { AssignmentsComponent }   from '../assignments/assignments.component';
 import { AssignmentsFormComponent }   from '../assignments-form/assignments-form.component';
 import { HomeComponent }   from '../home/home.component';
@@ -15,7 +14,7 @@ import { LogInComponent }   from '../log-in/log-in.component';
 import { LogOutComponent }   from '../log-out/log-out.component';
 import { NavigationComponent }   from '../navigation/navigation.component';
 import { PreferencesComponent }   from '../preferences/preferences.component';
-import { AddTeachersComponent }   from '../add-teachers/add-teachers.component';
+
 
 const routes: Routes = [
   { path: '',  component: HomeComponent},
@@ -32,11 +31,6 @@ const routes: Routes = [
   { path: 'preferences',  component: PreferencesComponent  },
   { path: 'login',  component: LogInComponent  },
   { path: 'logout',  component: LogOutComponent  }
-  { path: 'add-accounts-form/add',  component: AddAccountsFormComponent },
-  { path: 'add-accounts-form/edit/:id',  component: AddAccountsFormComponent },
-  { path: 'add-teachers/add',  component: AddTeachersComponent },
-  { path: 'add-teachers/edit/:id',  component: AddTeachersComponent },
-
 ] 
  
 @NgModule({
