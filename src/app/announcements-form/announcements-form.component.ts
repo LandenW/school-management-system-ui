@@ -20,6 +20,7 @@ export class AnnouncementsFormComponent implements OnInit {
   errorMessage: string;
 
   announcements: object;
+  announcement;
 
   constructor(
     private dataService: DataService,
@@ -43,8 +44,9 @@ export class AnnouncementsFormComponent implements OnInit {
       }
   
     saveAnnouncements(announcements: NgForm){
-      if(typeof announcements.value.id === "number"){
-        this.dataService.editRecord("announcements", announcements.value, announcements.value.id)
+      console.log(announcements.value)
+      if(typeof announcements.value['announcements.id'] === "number"){
+        this.dataService.editRecord("announcements", announcements.value, announcements.value['announcements.id'])
             .subscribe(
               announcements => this.successMessage = "Record updated succesfully",
               error =>  this.errorMessage = <any>error);

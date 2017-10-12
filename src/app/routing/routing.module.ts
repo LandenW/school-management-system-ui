@@ -29,7 +29,9 @@ const routes: Routes = [
   { path: 'grades-form',  component: GradesFormComponent },
   { path: 'log-in',  component: LogInComponent },
   { path: 'navigation',  component: NavigationComponent },
-  { path: 'preferences',  component: PreferencesComponent }
+  { path: 'preferences',  component: PreferencesComponent },
+  { path: 'announcements/add',  component: AnnouncementsFormComponent },
+  { path: 'announcements/edit/:id',  component: AnnouncementsFormComponent },
 ] 
  
 @NgModule({
