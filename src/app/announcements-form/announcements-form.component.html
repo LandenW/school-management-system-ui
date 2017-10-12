@@ -7,7 +7,7 @@
   
   <br/>
   
-  <a class="btn btn-primary" routerLink="/student">Return to Announcements</a>
+  <a class="btn btn-primary" routerLink="/announcements">Return to Announcements</a>
   
   <h1>Manage Announcements</h1>
   
@@ -36,7 +36,7 @@
     <div class="form-group">
       <label for="description" class="col-sm-2 control-label">Description</label>
       <div class="col-sm-10">
-        <input [ngModel]="announcements?.description" ngModel #id="ngModel" type="text" class="form-control" id="description" name="description" placeholder="Description">
+        <input [ngModel]="announcements?.description" ngModel #description="ngModel" type="text" class="form-control" id="description" name="description" placeholder="Description">
         <!-- <span *ngIf="formErrors.start_date" class="text-danger">
         {{ formErrors.start_date }}
         </span> -->
@@ -45,7 +45,7 @@
     <div class="form-group">
       <label for="date" class="col-sm-2 control-label">Date</label>
       <div class="col-sm-10">
-        <input [ngModel]="announcements?.title" ngModel #date="ngModel" type="text" class="form-control" id="date" name="date" placeholder="2017-01-01" pattern="(\d{4})-(\d{2})-(\d{2})">
+        <input [ngModel]="announcements?.date" ngModel #date="ngModel" type="date" class="form-control" id="date" name="date" placeholder="2017-01-01">
         <!-- <span *ngIf="formErrors.gpa" class="text-danger">
         {{ formErrors.gpa }}
         </span> -->
