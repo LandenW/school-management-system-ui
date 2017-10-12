@@ -21,14 +21,12 @@ import { AssignmentsComponent } from './assignments/assignments.component';
 import { AddAccountsFormComponent } from './add-accounts-form/add-accounts-form.component';
 import { AssignmentsFormComponent } from './assignments-form/assignments-form.component';
 import { HomeComponent } from './home/home.component';
-
 import { DataService } from './data.service';
 import { DeleteConfirmComponent } from './delete-confirm/delete-confirm.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { AddTeachersComponent } from './add-teachers/add-teachers.component';
-
 import { StatusMessageComponent } from './status-message/status-message.component';
+import { LogOutComponent } from './log-out/log-out.component';
 
 
 @NgModule({
@@ -48,8 +46,9 @@ import { StatusMessageComponent } from './status-message/status-message.componen
     AssignmentsFormComponent,
     HomeComponent,
     DeleteConfirmComponent,
-    AddTeachersComponent,
-    StatusMessageComponent
+    StatusMessageComponent,
+    LogOutComponent
+    AddTeachersComponent
   ],
   
   imports: [

@@ -12,30 +12,31 @@ import { CalendarComponent }   from '../calendar/calendar.component';
 import { GradesComponent }   from '../grades/grades.component';
 import { GradesFormComponent }   from '../grades-form/grades-form.component';
 import { LogInComponent }   from '../log-in/log-in.component';
+import { LogOutComponent }   from '../log-out/log-out.component';
 import { NavigationComponent }   from '../navigation/navigation.component';
 import { PreferencesComponent }   from '../preferences/preferences.component';
 import { AddTeachersComponent }   from '../add-teachers/add-teachers.component';
 
 const routes: Routes = [
-  { path: 'home',  component: HomeComponent },
+  { path: '',  component: HomeComponent},
   { path: 'assignments',  component: AssignmentsComponent },
   { path: 'assignments-form',  component: AssignmentsFormComponent },
   { path: 'add-accounts',  component: AddAccountsComponent },
-
-  { path: 'add-accounts-form/add',  component: AddAccountsFormComponent },
-  { path: 'add-accounts-form/edit/:id',  component: AddAccountsFormComponent },
-
+  { path: 'add-accounts-form',  component: AddAccountsFormComponent  },
   { path: 'announcements',  component: AnnouncementsComponent },
   { path: 'announcements-form',  component: AnnouncementsFormComponent },
   { path: 'calendar',  component: CalendarComponent },
-  { path: 'grades',  component: GradesComponent },
-  { path: 'grades-form',  component: GradesFormComponent },
-  { path: 'log-in',  component: LogInComponent },
-  { path: 'navigation',  component: NavigationComponent },
-  { path: 'preferences',  component: PreferencesComponent },
-
+  { path: 'grades',  component: GradesComponent  },
+  { path: 'grades-form',  component: GradesFormComponent  },
+  { path: 'navigation',  component: NavigationComponent  },
+  { path: 'preferences',  component: PreferencesComponent  },
+  { path: 'login',  component: LogInComponent  },
+  { path: 'logout',  component: LogOutComponent  }
+  { path: 'add-accounts-form/add',  component: AddAccountsFormComponent },
+  { path: 'add-accounts-form/edit/:id',  component: AddAccountsFormComponent },
   { path: 'add-teachers/add',  component: AddTeachersComponent },
   { path: 'add-teachers/edit/:id',  component: AddTeachersComponent },
+
 ] 
  
 @NgModule({
