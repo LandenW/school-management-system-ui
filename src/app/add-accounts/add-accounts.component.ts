@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { DeleteConfirmComponent } from '../delete-confirm/delete-confirm.component'
 
@@ -14,6 +14,7 @@ export class AddAccountsComponent implements OnInit {
   errorMessage: string;
   successMessage: string;
   students: any[];
+  teachers: any[];
   mode = 'Observable';
 
   constructor(private dataService: DataService, public dialog: MatDialog) { }
@@ -21,7 +22,7 @@ export class AddAccountsComponent implements OnInit {
   ngOnInit() {
 
     this.getStudents();
-
+    this.getTeachers();
   }
 
   getStudents() {
@@ -44,4 +45,27 @@ export class AddAccountsComponent implements OnInit {
           }
         });
    }
+
+   getTeachers() {
+    this.dataService.getRecords("teachers")
+      .subscribe(
+        teachers => this.teachers = teachers,
+        error =>  this.errorMessage = <any>error);
+        
+  }
+
+  deleteTeacher(id:number) {
+    
+        let dialogRef = this.dialog.open(DeleteConfirmComponent);
+    
+        dialogRef.afterClosed().subscribe(result => {
+          if(result){
+            this.dataService.deleteRecord("teachers", id)
+              .subscribe(
+                student => {this.successMessage = "Record(s) deleted succesfully"; this.getTeachers(); },
+                error =>  this.errorMessage = <any>error);
+          }
+        });
+   }
+
 }
