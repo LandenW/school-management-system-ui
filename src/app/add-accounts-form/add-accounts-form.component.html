@@ -11,6 +11,8 @@
 
 <h1>Manage Students</h1>
 
+<app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
+
 <form novalidate (ngSubmit)="saveStudent(studentForm)"  #studentForm="ngForm" class="form-horizontal">
   <input [ngModel]="student?.id" ngModel #id="ngModel" type="hidden" name="id">
 <div class="form-group">

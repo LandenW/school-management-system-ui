@@ -17,7 +17,7 @@ import { PreferencesComponent }   from '../preferences/preferences.component';
 import { AddTeachersComponent }   from '../add-teachers/add-teachers.component';
 
 const routes: Routes = [
-  { path: 'home',  component: HomeComponent },
+  { path: '',  component: HomeComponent },
   { path: 'assignments',  component: AssignmentsComponent },
   { path: 'assignments-form',  component: AssignmentsFormComponent },
   { path: 'add-accounts',  component: AddAccountsComponent },

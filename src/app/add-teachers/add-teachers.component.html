@@ -1,6 +1,6 @@
 <ol class="breadcrumb">
   <li><a routerLink="/home">Home</a></li>
-  <li><a routerLink="/grade">Accounts</a></li>
+  <li><a routerLink="/add-accounts">Accounts</a></li>
   <li class="active">Manage Teachers</li>
 </ol>
 
@@ -9,6 +9,8 @@
 <a class="btn btn-primary" routerLink="/add-accounts">Return to Accounts</a>
 
 <h1>Manage Teachers</h1>
+
+<app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
 
 <form novalidate (ngSubmit)="saveTeacher(teacherForm)"  #teacherForm="ngForm" class="form-horizontal">
   <input [ngModel]="teacher.id" ngModel #id="ngModel" type="hidden" name="id">
