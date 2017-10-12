@@ -1,7 +1,9 @@
 
-  <form>
-      <input type="text" class="" id="" name="" placeholder="User Name" required>      
-      <input type="password" class="" id="" name="" placeholder="Password" required> 
-      <button type="submit" class="btn btn-primary">Log In</button>      
+  {{message}}
+  
+  <form novalidate (submit)="submitCredentials()" >
+      <input type="text" id="username" name="username" placeholder="User Name" [(ngModel)]="username" required>      
+      <input type="password" id="password" name="password" placeholder="Password" [(ngModel)]="password" required> 
+      <button class="btn btn-primary">Log In</button>      
   </form>
 

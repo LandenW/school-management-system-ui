@@ -15,7 +15,6 @@ export class AssignmentsFormComponent implements OnInit {
 
   successMessage: string;
   errorMessage: string;
-
   assignment: object;
 
   getRecordForEdit(){

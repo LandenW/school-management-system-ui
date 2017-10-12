@@ -37,7 +37,7 @@ export class AssignmentsComponent implements OnInit {
           if(result){
             this.dataService.deleteRecord("assignments", id)
               .subscribe(
-                assignment => {this.successMessage = "Record(s) deleted succesfully"; this.getAssignments(); },
+                assignments => {this.successMessage = "Record(s) deleted succesfully"; this.getAssignments(); },
                 error =>  this.errorMessage = <any>error);
           }
         });
