@@ -34,7 +34,8 @@ const routes: Routes = [
   { path: 'announcements/add',  component: AnnouncementsFormComponent },
   { path: 'announcements/edit/:id',  component: AnnouncementsFormComponent },
 
- 
+
+]
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],
   exports: [ RouterModule ]

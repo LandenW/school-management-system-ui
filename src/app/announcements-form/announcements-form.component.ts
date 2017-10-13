@@ -50,6 +50,7 @@ export class AnnouncementsFormComponent implements OnInit {
             .subscribe(
               announcements => this.successMessage = "Record updated succesfully",
               error =>  this.errorMessage = <any>error);
+              this.announcements = {};
       }else{
         this.dataService.addRecord("announcements", announcements.value)
             .subscribe(
