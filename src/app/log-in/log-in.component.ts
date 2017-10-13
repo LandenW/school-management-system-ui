@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../data.service'
 import { Router } from '@angular/router';
-
+import { User } from "../user";
+import { AppComponent } from "../app.component"
 
 
 @Component({
@@ -15,16 +16,16 @@ export class LogInComponent {
 
   constructor(
     private dataService: DataService,
+    private appComponent: AppComponent,
     private route: Router
   ) {}
 
   username: string;
   password: string;
   message: string
+  currentUser: User;
 
-  //subject is a specific channel of communication
-  //other components can subscribe to userChanged event, listen for and act
-  //methods below will be source of info for subject; can pass info through it
+
 
   submitCredentials() {
     this.dataService
@@ -32,9 +33,8 @@ export class LogInComponent {
       .subscribe(
                 user => {
                   if (user) {
-                    this.route.navigate(['/home']);
+                    this.route.navigate(['']);
                     console.log("Logged in Successful")
-                    this.dataService.getCurrentUser()
                   } else {
                     this.message = 'Could not log in with those credentials';
                   }
@@ -43,8 +43,22 @@ export class LogInComponent {
               );
    }
 
+  logoutUser() {
+    this.dataService
+    .logout("session")
+      .subscribe(user => this.currentUser = user);
+      console.log("Log Out Successful") 
+  }
+  
+
+  ngOnInit() {
+    this.dataService
+    .userChanged
+    .subscribe(user => this.currentUser = user); //sets current user to user passed in
+    this.currentUser = this.dataService.getCurrentUser();
+    
+  }
 
 
-
-
-}
+}     
+  

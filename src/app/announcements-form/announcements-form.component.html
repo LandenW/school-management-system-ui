@@ -14,7 +14,7 @@
   <!-- <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message> -->
   
   <form novalidate (ngSubmit)="saveAnnouncements(announcementsForm)" #announcementsForm="ngForm" class="form-horizontal">
-    <input [ngModel]="announcements?.id" ngModel #announcements_id="ngModel" type="hidden" name="announcements_id">
+    <input [ngModel]="announcements?.id" ngModel #announcements.id="ngModel" type="hidden" name="announcements.id">
     <!-- <div class="form-group">
       <label for="id" class="col-sm-2 control-label">Announcement ID</label>
       <div class="col-sm-10">

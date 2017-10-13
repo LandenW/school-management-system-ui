@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Subject } from "rxjs/Subject";
-
+import { User } from "./user";
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
@@ -11,17 +11,11 @@ import 'rxjs/add/observable/empty';
 import 'rxjs/add/operator/do';
 
 
-class User {
-    id: number;
-    email: string;
-    firstName: string;
-    lastName: string;
-    roleName: string;
-  };
+
 
 @Injectable()
 export class DataService {
-
+  
     private baseUrl = 'https://aqueous-everglades-19542.herokuapp.com/api/'
 
     options = { withCredentials: true};
@@ -93,17 +87,18 @@ export class DataService {
           .do(user => this.userChanged.next(user));//when a user goes by - emit an event; user here is just a variable name
       }
     
+
       logout(endpoint: string): Observable<User>{
         let apiUrl = `${this.baseUrl}${endpoint}`;        
         return this.http
           .delete(apiUrl, this.options)
           .map(response => null) //TODO come back and finish failure
-          .do(user=> this.currentUser = user) //resets current user field
-          .do(user=> this.userChanged.next(user)); //broadcast stuff happened    
+          .do(user=> this.currentUser = null) //resets current user field
+          .do(user=> this.userChanged.next(null)); //broadcast stuff happened    
       }
     
-      getCurrentUser() {
-        console.log(this.currentUser);
+      getCurrentUser() { 
+       console.log(this.currentUser);
        return this.currentUser;
       }
 
