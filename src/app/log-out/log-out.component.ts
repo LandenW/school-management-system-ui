@@ -6,13 +6,13 @@ import { User } from "../user";
 
 
 @Component({
-  selector: 'app-log-in',
-  templateUrl: './log-in.component.html',
-  styleUrls: ['./log-in.component.css']
+  selector: 'app-log-out',
+  templateUrl: './log-out.component.html',
+  styleUrls: ['./log-out.component.css']
 })
 
 
-export class LogInComponent {
+export class LogOutComponent {
 
   constructor(
     private dataService: DataService,
@@ -24,23 +24,10 @@ export class LogInComponent {
   message: string
   private currentUser: User;
 
+  //subject is a specific channel of communication
+  //other components can subscribe to userChanged event, listen for and act
+  //methods below will be source of info for subject; can pass info through it
 
-  submitCredentials() {
-    this.dataService
-    .login("session", this.username, this.password)
-      .subscribe(
-                user => {
-                  if (user) {
-                    this.route.navigate(['']);
-                    console.log("Logged in Successful")
-                    this.dataService.getCurrentUser()
-                  } else {
-                    this.message = 'Could not log in with those credentials';
-                  }
-                },
-                 e => this.message = 'Oops! We ran into the following error: ' + e
-              );
-   }
   logoutUser() {
     this.dataService
     .logout("session")
