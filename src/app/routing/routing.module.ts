@@ -25,14 +25,17 @@ const routes: Routes = [
   { path: 'announcements',  component: AnnouncementsComponent },
   { path: 'announcements-form',  component: AnnouncementsFormComponent },
   { path: 'calendar',  component: CalendarComponent },
-  { path: 'grades',  component: GradesComponent  },
-  { path: 'grades-form',  component: GradesFormComponent  },
-  { path: 'navigation',  component: NavigationComponent  },
-  { path: 'preferences',  component: PreferencesComponent  },
-  { path: 'login',  component: LogInComponent  },
-  { path: 'logout',  component: LogOutComponent  }
-] 
- 
+
+  { path: 'grades',  component: GradesComponent },
+  { path: 'grades-form',  component: GradesFormComponent },
+  { path: 'log-in',  component: LogInComponent },
+  { path: 'navigation',  component: NavigationComponent },
+  { path: 'preferences',  component: PreferencesComponent },
+  { path: 'announcements/add',  component: AnnouncementsFormComponent },
+  { path: 'announcements/edit/:id',  component: AnnouncementsFormComponent },
+
+
+]
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],
   exports: [ RouterModule ]
