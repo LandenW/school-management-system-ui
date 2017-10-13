@@ -1,4 +1,17 @@
+
+<ol class="breadcrumb">
+  <li><a routerLink="/home">Home</a></li>
+  <li><a routerLink="/assignments">Assignments</a></li>
+  <li class="active">Manage Students</li>
+</ol>
+
+<br/>
+
+<a class="btn btn-primary" routerLink="/assignments">Return to Assignments</a>
+
 <h1>Manage Assignments</h1>
+
+<app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
 
 
 <form novalidate (ngSubmit)="saveAssignment(assignmentForm)" #assignmentForm="ngForm" class="form-horizontal">
