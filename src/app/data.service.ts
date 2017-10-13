@@ -87,13 +87,14 @@ export class DataService {
           .do(user => this.userChanged.next(user));//when a user goes by - emit an event; user here is just a variable name
       }
     
+
       logout(endpoint: string): Observable<User>{
         let apiUrl = `${this.baseUrl}${endpoint}`;        
         return this.http
           .delete(apiUrl, this.options)
           .map(response => null) //TODO come back and finish failure
-          .do(user=> this.currentUser = user) //resets current user field
-          .do(user=> this.userChanged.next(user)); //broadcast stuff happened    
+          .do(user=> this.currentUser = null) //resets current user field
+          .do(user=> this.userChanged.next(null)); //broadcast stuff happened    
       }
     
       getCurrentUser() { 

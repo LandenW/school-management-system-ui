@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service'
 import { Router } from '@angular/router';
 import { User } from "../user";
+import { AppComponent } from "../app.component"
 
 
 
@@ -16,6 +17,7 @@ export class LogOutComponent {
 
   constructor(
     private dataService: DataService,
+    private appComponent: AppComponent,
     private route: Router
   ) {}
 
@@ -32,15 +34,15 @@ export class LogOutComponent {
     this.dataService
     .logout("session")
       .subscribe(user => this.currentUser = user);
-      console.log("Log Out Successful")
-      this.dataService.getCurrentUser()    
+      console.log("Log Out Successful")      
   }
   
 
   ngOnInit() {
     this.dataService
-    .userChanged
-    .subscribe(user => this.currentUser = user); //sets current user to user passed in
+      .userChanged
+      .subscribe(user => this.currentUser = user); //sets current user to user passed in
+    this.currentUser = this.dataService.getCurrentUser();
   }
 
 
