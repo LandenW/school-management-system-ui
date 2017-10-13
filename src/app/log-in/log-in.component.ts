@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../data.service'
 import { Router } from '@angular/router';
 import { User } from "../user";
-
+import { AppComponent } from "../app.component"
 
 
 @Component({
@@ -16,13 +16,15 @@ export class LogInComponent {
 
   constructor(
     private dataService: DataService,
+    private appComponent: AppComponent,
     private route: Router
   ) {}
 
   username: string;
   password: string;
   message: string
-  private currentUser: User;
+  currentUser: User;
+
 
 
   submitCredentials() {
@@ -33,7 +35,6 @@ export class LogInComponent {
                   if (user) {
                     this.route.navigate(['']);
                     console.log("Logged in Successful")
-                    this.dataService.getCurrentUser()
                   } else {
                     this.message = 'Could not log in with those credentials';
                   }
@@ -41,12 +42,12 @@ export class LogInComponent {
                  e => this.message = 'Oops! We ran into the following error: ' + e
               );
    }
+
   logoutUser() {
     this.dataService
     .logout("session")
       .subscribe(user => this.currentUser = user);
-      console.log("Log Out Successful")
-      this.dataService.getCurrentUser()    
+      console.log("Log Out Successful") 
   }
   
 
@@ -54,6 +55,8 @@ export class LogInComponent {
     this.dataService
     .userChanged
     .subscribe(user => this.currentUser = user); //sets current user to user passed in
+    this.currentUser = this.dataService.getCurrentUser();
+    
   }
 
 
