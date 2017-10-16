@@ -3,7 +3,7 @@ import { MatDialog, MatDialogRef } from '@angular/material';
 import { DeleteConfirmComponent } from '../delete-confirm/delete-confirm.component'
 
 import { DataService } from '../data.service';
-
+import { User } from "../user";
 
 @Component({
   selector: 'app-assignments',
@@ -16,14 +16,20 @@ export class AssignmentsComponent implements OnInit {
   successMessage: string;
   assignments: any[];
   mode = 'Observable';
+  currentUser: User;
 
   constructor (private dataService: DataService, public dialog: MatDialog) {}
 
 
-  ngOnInit() { this.getAssignments(); }
+  ngOnInit() { this.getAssignments();
+      this.dataService
+      .userChanged
+      .subscribe(user => this.currentUser = user); //sets current user to user passed in
+      this.currentUser = this.dataService.getCurrentUser();  
+    }
   
   getAssignments() {
-    this.dataService.getRecords("assignments")
+    this.dataService.getTeacherAssignments("teachers", "assignments", id)
       .subscribe(
         assignments => this.assignments = assignments,
         error =>  this.errorMessage = <any>error);

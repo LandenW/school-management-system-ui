@@ -23,11 +23,11 @@
     </thead>
     <tbody>
       <tr *ngFor="let assignment of assignments">
-        <td>{{assignment.id}}</td>
-        <td>{{assignment.name}}</td>
-        <td>{{assignment.date}}</td>
-        <td>{{assignment.description}}</td>
-        <td>{{assignment.comment}}</td>
+        <td>{{assignment.assignmentId}}</td>
+        <td>{{assignment.assignmentName}}</td>
+        <td>{{assignment.assignmentDueDate}}</td>
+        <td>{{assignment.assignmentDescription}}</td>
+        <td>{{assignment.assignmentComment}}</td>
         <td class="text-center">
           <a class="btn btn-primary">Edit</a>&nbsp;
           <button (click)="deleteAssignment(assignment.id)" class="btn btn-danger">Delete</button>

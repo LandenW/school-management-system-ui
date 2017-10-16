@@ -32,7 +32,7 @@ const routes: Routes = [
   { path: 'navigation',  component: NavigationComponent },
   { path: 'preferences',  component: PreferencesComponent },
   { path: 'announcements/add',  component: AnnouncementsFormComponent },
-  { path: 'announcements/edit/:id',  component: AnnouncementsFormComponent }
+  { path: 'announcements/edit/:id',  component: AnnouncementsFormComponent },
 
   { path: 'add-accounts-form/add',  component: AddAccountsFormComponent },
   { path: 'add-accounts-form/edit/:id',  component: AddAccountsFormComponent },
