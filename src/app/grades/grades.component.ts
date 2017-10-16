@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { DeleteConfirmComponent } from '../delete-confirm/delete-confirm.component'
 
+import { DataService } from '../data.service';
 @Component({
   selector: 'app-grades',
   templateUrl: './grades.component.html',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GradesComponent implements OnInit {
 
-  constructor() { }
+
+  errorMessage: string;
+  successMessage: string;
+
+  teachers;
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
+
+
+  }
+  getGradesforOneStudent() {
+    this.dataService.getRecords("teachers")
+      .subscribe(
+        teachers => this.teachers = teachers,
+        error =>  this.errorMessage = <any>error);
+        
   }
 
 }
