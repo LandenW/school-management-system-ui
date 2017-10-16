@@ -48,12 +48,11 @@ export class AddAccountsFormComponent implements OnInit {
 
   getTeachersByGrade(gradeLevel) {
     console.log(this.gradeLevel)
-    // console.log(this.teachers.id)
     this.dataService.getMultRecords("grade-level", gradeLevel, "teachers")
       .subscribe(
         teachers => this.teachers = teachers,
         error =>  this.errorMessage = <any>error);
-//console.log(teacherdropdown.value)
+
     
   }
 
