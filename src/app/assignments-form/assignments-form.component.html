@@ -14,37 +14,37 @@
 <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
 
 
-<form novalidate (ngSubmit)="saveAssignment(assignmentForm)" #assignmentForm="ngForm" class="form-horizontal">
-<input [ngModel]="assignments?.id" ngModel #id="ngModel" type="hidden" name="id">
+<form novalidate (ngSubmit)="saveAssignment(assignmentsForm)" #assignmentsForm="ngForm" class="form-horizontal">
+<input [ngModel]="assignments?.assignmentId" ngModel #assignments.assignmentId="ngModel" type="hidden" name="assignments.assignmentId">
 <div class="form-group">
   <label for="name" class="col-sm-2 control-label">Assignment Name</label>
   <div class="col-sm-10">
-    <input [ngModel]="assignments?.name" ngModel #assignmentData="ngModel" type="text" class="form-control" id="name" name="name" placeholder="Assignment Name" required>
+    <input [ngModel]="assignments?.assignmentName" ngModel #assignmentName="ngModel" type="text" class="form-control" id="name" name="assignmentName" placeholder="Assignment Name" required>
   </div>
 </div>
 <div class="form-group">
   <label for="dueDate" class="col-sm-2 control-label">Due Date</label>
   <div class="col-sm-10">
-    <input [ngModel]="assignments?.dueDate" ngModel #dueDate="ngModel" type="date" class="form-control" id="dueDate" name="dueDate"  placeholder="Due Date" required>
+    <input [ngModel]="assignments?.assignmentDueDate" ngModel #assignmentDueDate="ngModel" type="date" class="form-control" id="dueDate" name="assignmentDueDate"  placeholder="Due Date" required>
   </div>
 </div>
 <div class="form-group">
     <label for="comment" class="col-sm-2 control-label">Comments</label>
     <div class="col-sm-10">
-      <input [ngModel]="assignments?.comment" ngModel #dueDate="ngModel" type="text" class="form-control" id="comment" name="comment"  placeholder="Comment" required>
+      <input [ngModel]="assignments?.assignmentComment" ngModel #assignmentComment="ngModel" type="text" class="form-control" id="comment" name="assignmentComment"  placeholder="Comment" required>
     </div>
 </div>
 <div class="form-group">
     <label for="description" class="col-sm-2 control-label">Description</label>
     <div class="col-sm-10">
-      <input [ngModel]="assignments?.description" ngModel #description="ngModel" type="text" class="form-control" id="description" name="description"  placeholder="Description" required>
+      <input [ngModel]="assignments?.assignmentDescription" ngModel #assignmentDescription="ngModel" type="text" class="form-control" id="description" name="assignmentDescription"  placeholder="Description" required>
     </div>
 </div>
 <!-- hidden feild to send back teacherId with the assignment -->
 <input type="hidden" name="teacherId">
  <div class="form-group">
   <div class="col-sm-offset-2 col-sm-10">
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button [disabled]="!assignmentsForm.form.valid" type="submit" class="btn btn-primary">Submit</button>
   </div>
 </div>
 </form>
