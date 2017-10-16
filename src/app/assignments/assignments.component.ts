@@ -14,22 +14,24 @@ export class AssignmentsComponent implements OnInit {
 
   errorMessage: string;
   successMessage: string;
-  assignments: any[];
+  assignments;
   mode = 'Observable';
   currentUser: User;
 
   constructor (private dataService: DataService, public dialog: MatDialog) {}
 
 
-  ngOnInit() { this.getAssignments();
+  ngOnInit() { 
       this.dataService
       .userChanged
       .subscribe(user => this.currentUser = user); //sets current user to user passed in
       this.currentUser = this.dataService.getCurrentUser();  
+      this.getAssignments();
     }
   
   getAssignments() {
-    this.dataService.getTeacherAssignments("teachers", "assignments", this.currentUser.id)
+    console.log(this.currentUser.userId)
+    this.dataService.getTeacherAssignments("teachers", this.currentUser.userId, "assignments")
       .subscribe(
         assignments => this.assignments = assignments,
         error =>  this.errorMessage = <any>error);

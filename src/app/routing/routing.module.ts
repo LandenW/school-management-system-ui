@@ -40,6 +40,9 @@ const routes: Routes = [
   { path: 'add-teachers/add',  component: AddTeachersComponent },
   { path: 'add-teachers/edit/:id',  component: AddTeachersComponent },
 
+  { path: 'assignments-form/add',  component: AssignmentsFormComponent },
+  { path: 'assignments-form/edit/:id',  component: AssignmentsFormComponent }
+
 
 ]
 @NgModule({
