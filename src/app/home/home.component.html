@@ -1,4 +1,18 @@
 <p>
-  <app-calendar></app-calendar>
-  <app-announcements></app-announcements>
-</p>
+  
+  <!-- <app-announcements></app-announcements> -->
+  <h1 class="headers">Announcements</h1>
+    <div *ngFor="let announcement of announcements" id="announcements">
+    
+      <h3 id="date">{{announcement.date | date}}</h3>
+      <h4 id="title">{{announcement.title}}</h4>
+      <p id="description">{{announcement.description}}</p>
+      <hr>
+    </div>
+
+    <br>
+    <br>
+
+  <h1 class="headers">Calendar</h1>
+    <app-calendar></app-calendar>
+
