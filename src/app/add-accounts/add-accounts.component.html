@@ -24,32 +24,29 @@
     <th>Last Name</th>
     <th>Email</th>
     <th>Class</th>
-    <th>Teacher</th>
     <th>Admin</th>
   </tr>
 </thead>
 <tbody>
   <tr *ngFor="let student of students">
-    <td>{{student.id}}</td>
+    <td>{{student.userId}}</td>
     <td>{{student.roleName}}</td>
     <td>{{student.firstName}}</td>
     <td>{{student.lastName}}</td>
     <td>{{student.email}}</td>
     <td>{{student.gradeLevel}}</td>
-    <td>{{student.teacher}}</td>
     <td class="text-center">
       <a class="btn btn-primary" routerLink="['/add-accounts-form/edit/', student.id]">Edit</a>&nbsp;
       <button class="btn btn-danger" (click)="deleteStudent(student.id)">Delete</button>
     </td>
   </tr>
   <tr *ngFor="let teacher of teachers">
-    <td>{{teacher.id}}</td>
+    <td>{{teacher.userId}}</td>
     <td>{{teacher.roleName}}</td>
     <td>{{teacher.firstName}}</td>
     <td>{{teacher.lastName}}</td>
     <td>{{teacher.email}}</td>
     <td>{{teacher.gradeLevel}}</td>
-    <td> </td>
     <td class="text-center">
       <a class="btn btn-primary" routerLink="['/add-teachers/edit/', teacher.id]">Edit</a>&nbsp;
       <button class="btn btn-danger" (click)="deleteTeacher(teacher.id)">Delete</button>
