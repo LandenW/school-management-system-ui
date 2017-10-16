@@ -29,7 +29,7 @@ export class AssignmentsComponent implements OnInit {
     }
   
   getAssignments() {
-    this.dataService.getTeacherAssignments("teachers", "assignments", id)
+    this.dataService.getTeacherAssignments("teachers", "assignments", this.currentUser.id)
       .subscribe(
         assignments => this.assignments = assignments,
         error =>  this.errorMessage = <any>error);
