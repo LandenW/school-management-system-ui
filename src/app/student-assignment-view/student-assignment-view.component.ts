@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { DataService } from '../data.service'
 
@@ -16,12 +16,14 @@ export class StudentAssignmentViewComponent implements OnInit {
 
   constructor(private dataService: DataService) { }
 
-  ngOnInit() { this.getAssignments(); }
+  ngOnInit() { this.getGradesForStudent(); }
   
-   getAssignments() {
-     this.dataService.getRecords("assignments")
-       .subscribe(
-         assignments => this.assignments = assignments,
-         error =>  this.errorMessage = <any>error);
-   }
+  getGradesForStudent(){
+    this.dataService.getGradesForOneRecord("grades", "students", 2)
+    .subscribe(
+      assignments => this.assignments = assignments,
+      error =>  this.errorMessage = <any>error);
   }
+  
+
+}
