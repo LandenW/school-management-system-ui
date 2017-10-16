@@ -20,6 +20,8 @@ export class AppComponent implements OnInit {
     this.dataService
     .userChanged
     .subscribe(user => this.user = user); //sets current user to user passed in
+    this.user = this.dataService.getCurrentUser();  
+    
   }
 
   title = 'School Management System';
