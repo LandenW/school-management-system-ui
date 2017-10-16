@@ -56,7 +56,7 @@
     <label for="teacherId" class="col-sm-2 control-label">Teacher</label>
       <select  name="teacherId" id="teacherId" [(ngModel)]="teacherId">
         <option value="default">Select Teacher...</option>
-        <option *ngFor="let teacher of teachers" value="{{teacher.id}}" name="teachers">{{teacher?.firstName}} {{teacher?.lastName}}</option>
+        <option *ngFor="let teacher of teachers" value="{{teacher.userId}}" name="teachers">{{teacher?.firstName}} {{teacher?.lastName}}</option>
       </select>
   </div>
  <div class="form-group">

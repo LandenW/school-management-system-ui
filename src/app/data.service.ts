@@ -75,6 +75,12 @@ export class DataService {
             .map(this.extractData);
     }
 
+    getGradesForOneAssignment(endpoint: string, endpoint2: string, gradeAssignmentId:number, record:object): Observable<any[]> {
+        let apiUrl = `${this.baseUrl}${endpoint}/${endpoint2}/${gradeAssignmentId}`;
+        return this.http.get(apiUrl)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
     login(endpoint: string, username: string, password: string): Observable<User>{
         let apiUrl = `${this.baseUrl}${endpoint}`;
         console.log(apiUrl)        
