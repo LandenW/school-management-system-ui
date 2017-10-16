@@ -15,6 +15,7 @@ import { LogOutComponent }   from '../log-out/log-out.component';
 import { NavigationComponent }   from '../navigation/navigation.component';
 import { PreferencesComponent }   from '../preferences/preferences.component';
 import { AddTeachersComponent }   from '../add-teachers/add-teachers.component';
+import { StudentAssignmentViewComponent }   from '../student-assignment-view/student-assignment-view.component';
 
 const routes: Routes = [
   { path: '',  component: HomeComponent},
@@ -32,13 +33,16 @@ const routes: Routes = [
   { path: 'navigation',  component: NavigationComponent },
   { path: 'preferences',  component: PreferencesComponent },
   { path: 'announcements/add',  component: AnnouncementsFormComponent },
-  { path: 'announcements/edit/:id',  component: AnnouncementsFormComponent }
+  { path: 'announcements/edit/:id',  component: AnnouncementsFormComponent },
 
   { path: 'add-accounts-form/add',  component: AddAccountsFormComponent },
   { path: 'add-accounts-form/edit/:id',  component: AddAccountsFormComponent },
 
   { path: 'add-teachers/add',  component: AddTeachersComponent },
   { path: 'add-teachers/edit/:id',  component: AddTeachersComponent },
+
+  { path: 'student-assignment-view',  component: StudentAssignmentViewComponent },
+
 
 
 ]
