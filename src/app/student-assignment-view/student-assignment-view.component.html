@@ -1,0 +1,40 @@
+<!-- <p>
+  student-assignment-view works!
+</p> -->
+
+<br/>
+
+<!-- <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message> -->
+
+<h2>Assignments and Grades</h2>
+
+<!-- <a class="btn btn-primary" routerLink="/announcements-form">Add Announcement</a> -->
+<br>
+<br>
+
+<table class="table table-sm table-striped table-bordered" id="dataTable" style="width:75%">
+<thead>
+  <tr>
+    <!-- <th>ID</th> -->
+    <th>Assignment Name</th>
+    <th>Due Date</th>
+    <th>Grade</th>
+    <th>Comments</th>
+  </tr>
+</thead>
+
+<tbody>
+  <tr *ngFor="let assignment of assignments">
+    <!-- <td>{{announcement.id}}</td> -->
+    <td>{{assignment.assignmentName}}</td>
+    <td>{{assignment.assignmentDueDate}}</td>
+    <td>Grade</td>
+    <td>{{assignment.assignmentComment}}</td>
+    <!-- <td class="text-center">
+      <a class="btn btn-primary" [routerLink]="['/announcements/edit/', announcement.id]">Edit</a>&nbsp;
+      <button (click)="deleteAnnouncements(announcement.id)" class="btn btn-danger">Delete</button>
+    </td> -->
+  </tr>
+</tbody>
+
+</table>

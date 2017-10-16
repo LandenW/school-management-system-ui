@@ -8,11 +8,16 @@ hr {
 
 .headers {
     text-decoration: underline;
+    /* font-family: 'Bad Script', cursive;    */
+    font-size: 40px; 
 }
 
 
 #date {
-
+   display: flex;
+   padding-left: 10%; 
+   font-family: 'Handlee', cursive;   
+   font-size: 20px;
 }
 
 #title {
