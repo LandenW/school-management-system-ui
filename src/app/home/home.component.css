@@ -1,0 +1,25 @@
+#announcements {
+   margin-left: 5%; 
+}
+
+hr {
+    margin-right: 5%;
+}
+
+.headers {
+    text-decoration: underline;
+}
+
+
+#date {
+
+}
+
+#title {
+    display: flex;
+}
+
+#description {
+    display: flex;
+}
+

@@ -29,6 +29,7 @@ import { StatusMessageComponent } from './status-message/status-message.componen
 import { LogOutComponent } from './log-out/log-out.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +49,7 @@ import { LogOutComponent } from './log-out/log-out.component';
     DeleteConfirmComponent,
     StatusMessageComponent,
     LogOutComponent,
-    AddTeachersComponent
+    AddTeachersComponent,
   ],
   
   imports: [
