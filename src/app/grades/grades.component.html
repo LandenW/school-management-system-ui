@@ -1,24 +1,28 @@
 <table class="table table-striped table-bordered" id="dataTable" style="width:100%">
     <thead>
       <tr>
+        <th>Row Item</th>
+        <th>Grade ID</th>
         <th>Student ID</th>
         <th>Grade Letter</th>
         <th>Comments</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let student of students">
-        <td>{{student.gradeStudentId}}</td>
-        <td><select name="letterGradeValue" id="letterGradeValue">
-          <option value="default">Select Grade...</option>
+        <form class="form-group" #gradeForm="ngForm" >
+      <tr *ngFor="let assignment of assignments; let i = index; trackBy: getIndex">
+          <td><input id="grade-id-{{assignment.gradeId}}" [(ngModel)]="assignment.gradeId" name="grade-id-{{assignment.gradeId}}" disabled></td>
+          <td><input id="grade-id-{{assignment.gradeStudentId}}" [(ngModel)]="assignment.gradeStudentId" name="grade-id-{{assignment.gradeStudentId}}" disabled></td>
+        <td><select name="assignment.letterGradeValue" id="assignment.letterGradeValue" [(ngModel)]="assignment.letterGradeValue" (change)="saveGrades()">
+          <option value="default">{{assignment.letterGradeValue}}</option>
           <option value="A">A</option>
           <option value="B">B</option>
           <option value="C">C</option>
           <option value="D">D</option>
           <option value="F">F</option>
-        </select>
-        </td>
+        </select></td>
         <td><input type="text" name="comments" id="comments"></td>
       </tr>
+    </form>
     </tbody>
 </table>
