@@ -9,20 +9,22 @@
       </tr>
     </thead>
     <tbody>
-        <form class="form-group" #gradeForm="ngForm" >
-      <tr *ngFor="let assignment of assignments; let i = index; trackBy: getIndex">
-          <td><input id="grade-id-{{assignment.gradeId}}" [(ngModel)]="assignment.gradeId" name="grade-id-{{assignment.gradeId}}" disabled></td>
-          <td><input id="grade-id-{{assignment.gradeStudentId}}" [(ngModel)]="assignment.gradeStudentId" name="grade-id-{{assignment.gradeStudentId}}" disabled></td>
-        <td><select name="assignment.letterGradeValue" id="assignment.letterGradeValue" [(ngModel)]="assignment.letterGradeValue" (change)="saveGrades()">
-          <option value="default">{{assignment.letterGradeValue}}</option>
-          <option value="A">A</option>
-          <option value="B">B</option>
-          <option value="C">C</option>
-          <option value="D">D</option>
-          <option value="F">F</option>
-        </select></td>
-        <td><input type="text" name="comments" id="comments"></td>
-      </tr>
+        <form class="form-group">
+          <tr *ngFor="let assignment of assignments; let indexOfAssignment = index">
+            <td><input [(ngModel)]="assignment.gradeId" name="grade-id-{{assignment.gradeId}}" disabled></td>
+            <td><input [(ngModel)]="assignment.gradeStudentId" name="grade-id-{{assignment.gradeStudentId}}" disabled></td>
+            <td>
+              <select name="grade-id-{{assignment.gradeId}}-{{assignment.letterGradeValue}}" [(ngModel)]="assignment.letterGradeValue" (change)="saveGrades(indexOfAssignment)">
+                <option value="Not graded.">Not graded.</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="F">F</option>
+              </select>
+            </td>
+            <td><input type="text" name="comments" id="comments"></td>
+          </tr>
     </form>
     </tbody>
 </table>

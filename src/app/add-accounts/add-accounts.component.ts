@@ -20,7 +20,6 @@ export class AddAccountsComponent implements OnInit {
   constructor(private dataService: DataService, public dialog: MatDialog) { }
 
   ngOnInit() {
-
     this.getStudents();
     this.getTeachers();
   }
@@ -38,7 +37,7 @@ export class AddAccountsComponent implements OnInit {
     
         dialogRef.afterClosed().subscribe(result => {
           if(result){
-            this.dataService.deleteRecord("student", id)
+            this.dataService.deleteRecord("students", id)
               .subscribe(
                 student => {this.successMessage = "Record(s) deleted succesfully"; this.getStudents(); },
                 error =>  this.errorMessage = <any>error);

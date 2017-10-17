@@ -1,5 +1,5 @@
 import 'rxjs/add/operator/switchMap';
-import { Component, OnInit }      from '@angular/core';
+import { Component, OnInit, ViewChild }      from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
 import { NgForm } from '@angular/forms';
@@ -12,37 +12,26 @@ import { DataService } from '../data.service'
   styleUrls: ['./add-accounts-form.component.css']
 })
 export class AddAccountsFormComponent implements OnInit {
-
+  
+  @ViewChild('studentForm') currentForm: NgForm;
+  
   successMessage: string;
   errorMessage: string;
-
-  student: object = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    gradeLevel: ''
-  };
-  teacher: object = {
-    firstName: '',
-    lastName: '',
-    email: ''
-  };
-
+  students;
   teachers;
-
   roleName: string;
   gradeLevel: number;
 
   getRecordForEdit(){
     this.route.params
-      .switchMap((params: Params) => this.dataService.getRecord("student", +params['id']))
-      .subscribe(student => this.student = student);
+      .switchMap((params: Params) => this.dataService.getRecord("students", +params['id']))
+      .subscribe(students => this.students = students);
   }
+
   constructor(
     private dataService: DataService,
     private route: ActivatedRoute,
-    private location: Location,
-    
+    private location: Location,  
   ) { }
  
 
@@ -57,13 +46,12 @@ export class AddAccountsFormComponent implements OnInit {
   }
 
   ngOnInit() {
-
-
     this.route.params
     .subscribe((params: Params) => {
       (+params['id']) ? this.getRecordForEdit() : null;
     });
   }
+
   saveStudent(student: NgForm){
     student.value.roleName = 'STUDENT';
     student.value.gradeLevel = parseInt(student.value.gradeLevel);
@@ -75,17 +63,11 @@ export class AddAccountsFormComponent implements OnInit {
             student => this.successMessage = "Record updated succesfully",
             error =>  this.errorMessage = <any>error);
     }else{
-      
       this.dataService.addStudentRecord("students", teacherId, student.value)
           .subscribe(
-            student => this.successMessage = "Record added succesfully",
+            students => this.successMessage = "Record added succesfully",
             error =>  this.errorMessage = <any>error);
-            this.student = {
-              firstName: '',
-              lastName: '',
-              email: '',
-              gradeLevel: ''
-            };
+            this.students = { };
     }
 
   }
