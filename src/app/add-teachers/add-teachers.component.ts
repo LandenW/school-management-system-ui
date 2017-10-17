@@ -56,8 +56,8 @@ export class AddTeachersComponent implements OnInit {
     teacher.value.roleName = 'TEACHER';
     teacher.value.gradeLevel = parseInt(teacher.value.gradeLevel);
     console.log(teacher.value);
-    if(typeof teacher.value.id === "number"){
-      this.dataService.editRecord("teachers", teacher.value, teacher.value.id)
+    if(typeof teacher.value.userId === "number"){
+      this.dataService.editRecord("teachers", teacher.value, teacher.value.userId)
           .subscribe(
             student => this.successMessage = "Record updated succesfully",
             error =>  this.errorMessage = <any>error);
