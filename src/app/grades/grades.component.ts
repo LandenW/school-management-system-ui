@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { DeleteConfirmComponent } from '../delete-confirm/delete-confirm.component'
-
+import * as _ from 'lodash';
 import { DataService } from '../data.service';
 import { NgForm } from '@angular/forms';
 
@@ -21,11 +21,12 @@ export class GradesComponent implements OnInit {
   gradeId;
   gradeStudentId;
   rowItem;
-  
-  constructor(private dataService: DataService ) {
+  students; 
+ 
+
+  constructor(private dataService: DataService ) { }
 
    
-   }
 
   //  gradeId: number, gradeStudentId: number, letterGradeValue: string 
   //  this.gradeId = gradeId;
@@ -33,21 +34,27 @@ export class GradesComponent implements OnInit {
   // this.letterGradeValue = letterGradeValue;
   ngOnInit() {
     this.getGradesforOneStudent();
-
+    this.mergeGradeStudent();
   }
+
+
   getGradesforOneStudent() {
     this.dataService.getGradesForOneRecord("grades", "assignments", 5)
-      .subscribe(
-        assignments => this.assignments = assignments,
-        error => this.errorMessage = <any>error
-      );
-        
+    .subscribe(
+      assignments => this.assignments = assignments,
+      error => this.errorMessage = <any>error
+    );   
+    this.dataService.getRecords("students")
+    .subscribe(
+      students => this.students = students,
+      error => this.errorMessage = <any>error
+    );   
   }
 
-  getIndex(index, assignment){
-    console.log(assignment.gradeId);
+  mergeGradeStudent(){
+    const nextState = _.merge(this.assignments, this.students);
+    console.log(nextState)  
   }
-
 
   saveGrades(indexOfAssignment){
     console.log(this.assignments)
@@ -56,7 +63,7 @@ export class GradesComponent implements OnInit {
           assignment => this.successMessage = "Record updated succesfully",
           error => this.errorMessage = <any>error
         );
-
+       
   }
 
   
