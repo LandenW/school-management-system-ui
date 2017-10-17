@@ -20,7 +20,7 @@ export class GradesComponent implements OnInit {
   assignments;
   gradeId;
   gradeStudentId;
- rowItem;
+  rowItem;
   
   constructor(private dataService: DataService ) {
 
@@ -39,7 +39,8 @@ export class GradesComponent implements OnInit {
     this.dataService.getGradesForOneRecord("grades", "assignments", 5)
       .subscribe(
         assignments => this.assignments = assignments,
-        error =>  this.errorMessage = <any>error);
+        error => this.errorMessage = <any>error
+      );
         
   }
 
@@ -48,14 +49,13 @@ export class GradesComponent implements OnInit {
   }
 
 
-  saveGrades(grade: NgForm){
-
-    if(typeof this.assignments.gradeId === "number"){
-      this.dataService.editRecord("grades", this.assignments.value, this.assignments.gradeId)
-          .subscribe(
-            student => this.successMessage = "Record updated succesfully",
-            error =>  this.errorMessage = <any>error);
-    }
+  saveGrades(indexOfAssignment){
+    console.log(this.assignments)
+    this.dataService.editRecord("grades", this.assignments[indexOfAssignment], this.assignments[indexOfAssignment].gradeId)
+        .subscribe(
+          assignment => this.successMessage = "Record updated succesfully",
+          error => this.errorMessage = <any>error
+        );
 
   }
 
