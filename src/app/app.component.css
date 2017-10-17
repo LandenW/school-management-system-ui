@@ -4,3 +4,11 @@ h1 {
     padding-bottom: 2.5%;
     font-family: 'Julius Sans One', sans-serif;
 }
+
+#schoolName {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 10px;
+    background-color: WhiteSmoke;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
