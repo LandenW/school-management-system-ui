@@ -1,9 +1,137 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import url('https://fonts.googleapis.com/css?family=Julius+Sans+One');
+@import url('https://fonts.googleapis.com/css?family=Catamaran:200');
 
 /* body {
     background-image: url("");
     background-size: 100%;
 } */
 
+.headers {
+    color: #4d0000;
+    font-family: 'Catamaran', sans-serif;
+    font-size: 30px; 
+}
+
+.myButton {
+	-moz-box-shadow: 0px 10px 14px -7px #3e7327;
+	-webkit-box-shadow: 0px 10px 14px -7px #3e7327;
+	box-shadow: 0px 10px 14px -7px #3e7327;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #77b55a), color-stop(1, #72b352));
+	background:-moz-linear-gradient(top, #77b55a 5%, #72b352 100%);
+	background:-webkit-linear-gradient(top, #77b55a 5%, #72b352 100%);
+	background:-o-linear-gradient(top, #77b55a 5%, #72b352 100%);
+	background:-ms-linear-gradient(top, #77b55a 5%, #72b352 100%);
+	background:linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#77b55a', endColorstr='#72b352',GradientType=0);
+	background-color:#77b55a;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	border:1px solid #4b8f29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	padding:6px 12px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #5b8a3c;
+}
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #72b352), color-stop(1, #77b55a));
+	background:-moz-linear-gradient(top, #72b352 5%, #77b55a 100%);
+	background:-webkit-linear-gradient(top, #72b352 5%, #77b55a 100%);
+	background:-o-linear-gradient(top, #72b352 5%, #77b55a 100%);
+	background:-ms-linear-gradient(top, #72b352 5%, #77b55a 100%);
+	background:linear-gradient(to bottom, #72b352 5%, #77b55a 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#72b352', endColorstr='#77b55a',GradientType=0);
+	background-color:#72b352;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+
+.myButtonTwo {
+	-moz-box-shadow: 0px 10px 14px -7px #91b8b3;
+	-webkit-box-shadow: 0px 10px 14px -7px #91b8b3;
+	box-shadow: 0px 10px 14px -7px #91b8b3;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #768d87), color-stop(1, #6c7c7c));
+	background:-moz-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+	background:-webkit-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+	background:-o-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+	background:-ms-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+	background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#768d87', endColorstr='#6c7c7c',GradientType=0);
+	background-color:#768d87;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	border:1px solid #566963;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	padding:6px 12px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2b665e;
+}
+.myButtonTwo:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #6c7c7c), color-stop(1, #768d87));
+	background:-moz-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+	background:-webkit-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+	background:-o-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+	background:-ms-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+	background:linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#6c7c7c', endColorstr='#768d87',GradientType=0);
+	background-color:#6c7c7c;
+}
+.myButtonTwo:active {
+position:relative;
+	top:1px;
+}
+
+
+.standardButton {
+	-moz-box-shadow: 0px 10px 14px -7px #767d73;
+	-webkit-box-shadow: 0px 10px 14px -7px #767d73;
+	box-shadow: 0px 10px 14px -7px #767d73;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #d8dbd7), color-stop(1, #c1ccbc));
+	background:-moz-linear-gradient(top, #d8dbd7 5%, #c1ccbc 100%);
+	background:-webkit-linear-gradient(top, #d8dbd7 5%, #c1ccbc 100%);
+	background:-o-linear-gradient(top, #d8dbd7 5%, #c1ccbc 100%);
+	background:-ms-linear-gradient(top, #d8dbd7 5%, #c1ccbc 100%);
+	background:linear-gradient(to bottom, #d8dbd7 5%, #c1ccbc 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d8dbd7', endColorstr='#c1ccbc',GradientType=0);
+	background-color:#d8dbd7;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	border:1px solid #798076;
+	display:inline-block;
+	cursor:pointer;
+	color:#000000;
+	font-family:Arial;
+	font-size:13px;
+	padding:6px 12px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #b2b5af;
+}
+.standardButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c1ccbc), color-stop(1, #d8dbd7));
+	background:-moz-linear-gradient(top, #c1ccbc 5%, #d8dbd7 100%);
+	background:-webkit-linear-gradient(top, #c1ccbc 5%, #d8dbd7 100%);
+	background:-o-linear-gradient(top, #c1ccbc 5%, #d8dbd7 100%);
+	background:-ms-linear-gradient(top, #c1ccbc 5%, #d8dbd7 100%);
+	background:linear-gradient(to bottom, #c1ccbc 5%, #d8dbd7 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c1ccbc', endColorstr='#d8dbd7',GradientType=0);
+	background-color:#c1ccbc;
+}
+.standardButton:active {
+	position:relative;
+	top:1px;
+}
