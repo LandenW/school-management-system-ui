@@ -30,7 +30,6 @@ export class AssignmentsComponent implements OnInit {
     }
   
   getAssignments() {
-    console.log(this.currentUser.userId)
     this.dataService.getTeacherAssignments("teachers", this.currentUser.userId, "assignments")
       .subscribe(
         assignments => this.assignments = assignments,

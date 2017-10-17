@@ -34,6 +34,7 @@ export class LogOutComponent {
     this.dataService
     .logout("session")
       .subscribe(user => this.currentUser = user);
+      this.route.navigate(['/']);
       console.log("Log Out Successful")      
   }
   
