@@ -1,10 +1,10 @@
 <div id="navbar" class="navbar-collapse collapse">
     <ul class="nav navbar-nav">
-        <li routerLinkActive="active"><a routerLink="" >Home</a></li>      
-        <li *ngIf="currentUser?.roleName==='TEACHER'  || currentUser?.roleName==='ADMIN'"routerLinkActive="active"><a routerLink="/assignments" >Assignments</a></li>
-        <li *ngIf="currentUser?.roleName==='TEACHER' || currentUser?.roleName==='ADMIN'" routerLinkActive="active"><a routerLink="/announcements" >Add/Edit Announcements</a></li> 
-        <li *ngIf="currentUser?.roleName==='ADMIN'" routerLinkActive="active"><a routerLink="/add-accounts" >Add Accounts</a></li> 
-        <li *ngIf="currentUser?.roleName==='STUDENT'" routerLinkActive="active"><a routerLink="/student-assignment-view" >View Assignments/Grades</a></li>
-        <li *ngIf="currentUser?.roleName==='null'" routerLinkActive="active"><a routerLink="/preferences" >Preferences</a></li>                             
+        <li class="navfont" routerLinkActive="active"><a routerLink="" >Home</a></li>      
+        <li class="navfont" *ngIf="currentUser?.roleName==='TEACHER'  || currentUser?.roleName==='ADMIN'"routerLinkActive="active"><a routerLink="/assignments" >Assignments</a></li>
+        <li class="navfont" *ngIf="currentUser?.roleName==='TEACHER' || currentUser?.roleName==='ADMIN'" routerLinkActive="active"><a routerLink="/announcements" >Add/Edit Announcements</a></li> 
+        <li class="navfont" *ngIf="currentUser?.roleName==='ADMIN'" routerLinkActive="active"><a routerLink="/add-accounts" >Add Accounts</a></li> 
+        <li class="navfont" *ngIf="currentUser?.roleName==='STUDENT'" routerLinkActive="active"><a routerLink="/student-assignment-view" >View Assignments/Grades</a></li>
+        <li class="navfont" *ngIf="currentUser?.roleName==='null'" routerLinkActive="active"><a routerLink="/preferences" >Preferences</a></li>                             
     </ul>
 </div>
