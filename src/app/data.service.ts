@@ -39,7 +39,6 @@ export class DataService {
             .catch(this.handleError);
     }
 
-
     getTeacherAssignments(endpoint: string, id: number, endpoint2: string): Observable<object> {
         let apiUrl = `${this.baseUrl}${endpoint}/${id}/${endpoint2}`;
         return this.http.get(apiUrl)
@@ -71,6 +70,7 @@ export class DataService {
     addRecord(endpoint: string, record:object): Observable<any> {
         let apiUrl = `${this.baseUrl}${endpoint}`;
         console.log(apiUrl)
+        console.log(record)
         return this.http.post(apiUrl, record)
             .map(this.extractData);
     }
@@ -90,10 +90,8 @@ export class DataService {
             .catch(this.handleError);
     }
     login(endpoint: string, username: string, password: string): Observable<User>{
-        let apiUrl = `${this.baseUrl}${endpoint}`;
-        console.log(apiUrl)        
-        const payload = { username, password }; //creates property with name email to value of the same name; like email: email, password: password
-        console.log(payload)                
+        let apiUrl = `${this.baseUrl}${endpoint}`;      
+        const payload = { username, password }; //creates property with name email to value of the same name; like email: email, password: password              
         return this.http
           .put(apiUrl, payload, this.options)
           .map(response => response.status === 200 ? response.json(): null) //this produces a User object; response is juat a variable name
@@ -112,7 +110,6 @@ export class DataService {
       }
     
       getCurrentUser() { 
-       console.log(this.currentUser);
        return this.currentUser;
       }
 

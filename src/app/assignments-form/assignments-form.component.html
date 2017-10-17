@@ -1,12 +1,3 @@
-
-<ol class="breadcrumb">
-  <li><a routerLink="/home">Home</a></li>
-  <li><a routerLink="/assignments">Assignments</a></li>
-  <li class="active">Manage Students</li>
-</ol>
-
-<br/>
-
 <a class="btn btn-primary" routerLink="/assignments">Return to Assignments</a>
 
 <h1>Manage Assignments</h1>
@@ -15,7 +6,7 @@
 
 
 <form novalidate (ngSubmit)="saveAssignment(assignmentsForm)" #assignmentsForm="ngForm" class="form-horizontal">
-<input [ngModel]="assignments?.assignmentId" ngModel #assignments.assignmentId="ngModel" type="hidden" name="assignments.assignmentId">
+<input [ngModel]="assignments?.assignmentId" ngModel #assignments.assignmentId="ngModel" type="hidden" name="assignmentId">
 <div class="form-group">
   <label for="name" class="col-sm-2 control-label">Assignment Name</label>
   <div class="col-sm-10">
@@ -41,7 +32,7 @@
     </div>
 </div>
 <!-- hidden feild to send back teacherId with the assignment -->
-<input type="hidden" name="teacherId">
+<input [ngModel]="currentUser?.userId" ngModel #currentUser.userId="ngModel" type="hidden" name="teacherId">
  <div class="form-group">
   <div class="col-sm-offset-2 col-sm-10">
     <button [disabled]="!assignmentsForm.form.valid" type="submit" class="btn btn-primary">Submit</button>

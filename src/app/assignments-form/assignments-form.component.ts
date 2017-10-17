@@ -3,6 +3,7 @@ import { Component, OnInit, ViewChild }      from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
 import { NgForm } from '@angular/forms';
+import { User } from "../user";
 
 import { DataService } from '../data.service'
 
@@ -19,6 +20,7 @@ export class AssignmentsFormComponent implements OnInit {
   successMessage: string;
   errorMessage: string;
   assignments: object;
+  currentUser: User;
   
 
   getRecordForEdit(){
@@ -39,10 +41,13 @@ export class AssignmentsFormComponent implements OnInit {
     .subscribe((params: Params) => {
       (+params['id']) ? this.getRecordForEdit() : null;
     });
+    this.dataService
+    .userChanged
+    .subscribe(user => this.currentUser = user); //sets current user to user passed in
+    this.currentUser = this.dataService.getCurrentUser();  
   }
 
   saveAssignment(assignments: NgForm){
-    console.log(assignments.value['assignments.assignmentId'])
     if(typeof assignments.value['assignments.assignmentId'] === "number"){
       this.dataService.editRecord("assignments", assignments.value, assignments.value['assignments.assignmentId'])
           .subscribe(

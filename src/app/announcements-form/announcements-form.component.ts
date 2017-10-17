@@ -36,6 +36,7 @@ export class AnnouncementsFormComponent implements OnInit {
   }
 
     ngOnInit() {
+    
       this.route.params
         .subscribe((params: Params) => {
           (+params['id']) ? this.getRecordForEdit() : null;
