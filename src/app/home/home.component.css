@@ -9,14 +9,23 @@ hr {
 #date {
    display: flex;
    padding-left: 10%; 
+   color: #662200;
+   font-family: 'Handlee', cursive;
+   font-size: 25px;
 }
 
 #title {
     display: flex;
+    font-family: 'Catamaran', sans-serif;
+    color: #00661a;
+    font-size: 25px;
 }
 
 #description {
     display: flex;
+    font-family: 'Catamaran', sans-serif;
+    color: Grey;
+    font-size: 15px;
 }
 
 
