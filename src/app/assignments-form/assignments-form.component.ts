@@ -14,7 +14,6 @@ import { DataService } from '../data.service'
 })
 export class AssignmentsFormComponent implements OnInit {
 
-  announcementsForm: NgForm;
   @ViewChild('assignmentsForm') currentForm: NgForm;
 
   successMessage: string;
@@ -64,57 +63,3 @@ export class AssignmentsFormComponent implements OnInit {
 
   }
 }
-  // assignmentForm: NgForm;
-  // @ViewChild('assignmentForm') currentForm: NgForm;
-
-  // ngAfterViewChecked() {
-  //   this.formChanged();
-  // }
-
-  // formChanged() {
-  //   this.assignmentForm = this.currentForm;
-  //   this.assignmentForm.valueChanges
-  //     .subscribe(
-  //       data => this.onValueChanged(data)
-  //     );
-  // }
-
-//   onValueChanged(data?: any) {
-//     let form = this.assignmentForm.form;
-
-//     for (let field in this.formErrors) {
-//       // clear previous error message (if any)
-//       this.formErrors[field] = '';
-//       const control = form.get(field);
-
-//       if (control && control.dirty && !control.valid) {
-//         const messages = this.validationMessages[field];
-//         for (const key in control.errors) {
-//           this.formErrors[field] += messages[key] + ' ';
-//         }
-//       }
-//     }
-//   }
-
-//   formErrors = {
-//     'name': '',
-//     'comment': '',
-//     'description': ''
-//   };
-
-//   validationMessages = {
-//     'name': {
-//       'required': 'Assignment number is required.',
-//       'pattern': 'Must be a number.'
-//     },
-//     'comment': {
-//       'required': 'Grade ID is required.',
-//       'pattern': 'Must be a number.'
-//     },
-//     'description': {
-//       'required': 'Class ID is required.',
-//       'pattern': 'Must be a number.'
-//     }
-//   };
-// }
-
