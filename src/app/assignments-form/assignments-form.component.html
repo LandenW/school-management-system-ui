@@ -1,6 +1,6 @@
-<a class="btn btn-primary" routerLink="/assignments">Return to Assignments</a>
+<a class="standardButton" routerLink="/assignments">Return to Assignments</a>
 
-<h1>Manage Assignments</h1>
+<h1 class="headers">Manage Assignments</h1>
 
 <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
 
@@ -35,7 +35,7 @@
 <input [ngModel]="currentUser?.userId" ngModel #currentUser.userId="ngModel" type="hidden" name="teacherId">
  <div class="form-group">
   <div class="col-sm-offset-2 col-sm-10">
-    <button [disabled]="!assignmentsForm.form.valid" type="submit" class="btn btn-primary">Submit</button>
+    <button [disabled]="!assignmentsForm.form.valid" type="submit" class="standardButton">Submit</button>
   </div>
 </div>
 </form>

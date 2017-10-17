@@ -1,5 +1,15 @@
 h1 {
     background-color: WhiteSmoke;
+    font-size: 45px;
+    color: #662200;
+    text-shadow: 
+    1px 0px 1px #ccc, 0px 1px 1px #eee, 
+    2px 1px 1px #ccc, 1px 2px 1px #eee,
+    3px 2px 1px #ccc, 2px 3px 1px #eee,
+    4px 3px 1px #ccc, 3px 4px 1px #eee,
+    5px 4px 1px #ccc, 4px 5px 1px #eee,
+    6px 5px 1px #ccc, 5px 6px 1px #eee,
+    7px 6px 1px #ccc;
     padding-top: 2.5%;
     padding-bottom: 2.5%;
     font-family: 'Julius Sans One', sans-serif;
@@ -8,7 +18,10 @@ h1 {
 #schoolName {
     font-family: 'Julius Sans One', sans-serif;
     font-size: 10px;
+    color: #662200;
     background-color: WhiteSmoke;
     padding-top: 1%;
     padding-bottom: 1%;
 }
+
+
