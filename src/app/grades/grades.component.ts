@@ -4,6 +4,7 @@ import { DeleteConfirmComponent } from '../delete-confirm/delete-confirm.compone
 import * as _ from 'lodash';
 import { DataService } from '../data.service';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute, Params } from '@angular/router';
 
 
 @Component({
@@ -22,9 +23,10 @@ export class GradesComponent implements OnInit {
   gradeStudentId;
   rowItem;
   students; 
- 
+  nextState;
 
-  constructor(private dataService: DataService ) { }
+  constructor(private dataService: DataService,
+    private route: ActivatedRoute ) { }
 
    
 
@@ -34,26 +36,33 @@ export class GradesComponent implements OnInit {
   // this.letterGradeValue = letterGradeValue;
   ngOnInit() {
     this.getGradesforOneStudent();
-    this.mergeGradeStudent();
+    
   }
 
 
   getGradesforOneStudent() {
-    this.dataService.getGradesForOneRecord("grades", "assignments", 5)
+    this.route.params
+    .switchMap((params: Params) => this.dataService.getGradesForOneRecord("grades", "assignments", +params['id']))
     .subscribe(
-      assignments => this.assignments = assignments,
+      assignments => {
+        this.assignments = assignments
+        this.dataService.getRecords("students")
+          .subscribe(
+            students => {
+              this.students = students
+              this.nextState = _.merge(this.assignments, this.students)
+              console.log(this.nextState)
+              for(let i=0; i < this.nextState.length; i++) {
+                if(!this.nextState[i].gradeStudentId) {
+                  console.log(this.nextState[i])
+                 this.nextState.splice(i, i++)
+                }
+              }
+              console.log(this.nextState)              
+            })
+      },
       error => this.errorMessage = <any>error
-    );   
-    this.dataService.getRecords("students")
-    .subscribe(
-      students => this.students = students,
-      error => this.errorMessage = <any>error
-    );   
-  }
-
-  mergeGradeStudent(){
-    const nextState = _.merge(this.assignments, this.students);
-    console.log(nextState)  
+    );
   }
 
   saveGrades(indexOfAssignment){
@@ -63,7 +72,6 @@ export class GradesComponent implements OnInit {
           assignment => this.successMessage = "Record updated succesfully",
           error => this.errorMessage = <any>error
         );
-       
   }
 
   
