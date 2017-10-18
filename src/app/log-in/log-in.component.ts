@@ -56,7 +56,6 @@ export class LogInComponent {
     .userChanged
     .subscribe(user => this.currentUser = user); //sets current user to user passed in
     this.currentUser = this.dataService.getCurrentUser();
-    
   }
 
 

@@ -29,7 +29,7 @@ export class DataService {
         let apiUrl = this.baseUrl+endpoint;
         return this.http.get(apiUrl)
             .map(this.extractData)
-            .catch(this.handleError);
+            // .catch(this.handleError);
     }
 
     getRecord(endpoint: string, id): Observable<object> {
@@ -87,7 +87,7 @@ export class DataService {
         let apiUrl = `${this.baseUrl}${endpoint}/${endpoint2}/${id}`;
         return this.http.get(apiUrl)
             .map(this.extractData)
-            .catch(this.handleError);
+            // .catch(this.handleError);
     }
     login(endpoint: string, username: string, password: string): Observable<User>{
         let apiUrl = `${this.baseUrl}${endpoint}`;      
@@ -114,8 +114,7 @@ export class DataService {
       }
 
     private extractData(res: Response) {
-        let results = res.json();
-        return results || [];
+        return res.json() || [];
     }
 
     private handleError(error: Response | any) {

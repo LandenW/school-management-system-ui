@@ -5,6 +5,8 @@ import * as _ from 'lodash';
 import { DataService } from '../data.service';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Observable } from 'rxjs/Rx';
+
 
 
 @Component({
@@ -24,46 +26,86 @@ export class GradesComponent implements OnInit {
   rowItem;
   students; 
   nextState;
+  obser: Observable<{}>; 
+ 
 
   constructor(private dataService: DataService,
     private route: ActivatedRoute ) { }
 
    
-
-  //  gradeId: number, gradeStudentId: number, letterGradeValue: string 
-  //  this.gradeId = gradeId;
-  //  this.gradeStudentId = gradeStudentId;
-  // this.letterGradeValue = letterGradeValue;
   ngOnInit() {
-    this.getGradesforOneStudent();
-    
-  }
+    // this.getGradesforOneStudent();
+    // this.getStudentsforOneGrade();
 
+    // console.log(`This is inside Results, CreateAssignments: ${getTwo}`);
+    // console.log(`This is inside Results, Students: ${getOne}`);
+    Observable.forkJoin([
+      this.getGradesforOneStudent(), 
+      this.getStudentsforOneGrade()
+    ]).subscribe(
+        ([assignments, students]) => {
+          console.log(assignments);
+          this.assignments = assignments
+          this.students = students
+          this.nextState = _.merge(assignments, students);
+        },
+        error => console.log(error)
+    )
+  }
 
   getGradesforOneStudent() {
-    this.route.params
-    .switchMap((params: Params) => this.dataService.getGradesForOneRecord("grades", "assignments", +params['id']))
-    .subscribe(
-      assignments => {
-        this.assignments = assignments
-        this.dataService.getRecords("students")
-          .subscribe(
-            students => {
-              this.students = students
-              this.nextState = _.merge(this.assignments, this.students)
-              console.log(this.nextState)
-              for(let i=0; i < this.nextState.length; i++) {
-                if(!this.nextState[i].gradeStudentId) {
-                  console.log(this.nextState[i])
-                 this.nextState.splice(i, i++)
-                }
-              }
-              console.log(this.nextState)              
-            })
-      },
-      error => this.errorMessage = <any>error
-    );
-  }
+      const request = this.route.params
+        .switchMap((params: Params) => this.dataService.getGradesForOneRecord("grades", "assignments", +params['id']))
+      const obs = new Observable(fn => request.subscribe(fn))
+      console.log(obs)
+      return obs
+      // .subscribe(
+      //   assignments => this.assignments = assignments,
+      //   error => this.errorMessage = <any>error
+      // )
+      // return this.assignments;
+    };
+
+  getStudentsforOneGrade() {
+      const request = this.dataService.getRecords("students")
+
+      console.log(request)
+      return request
+      // .subscribe(
+      //   students => this.students = students,
+      //   error => this.errorMessage = <any>error
+      // )
+      // return this.students;
+    };
+    
+  
+
+  
+//Working ish:
+  // getGradesforOneStudent() {
+  //   this.route.params
+  //   .switchMap((params: Params) => this.dataService.getGradesForOneRecord("grades", "assignments", +params['id']))
+  //   .subscribe(
+  //     assignments => {
+  //       this.assignments = assignments
+  //       this.dataService.getRecords("students")
+  //         .subscribe(
+  //           students => {
+  //             this.students = students
+  //             this.nextState = _.merge(this.assignments, this.students)
+  //             console.log(this.nextState)
+  //             for(let i=0; i < this.nextState.length; i++) {
+  //               if(!this.nextState[i].gradeStudentId) {
+  //                 console.log(this.nextState[i])
+  //                this.nextState.splice(i, i++)
+  //               }
+  //             }
+  //             console.log(this.nextState)              
+  //           })
+  //     },
+  //     error => this.errorMessage = <any>error
+  //   );
+  // }
 
   saveGrades(indexOfAssignment){
     console.log(this.assignments)
