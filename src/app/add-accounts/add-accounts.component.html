@@ -31,7 +31,7 @@
     <td>{{student.lastName}}</td>
     <td>{{student.email}}</td>
     <td>{{student.gradeLevel}}</td>
-    <td class="text-center">
+    <td class="text-center" width=30%>
       <a class="myButton" [routerLink]="['/add-accounts-form/edit/', student.userId]">Edit</a>&nbsp;
       <button class="myButtonTwo" (click)="deleteStudent(student.userId)">Delete</button>
     </td>
@@ -43,7 +43,7 @@
     <td>{{teacher.lastName}}</td>
     <td>{{teacher.email}}</td>
     <td>{{teacher.gradeLevel}}</td>
-    <td class="text-center">
+    <td class="text-center" width=30%>
       <a class="myButton" [routerLink]="['/add-teachers/edit/', teacher.userId]">Edit</a>&nbsp;
       <button class="myButtonTwo" (click)="deleteTeacher(teacher.userId)">Delete</button>
     </td>
