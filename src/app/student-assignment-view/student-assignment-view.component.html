@@ -1,10 +1,5 @@
-<!-- <p>
-  student-assignment-view works!
-</p> -->
-
 <br/>
 
-<!-- <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message> -->
 
 <h1 class="headers">Assignments and Grades</h1>
 
@@ -12,7 +7,9 @@
 <br>
 <br>
 
-<table class="table table-sm table-striped table-bordered" id="dataTable" style="width:75%">
+<app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
+
+<table class="table table-hover table-bordered" style="width:60%">
 <thead>
   <tr>
     <!-- <th>ID</th> -->
@@ -30,10 +27,6 @@
     <td>Due Date</td>
     <td>{{assignment.letterGradeValue}}</td>
     <td>Comments</td>
-    <!-- <td class="text-center">
-      <a class="btn btn-primary" [routerLink]="['/announcements/edit/', announcement.id]">Edit</a>&nbsp;
-      <button (click)="deleteAnnouncements(announcement.id)" class="btn btn-danger">Delete</button>
-    </td> -->
   </tr>
 </tbody>
 

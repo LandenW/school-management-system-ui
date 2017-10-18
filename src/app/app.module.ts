@@ -28,6 +28,7 @@ import { AddTeachersComponent } from './add-teachers/add-teachers.component';
 import { StatusMessageComponent } from './status-message/status-message.component';
 import { LogOutComponent } from './log-out/log-out.component';
 import { StudentAssignmentViewComponent } from './student-assignment-view/student-assignment-view.component';
+import { SchoolCalendarComponent } from './school-calendar/school-calendar.component';
 
 
 
@@ -52,6 +53,7 @@ import { StudentAssignmentViewComponent } from './student-assignment-view/studen
     LogOutComponent,
     AddTeachersComponent,
     StudentAssignmentViewComponent,
+    SchoolCalendarComponent,
   ],
   
   imports: [

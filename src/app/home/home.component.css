@@ -10,13 +10,13 @@ hr {
    display: flex;
    padding-left: 10%; 
    color: #662200;
-   font-family: 'Handlee', cursive;
+   font-family: 'Acme', sans-serif;
    font-size: 25px;
 }
 
 #title {
     display: flex;
-    font-family: 'Catamaran', sans-serif;
+    font-family: 'Acme', sans-serif;
     color: #00661a;
     font-size: 25px;
 }
