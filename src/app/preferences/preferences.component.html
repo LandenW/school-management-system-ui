@@ -44,16 +44,16 @@
     </div> -->
     <div class="form-group">
         <label class="col-sm-2 control-label">New Password</label>
-        <div class="col-sm-10">
-          <input (keyup)="validate()" type="password" class="form-control" id="nPassword" placeholder="New Password" required>
-          <br/>
-        </div>
+          <div class="col-sm-10">
+            <input (keyup)="validate()" type="password" class="form-control" id="nPassword" placeholder="New Password" required>
+          </div>
     </div>
-      <div class="form-group">
-          <label for="password" class="col-sm-2 control-label">Confirm New Password</label>
+    <div class="form-group">
+        <label for="password" class="col-sm-2 control-label">Confirm New Password</label>
           <div class="col-sm-10">
             <input (keyup)="validate()" [ngModel]="userInfo?.password" ngModel #password="ngModel" type="password" class="form-control" id="cnPassword" name="password" placeholder="Confirm New Password" required>
           </div>
+
             <input (keyup)="validate()" type="password" class="form-control" id="cnPassword" name="password" placeholder="Confirm New Password" required>
             <br/>
             <br/>
@@ -61,6 +61,9 @@
   </div>
       <br/>
       <br/>
+
+    </div>
+
     <button type="submit" id="updatePass" class="standardButton">Submit</button>      
 </form>
 </div>
