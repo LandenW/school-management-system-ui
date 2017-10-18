@@ -29,8 +29,7 @@ const routes: Routes = [
   { path: 'calendar',  component: CalendarComponent },
   { path: 'school-calendar',  component: SchoolCalendarComponent },
 
-  { path: 'grades',  component: GradesComponent },
-  { path: 'grades-form',  component: GradesFormComponent },
+  { path: 'grades/:id',  component: GradesComponent },
   { path: 'log-in',  component: LogInComponent },
   { path: 'navigation',  component: NavigationComponent },
   { path: 'preferences',  component: PreferencesComponent },
