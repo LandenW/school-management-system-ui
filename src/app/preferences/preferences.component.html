@@ -6,25 +6,47 @@
   
   <br/>
   
-  <h1>User Details</h1>
+  <h1 class="headers">User Details</h1>
 <div>
-  <ul style="list-style: none;">
-  <li>First Name:</li>
-  <li>Last Name:</li>
-  <li>Email:</li>
-  <li>Class:</li>
-  <li>Teacher:</li>
-  <li>Account Type:</li>
-  </ul>
+  <table>
+    <tr>
+      <td><b>First Name:</b></td>
+      <td>{{userInfo?.firstName}}</td>
+    </tr>
+    <tr>
+        <td><b>Last Name:</b></td>
+        <td>{{userInfo?.lastName}}</td>
+    </tr>
+    <tr>
+        <td><b>Email:</b></td>
+        <td>{{userInfo?.email}}</td>
+    </tr>
+    <tr>
+        <td><b>Account Type:</b></td>
+        <td>{{userInfo?.roleName}}</td>
+    </tr>
+    <tr>
+        <td><b>Grade Level:</b></td>
+        <td>{{userInfo?.gradeLevel}}</td>
+    </tr>
+</table>
 </div>
-<h1>Update Password</h1>
-<form>
-    <div class="form-group">
+<div>
+<h1 class="headers">Update Password</h1>
+<app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
+<form novalidate (ngSubmit)="savePassword(passwordForm)" #passwordForm="ngForm" class="form-horizontal">
+    <input [ngModel]="userInfo?.userId" ngModel #userId="ngModel" type="hidden" name="userId">
+    <input [ngModel]="userInfo?.firstName" ngModel #firstName="ngModel" type="hidden" name="firstName">
+    <input [ngModel]="userInfo?.lastName" ngModel #lastName="ngModel" type="hidden" name="lastName">
+    <input [ngModel]="userInfo?.email" ngModel #email="ngModel" type="hidden" name="email">
+    <input [ngModel]="userInfo?.roleName" ngModel #roleName="ngModel" type="hidden" name="roleName">
+    <input [ngModel]="userInfo?.gradeLevel" ngModel #gradeLevel="ngModel" type="hidden" name="gradeLevel">
+    <!-- <div class="form-group">
         <label class="col-sm-2 control-label">Old Password</label>
         <div class="col-sm-10">
           <input (keyup)="validate()" type="password" class="form-control" id="oPassword" placeholder="Old Password" required>
         </div>
-    </div>
+    </div> -->
     <div class="form-group">
         <label class="col-sm-2 control-label">New Password</label>
         <div class="col-sm-10">
@@ -34,8 +56,9 @@
       <div class="form-group">
           <label for="password" class="col-sm-2 control-label">Confirm New Password</label>
           <div class="col-sm-10">
-            <input (keyup)="validate()" type="password" class="form-control" id="cnPassword" name="password" placeholder="Confirm New Password" required>
+            <input (keyup)="validate()" [ngModel]="userInfo?.password" ngModel #password="ngModel" type="password" class="form-control" id="cnPassword" name="password" placeholder="Confirm New Password" required>
           </div>
       </div>
     <button type="submit" id="updatePass" class="standardButton">Submit</button>      
 </form>
+</div>
