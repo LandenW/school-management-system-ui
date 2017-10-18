@@ -28,7 +28,6 @@ const routes: Routes = [
   { path: 'calendar',  component: CalendarComponent },
 
   { path: 'grades/:id',  component: GradesComponent },
-  { path: 'grades-form',  component: GradesFormComponent },
   { path: 'log-in',  component: LogInComponent },
   { path: 'navigation',  component: NavigationComponent },
   { path: 'preferences',  component: PreferencesComponent },
