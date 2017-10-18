@@ -1,17 +1,13 @@
-
-<!-- <ol class="breadcrumb">
-    <li><a routerLink="/home">Home</a></li>
-    <li><a routerLink="/announcements">Announcements</a></li>
-    <li class="active">Manage Announcement</li>
-  </ol> -->
-  
+  <button class="standardButton" routerLink="/announcements">Return to Announcements</button>
+  <br/>
+  <br/>
   <br/>
   
-  <a class="standardButton" routerLink="/announcements">Return to Announcements</a>
+  <h1 class="headers">Manage Announcements</h1>
+  <br/>
+  <br/>
   
-  <h1>Manage Announcements</h1>
-  
-  <!-- <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message> -->
+  <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
   
   <form novalidate (ngSubmit)="saveAnnouncements(announcementsForm)" #announcementsForm="ngForm" class="form-horizontal">
     <input [ngModel]="announcements?.id" ngModel #announcements.id="ngModel" type="hidden" name="announcements.id">
