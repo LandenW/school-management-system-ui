@@ -18,12 +18,11 @@ export class GradesComponent implements OnInit {
   errorMessage: string;
   successMessage: string;
   letterGradeValue: string;
+  assignmentsWithStudent = []
   assignments;
   gradeId;
   gradeStudentId;
   rowItem;
-  students; 
-  nextState;
 
   constructor(private dataService: DataService,
     private route: ActivatedRoute ) { }
@@ -36,42 +35,39 @@ export class GradesComponent implements OnInit {
   // this.letterGradeValue = letterGradeValue;
   ngOnInit() {
     this.getGradesforOneStudent();
-    
   }
 
 
   getGradesforOneStudent() {
-    this.route.params
-    .switchMap((params: Params) => this.dataService.getGradesForOneRecord("grades", "assignments", +params['id']))
-    .subscribe(
-      assignments => {
-        this.assignments = assignments
-        this.dataService.getRecords("students")
-          .subscribe(
-            students => {
-              this.students = students
-              this.nextState = _.merge(this.assignments, this.students)
-              console.log(this.nextState)
-              for(let i=0; i < this.nextState.length; i++) {
-                if(!this.nextState[i].gradeStudentId) {
-                  console.log(this.nextState[i])
-                 this.nextState.splice(i, i++)
-                }
+    this.dataService.getRecords("students")
+      .subscribe(students => {
+
+        this.route.params
+          .switchMap((params: Params) => this.dataService.getGradesForOneRecord("grades", "assignments", +params['id']))
+          .subscribe(assignments => {
+            this.assignments = assignments
+            for (let assignment of assignments) {
+              const student = students.find(({userId}) => userId === assignment.gradeStudentId)
+              if (student) {
+                assignment['lastName'] = student.lastName
+                assignment['firstName'] = student.firstName
+                this.assignmentsWithStudent.push(assignment)
               }
-              console.log(this.nextState)              
-            })
+            }
+            this.assignmentsWithStudent.sort((a, b) => a.gradeStudentId - b.gradeStudentId)
+        })
       },
       error => this.errorMessage = <any>error
-    );
+    )
   }
 
   saveGrades(indexOfAssignment){
     console.log(this.assignments)
     this.dataService.editRecord("grades", this.assignments[indexOfAssignment], this.assignments[indexOfAssignment].gradeId)
-        .subscribe(
-          assignment => this.successMessage = "Record updated succesfully",
-          error => this.errorMessage = <any>error
-        );
+      .subscribe(
+        assignment => this.successMessage = "Record updated succesfully",
+        error => this.errorMessage = <any>error
+      );
   }
 
   

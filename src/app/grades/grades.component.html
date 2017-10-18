@@ -9,7 +9,7 @@
     <tbody>
 
         <form class="form-group">
-          <tr *ngFor="let assignment of nextState; let indexOfAssignment = index">
+          <tr *ngFor="let assignment of assignmentsWithStudent; let indexOfAssignment = index">
             <td>{{assignment.firstName}} {{assignment.lastName}}</td>
             <td><input [(ngModel)]="assignment.gradeId" name="grade-id-{{assignment.gradeId}}" type="hidden"></td>
             <td><input [(ngModel)]="assignment.gradeStudentId" name="grade-id-{{assignment.gradeStudentId}}" type="hidden" disabled></td>
