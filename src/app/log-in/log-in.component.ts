@@ -35,6 +35,7 @@ export class LogInComponent {
                   if (user) {
                     this.route.navigate(['']);
                     console.log("Logged in Successful")
+                    console.log(user)
                   } else {
                     this.message = 'Could not log in with those credentials';
                   }
