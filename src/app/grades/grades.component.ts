@@ -78,6 +78,7 @@ export class GradesComponent implements OnInit {
   }
 
   saveGrades(indexOfAssignment){
+    console.log(this.assignmentsWithStudent)
     this.dataService.editRecord("grades", this.assignmentsWithStudent[indexOfAssignment], this.assignmentsWithStudent[indexOfAssignment].gradeId)
       .subscribe(
         assignment => this.successMessage = "Record updated succesfully",
