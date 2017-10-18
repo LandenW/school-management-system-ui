@@ -22,9 +22,9 @@
         <td>{{assignment.assignmentDescription}}</td>
         <td>{{assignment.assignmentComment}}</td>
         <td class="text-center">
-          <a class="btn btn-primary">Grade</a>&nbsp;
-          <a class="myButton" [routerLink]="['/assignments-form/edit/', assignment.assignmentId]">Edit</a>&nbsp;
-          <button (click)="deleteAssignment(assignment.assignmentId)" class="myButtonTwo">Delete</button>
+          <a class="btn btn-primary" [routerLink]="['/grades/', assignment.assignmentId]">Grade</a>&nbsp;
+          <a class="btn btn-primary" [routerLink]="['/assignments-form/edit/', assignment.assignmentId]">Edit</a>&nbsp;
+          <button (click)="deleteAssignment(assignment.assignmentId)" class="btn btn-danger">Delete</button>
         </td>
       </tr>
     </tbody>

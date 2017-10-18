@@ -1,18 +1,18 @@
 <table class="table table-hover table-bordered" style="width:100%">
     <thead>
       <tr>
-        <th>Row Item</th>
-        <th>Grade ID</th>
-        <th>Student ID</th>
+        <th>Student</th>
         <th>Grade Letter</th>
         <th>Comments</th>
       </tr>
     </thead>
     <tbody>
+
         <form class="form-group">
-          <tr *ngFor="let assignment of assignments; let indexOfAssignment = index">
-            <td><input [(ngModel)]="assignment.gradeId" name="grade-id-{{assignment.gradeId}}" disabled></td>
-            <td><input [(ngModel)]="assignment.gradeStudentId" name="grade-id-{{assignment.gradeStudentId}}" disabled></td>
+          <tr *ngFor="let assignment of assignmentsWithStudent; let indexOfAssignment = index">
+            <td>{{assignment.firstName}} {{assignment.lastName}}</td>
+            <td><input [(ngModel)]="assignment.gradeId" name="grade-id-{{assignment.gradeId}}" type="hidden"></td>
+            <td><input [(ngModel)]="assignment.gradeStudentId" name="grade-id-{{assignment.gradeStudentId}}" type="hidden" disabled></td>
             <td>
               <select name="grade-id-{{assignment.gradeId}}-{{assignment.letterGradeValue}}" [(ngModel)]="assignment.letterGradeValue" (change)="saveGrades(indexOfAssignment)">
                 <option value="Not graded.">Not graded.</option>

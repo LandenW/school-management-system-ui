@@ -83,7 +83,7 @@ export class DataService {
             .map(this.extractData);
     }
 
-    getGradesForOneRecord(endpoint: string, endpoint2: string, id:number): Observable<any[]> {
+    getGradesForOneRecord(endpoint: string, endpoint2: string, id): Observable<any[]> {
         let apiUrl = `${this.baseUrl}${endpoint}/${endpoint2}/${id}`;
         return this.http.get(apiUrl)
             .map(this.extractData)
