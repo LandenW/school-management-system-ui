@@ -23,7 +23,7 @@
                 <option value="F">F</option>
               </select>
             </td>
-            <td><input [(ngModel)]="assignment.comment" type="text" name="comment" id="comment"></td>
+            <td><input [(ngModel)]="assignment.comment" type="text" name="assignment.comment" id="comment" (keyup)="saveGrades(indexOfAssignment)"></td>
           </tr>
     </form>
     </tbody>
