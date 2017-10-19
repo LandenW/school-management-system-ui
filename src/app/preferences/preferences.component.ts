@@ -12,7 +12,7 @@ import { NgForm } from '@angular/forms';
 })
 export class PreferencesComponent implements OnInit {
 
-  user: User;
+  currentUser: User;
   students;
   teachers;
   userInfo;
@@ -26,26 +26,21 @@ export class PreferencesComponent implements OnInit {
   ngOnInit() {
     this.dataService
     .userChanged
-    .subscribe(user => this.user = user); //sets current user to user passed in
-    this.user = this.dataService.getCurrentUser();
-    
-    this.dataService
-    .userChanged
-    .subscribe(userInfo => this.userInfo = userInfo); 
+    .subscribe(user => this.currentUser = user); //sets current user to user passed in
+    this.currentUser = this.dataService.getCurrentUser();
 
-      if(this.user.roleName == "STUDENT"){
+    console.log("user" + this.currentUser.roleName)
+      if(this.currentUser.roleName == "STUDENT"){
         this.endpoint = "students";
-        this.userInfo = this.getRecordToCompare(this.endpoint, this.user.userId);
+        this.userInfo = this.getRecordToCompare(this.endpoint, this.currentUser.userId);
       }
-      else if(this.user.roleName == "TEACHER"){
+      else if(this.currentUser.roleName == "TEACHER"){
         this.endpoint = "teachers";
-        this.userInfo = this.getRecordToCompare(this.endpoint, this.user.userId);
+        this.userInfo = this.getRecordToCompare(this.endpoint, this.currentUser.userId);
       }
       else{
-        this.userInfo = this.user;
+        this.userInfo = this.currentUser;
       }
-
-      
 
 
     (<HTMLInputElement>document.getElementById("updatePass")).disabled = true 
@@ -76,7 +71,7 @@ export class PreferencesComponent implements OnInit {
 
   savePassword(password: NgForm){
     console.log(password.value)
-      this.dataService.editRecord(this.endpoint, password.value, this.user.userId)
+      this.dataService.editRecord(this.endpoint, password.value, this.currentUser.userId)
           .subscribe(
             password => this.successMessage = "Password updated succesfully",
             error =>  this.errorMessage = <any>error);

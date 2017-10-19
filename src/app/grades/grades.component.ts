@@ -36,27 +36,6 @@ export class GradesComponent implements OnInit {
 
 
   getGradesforOneStudent() {
-    // this.dataService.getRecords("students")
-    //   .subscribe(students => {
-
-    //     this.route.params
-    //       .switchMap((params: Params) => this.dataService.getGradesForOneRecord("grades", "assignments", +params['id']))
-    //       .subscribe(assignments => {
-    //         this.assignments = assignments
-    //         for (let assignment of assignments) {
-    //           const student = students.find(({userId}) => userId === assignment.gradeStudentId)
-    //           if (student) {
-    //             assignment['lastName'] = student.lastName
-    //             assignment['firstName'] = student.firstName
-    //             this.assignmentsWithStudent.push(assignment)
-    //           }
-    //         }
-    //         this.assignmentsWithStudent.sort((a, b) => a.gradeStudentId - b.gradeStudentId)
-    //     })
-    //   },
-    //   error => this.errorMessage = <any>error
-    // )
-
     this.route
       .params
       .map((params: Params) => +params['id'])
@@ -71,7 +50,6 @@ export class GradesComponent implements OnInit {
             g.lastName = student.lastName;
             g.firstName = student.firstName;
           });
-          listOfGrades.sort((a, b) => a.gradeStudentId - b.gradeStudentId);
           this.assignmentsWithStudent = listOfGrades;
         })
       });

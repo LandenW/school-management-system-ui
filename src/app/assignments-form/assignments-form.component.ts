@@ -47,8 +47,9 @@ export class AssignmentsFormComponent implements OnInit {
   }
 
   saveAssignment(assignments: NgForm){
-    if(typeof assignments.value['assignments.assignmentId'] === "number"){
-      this.dataService.editRecord("assignments", assignments.value, assignments.value['assignments.assignmentId'])
+    console.log(assignments.value['assignments.id'])
+    if(typeof assignments.value['assignments.id'] === "number"){
+      this.dataService.editRecord("assignments", assignments.value, assignments.value['assignments.id'])
           .subscribe(
             assignments => this.successMessage = "Record updated succesfully",
             error =>  this.errorMessage = <any>error);

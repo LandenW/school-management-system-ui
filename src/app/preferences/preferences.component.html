@@ -27,7 +27,7 @@
 <div>
 <h1 class="headers">Update Password</h1>
 <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
-<form novalidate (ngSubmit)="savePassword(passwordForm)" #passwordForm="ngForm" class="form-horizontal">
+<form  novalidate (ngSubmit)="savePassword(passwordForm)" #passwordForm="ngForm" class="form-horizontal">
     <input [ngModel]="userInfo?.userId" ngModel #userId="ngModel" type="hidden" name="userId">
     <input [ngModel]="userInfo?.firstName" ngModel #firstName="ngModel" type="hidden" name="firstName">
     <input [ngModel]="userInfo?.lastName" ngModel #lastName="ngModel" type="hidden" name="lastName">

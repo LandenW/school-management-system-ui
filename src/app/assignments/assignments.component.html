@@ -18,12 +18,11 @@
       <tr *ngFor="let assignment of assignments">
         <td>{{assignment.assignmentId}}</td>
         <td>{{assignment.assignmentName}}</td>
-        <td>{{assignment.assignmentDueDate}}</td>
+        <td>{{assignment.assignmentDueDate | date}}</td>
         <td>{{assignment.assignmentDescription}}</td>
         <td>{{assignment.assignmentComment}}</td>
-<<<<<<< HEAD
         <td class="text-center" width=30%>
-          <a class="myButtonThree">Grade</a>&nbsp;
+          <a class="myButtonThree" [routerLink]="['/grades/', assignment.assignmentId]">Grade</a>&nbsp;
           <a class="myButton" [routerLink]="['/assignments-form/edit/', assignment.assignmentId]">Edit</a>&nbsp;
           <button (click)="deleteAssignment(assignment.assignmentId)" class="myButtonTwo">Delete</button>
         </td>
