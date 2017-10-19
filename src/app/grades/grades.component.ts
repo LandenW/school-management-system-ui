@@ -50,7 +50,6 @@ export class GradesComponent implements OnInit {
             g.lastName = student.lastName;
             g.firstName = student.firstName;
           });
-          listOfGrades.sort((a, b) => a.gradeStudentId - b.gradeStudentId);
           this.assignmentsWithStudent = listOfGrades;
         })
       });
