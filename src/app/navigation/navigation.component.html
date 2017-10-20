@@ -4,7 +4,7 @@
         <li *ngIf="currentUser?.roleName==='TEACHER'  || currentUser?.roleName==='ADMIN'"routerLinkActive="active"><a routerLink="/assignments" >Assignments</a></li>
         <li *ngIf="currentUser?.roleName==='TEACHER' || currentUser?.roleName==='ADMIN'" routerLinkActive="active"><a routerLink="/announcements" >Add/Edit Announcements</a></li> 
         <li *ngIf="currentUser?.roleName==='ADMIN'" routerLinkActive="active"><a routerLink="/add-accounts" >Add Accounts</a></li> 
-        <li *ngIf="currentUser?.roleName==='STUDENT'" routerLinkActive="active"><a routerLink="/student-assignment-view" >View Assignments/Grades</a></li>
+        <li *ngIf="currentUser?.roleName==='STUDENT'" routerLinkActive="active"><a [routerLink]="['student-assignment-view/', currentUser.userId]" >View Assignments/Grades</a></li>
         <li *ngIf="currentUser?.roleName==='TEACHER' || currentUser?.roleName==='ADMIN' || currentUser?.roleName==='STUDENT'" routerLinkActive="active"><a routerLink="/preferences" >Preferences</a></li>                             
     </ul>
 </div>

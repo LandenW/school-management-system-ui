@@ -45,10 +45,7 @@ const routes: Routes = [
   { path: 'assignments-form/add',  component: AssignmentsFormComponent },
   { path: 'assignments-form/edit/:id',  component: AssignmentsFormComponent },
 
-  { path: 'student-assignment-view',  component: StudentAssignmentViewComponent },
-
-
-
+  { path: 'student-assignment-view/:id',  component: StudentAssignmentViewComponent },
 
 
 ]

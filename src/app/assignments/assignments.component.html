@@ -1,6 +1,6 @@
 <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
 
-<button class="standardButton" routerLink="/assignments-form">Add Assignment</button>
+<button class="logButton" routerLink="/assignments-form">Add Assignment</button>
 <br/>
 <br/>
 <table class="table table-hover table-bordered" style="width:60%">
@@ -21,11 +21,10 @@
         <td>{{assignment.assignmentDueDate}}</td>
         <td>{{assignment.assignmentDescription}}</td>
         <td>{{assignment.assignmentComment}}</td>
-<<<<<<< HEAD
         <td class="text-center" width=30%>
-          <a class="myButtonThree">Grade</a>&nbsp;
-          <a class="myButton" [routerLink]="['/assignments-form/edit/', assignment.assignmentId]">Edit</a>&nbsp;
-          <button (click)="deleteAssignment(assignment.assignmentId)" class="myButtonTwo">Delete</button>
+          <button class="myButtonThree">Grade</button>&nbsp;
+          <button class="myButton" [routerLink]="['/assignments-form/edit/', assignment.assignmentId]">Edit</button>&nbsp;
+          <button (click)="deleteAssignment(assignment.assignmentId)" class="standardButton">Delete</button>
         </td>
       </tr>
     </tbody>
