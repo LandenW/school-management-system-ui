@@ -59,8 +59,8 @@ export class AssignmentsFormComponent implements OnInit {
     if(typeof assignments.value['id'] === "number"){
       this.dataService.editRecord("assignments", assignments.value, assignments.value['id'])
           .subscribe(
-            assignments => this.successMessage = "Record updated succesfully",
-            error =>  this.errorMessage = <any>error);
+            assignments => {this.successMessage = "Record updated succesfully",
+            error =>  this.errorMessage = <any>error});
             this.assignments = {};
     }else{
       this.dataService.addAssignment("teachers", this.currentUser.userId, "assignments", assignments.value)

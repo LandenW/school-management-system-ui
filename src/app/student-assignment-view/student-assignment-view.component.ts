@@ -51,9 +51,8 @@ export class StudentAssignmentViewComponent implements OnInit {
         .then(([listOfGrades, listOfAssignments]) => {
           listOfGrades.forEach(g => {
             const assignment = listOfAssignments.find(s => g.gradeAssignmentId === s.assignmentId);
-
             g.assignmentName = assignment.assignmentName;
-            g.assignmentDueDate = assignment.assignmentDueDate;
+            g.assignmentDueDate = assignment.assignmentDueDate + 28800000;
           });
           listOfGrades.sort((a, b) => a.gradeAssignmentId - b.gradeAssignmentId);
           this.assignmentsForStudent = listOfGrades;
