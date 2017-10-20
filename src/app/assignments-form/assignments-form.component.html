@@ -6,7 +6,7 @@
 
 
 <form novalidate (ngSubmit)="saveAssignment(assignmentsForm)" #assignmentsForm="ngForm" class="form-horizontal">
-<input [ngModel]="assignments?.id" ngModel #assignments.id="ngModel" type="hidden" name="id">
+<input [ngModel]="assignments?.assignmentId" ngModel #assignments.id="ngModel" type="hidden" name="id">
 <div class="form-group">
   <label for="name" class="col-sm-2 control-label">Assignment Name</label>
   <div class="col-sm-10">
@@ -31,6 +31,7 @@
       <input [ngModel]="assignments?.assignmentDescription" ngModel #assignmentDescription="ngModel" type="text" class="form-control" id="description" name="description"  placeholder="Description" required>
     </div>
 </div>
+<!-- pass teacher ID in path and not in body teachers/id/assignments -->
 <input [ngModel]="currentUser?.userId" ngModel #currentUser.userId="ngModel" type="hidden" name="teacherId">
  <div class="form-group">
   <div class="col-sm-offset-2 col-sm-10">

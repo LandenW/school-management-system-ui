@@ -50,6 +50,11 @@ export class GradesComponent implements OnInit {
             g.lastName = student.lastName;
             g.firstName = student.firstName;
           });
+          listOfGrades.sort((a, b) => {
+            if(a.lastName < b.lastName) return -1;
+            if(a.lastName > b.lastName) return 1;
+            return 0;
+          })
           this.assignmentsWithStudent = listOfGrades;
         })
       });
