@@ -36,27 +36,6 @@ export class GradesComponent implements OnInit {
 
 
   getGradesforOneStudent() {
-    // this.dataService.getRecords("students")
-    //   .subscribe(students => {
-
-    //     this.route.params
-    //       .switchMap((params: Params) => this.dataService.getGradesForOneRecord("grades", "assignments", +params['id']))
-    //       .subscribe(assignments => {
-    //         this.assignments = assignments
-    //         for (let assignment of assignments) {
-    //           const student = students.find(({userId}) => userId === assignment.gradeStudentId)
-    //           if (student) {
-    //             assignment['lastName'] = student.lastName
-    //             assignment['firstName'] = student.firstName
-    //             this.assignmentsWithStudent.push(assignment)
-    //           }
-    //         }
-    //         this.assignmentsWithStudent.sort((a, b) => a.gradeStudentId - b.gradeStudentId)
-    //     })
-    //   },
-    //   error => this.errorMessage = <any>error
-    // )
-
     this.route
       .params
       .map((params: Params) => +params['id'])
@@ -71,13 +50,18 @@ export class GradesComponent implements OnInit {
             g.lastName = student.lastName;
             g.firstName = student.firstName;
           });
-          listOfGrades.sort((a, b) => a.gradeStudentId - b.gradeStudentId);
+          listOfGrades.sort((a, b) => {
+            if(a.lastName < b.lastName) return -1;
+            if(a.lastName > b.lastName) return 1;
+            return 0;
+          })
           this.assignmentsWithStudent = listOfGrades;
         })
       });
   }
 
   saveGrades(indexOfAssignment){
+    console.log(this.assignmentsWithStudent)
     this.dataService.editRecord("grades", this.assignmentsWithStudent[indexOfAssignment], this.assignmentsWithStudent[indexOfAssignment].gradeId)
       .subscribe(
         assignment => this.successMessage = "Record updated succesfully",
