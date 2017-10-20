@@ -1,6 +1,8 @@
 <button class="standardButton" routerLink="/assignments">Return to Assignments</button>
-<br>
-<table class="table table-hover table-bordered" style="width:100%">
+<br/>
+<br/>
+<br/>
+<table class="table table-hover table-bordered" style="width:80%">
     <thead>
       <tr>
         <th>Student Name</th>
@@ -13,7 +15,7 @@
           <tr *ngFor="let assignment of assignmentsWithStudent; let indexOfAssignment = index">
             <td>{{assignment.firstName}} {{assignment.lastName}}</td>
             <td><input [(ngModel)]="assignment.gradeId" name="grade-id-{{assignment.gradeId}}" type="hidden"></td>
-            <td><input [(ngModel)]="assignment.gradeAssignmentId" name="grade-id-{{assignment.gradeAssignmentId}}" type="hidden"></td>            
+            <td><input [(ngModel)]="assignment.gradeAssignmentId" name="grade-id-{{assignment.gradeAssignmentId}}" type="hidden"></td>
             <td><input [(ngModel)]="assignment.gradeStudentId" name="grade-id-{{assignment.gradeStudentId}}" type="hidden" disabled></td>
             <td>
               <select name="grade-id-{{assignment.gradeId}}-{{assignment.letterGradeValue}}" [(ngModel)]="assignment.letterGradeValue" (change)="saveGrades(indexOfAssignment)">
