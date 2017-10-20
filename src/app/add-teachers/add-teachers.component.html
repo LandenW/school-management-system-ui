@@ -1,4 +1,4 @@
-<a class="logButton" routerLink="/add-accounts">Return to Accounts</a>
+<button class="logButton" routerLink="/add-accounts">Return to Accounts</button>
 <br/>
 <br/>
 
@@ -11,31 +11,31 @@
 <form novalidate (ngSubmit)="saveTeacher(teacherForm)"  #teacherForm="ngForm" class="form-horizontal">
   <input [ngModel]="teacher.userId" ngModel #userId="ngModel" type="hidden" name="userId">
 <div class="form-group">
-  <label for="firstName" class="col-sm-2 control-label">First Name</label>
+  <label for="firstName" class="col-sm-2 control-label formTitle">First Name</label>
   <div class="col-sm-10">
     <input [(ngModel)]="teacher.firstName" ngModel #firstName="ngModel" type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required>
   </div>
 </div>
 <div class="form-group">
-  <label for="lastName" class="col-sm-2 control-label">Last Name</label>
+  <label for="lastName" class="col-sm-2 control-label formTitle">Last Name</label>
   <div class="col-sm-10">
     <input [(ngModel)]="teacher.lastName" ngModel #lastName="ngModel" type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required>
   </div>
 </div>
 <div class="form-group">
-  <label for="email" class="col-sm-2 control-label">Email</label>
+  <label for="email" class="col-sm-2 control-label formTitle">Email</label>
   <div class="col-sm-10">
     <input [(ngModel)]="teacher.email" ngModel #email="ngModel" type="email" class="form-control" id="email" name="email" placeholder="Email" required>
   </div>
 </div>
 <div class="form-group" [hidden]="!teacher?.userId == null">
-  <label for="password" class="col-sm-2 control-label">Password</label>
+  <label for="password" class="col-sm-2 control-label formTitle">Password</label>
   <div class="col-sm-10">
     <input [(ngModel)]="teacher.password" ngModel #password="ngModel" type="password" class="form-control" id="password" name="password" placeholder="" required>
   </div>
 </div>
 <div class="form-group">
-    <label for="gradeLevel" class="col-sm-2 control-label">Grade Level</label>
+    <label for="gradeLevel" class="col-sm-2 control-label formTitle">Grade Level</label>
       <select name="gradeLevel" id="gradeLevel" [(ngModel)]="teacher.gradeLevel">
         <option value="default">Select Grade Level...</option>
         <option value="1">1</option>

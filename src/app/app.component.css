@@ -1,4 +1,4 @@
-h1 {
+#schoolHeader {
     background-color: #ebebe0;
     font-size: 35px;
     color: #662200;
@@ -18,3 +18,7 @@ h1 {
 }
 
 
+#userWelcome {
+    font-family: 'Catamaran', sans-serif;
+    color: Grey;
+}

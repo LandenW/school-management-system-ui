@@ -27,6 +27,7 @@ const routes: Routes = [
   { path: 'announcements-form',  component: AnnouncementsFormComponent },
   { path: 'calendar',  component: CalendarComponent },
 
+
   { path: 'grades/:id',  component: GradesComponent },
   { path: 'log-in',  component: LogInComponent },
   { path: 'navigation',  component: NavigationComponent },

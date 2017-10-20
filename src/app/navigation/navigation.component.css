@@ -1,4 +1,18 @@
 #navbar {
-    font-family: 'Julius Sans One', sans-serif;
+    font-family: 'Julius Sans One', sans-serif;  
 }
 
+a {
+    color: #00661a;
+}
+
+/* .logButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #662200), color-stop(1, #873207));
+	background:-moz-linear-gradient(top, #662200 5%, #873207 100%);
+	background:-webkit-linear-gradient(top, #662200 5%, #873207 100%);
+	background:-o-linear-gradient(top, #662200 5%, #873207 100%);
+	background:-ms-linear-gradient(top, #662200 5%, #873207 100%);
+	background:linear-gradient(to bottom, #662200 5%, #873207 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#662200', endColorstr='#873207',GradientType=0);
+	background-color:#662200;
+} */

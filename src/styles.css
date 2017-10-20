@@ -2,12 +2,17 @@
 
 @import url('https://fonts.googleapis.com/css?family=Julius+Sans+One');
 @import url('https://fonts.googleapis.com/css?family=Catamaran:200');
-@import url('https://fonts.googleapis.com/css?family=Acme');
 @import url('https://fonts.googleapis.com/css?family=Rock+Salt');
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
 
 
 body {
 	background-image: url("public/images/background.jpg");
+}
+
+table {
+    margin: 0 auto;
+    z-index: 1;
 }
 
 #centerColor {
@@ -22,9 +27,13 @@ body {
 	font-size: 30px; 
 }
 
+.formTitle {
+	font-family: 'Quicksand', sans-serif;
+}
+
 th {
 	background-color: #ebebe0;
-	color: #662200;
+	color: #00661a;
 	font-family: 'Catamaran', sans-serif;
 	font-size: 18px;
 	text-align: center;
@@ -141,36 +150,36 @@ form {
 	-moz-box-shadow: 0px 10px 14px -7px #3e7327;
 	-webkit-box-shadow: 0px 10px 14px -7px #3e7327;
 	box-shadow: 0px 10px 14px -7px #3e7327;
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #d9edce), color-stop(1, #9dcf84));
-	background:-moz-linear-gradient(top, #d9edce 5%, #9dcf84 100%);
-	background:-webkit-linear-gradient(top, #d9edce 5%, #9dcf84 100%);
-	background:-o-linear-gradient(top, #d9edce 5%, #9dcf84 100%);
-	background:-ms-linear-gradient(top, #d9edce 5%, #9dcf84 100%);
-	background:linear-gradient(to bottom, #d9edce 5%, #9dcf84 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d9edce', endColorstr='#9dcf84',GradientType=0);
-	background-color:#d9edce;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #cde0c3), color-stop(1, #86d460));
+	background:-moz-linear-gradient(top, #cde0c3 5%, #86d460 100%);
+	background:-webkit-linear-gradient(top, #cde0c3 5%, #86d460 100%);
+	background:-o-linear-gradient(top, #cde0c3 5%, #86d460 100%);
+	background:-ms-linear-gradient(top, #cde0c3 5%, #86d460 100%);
+	background:linear-gradient(to bottom, #cde0c3 5%, #86d460 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#cde0c3', endColorstr='#86d460',GradientType=0);
+	background-color:#cde0c3;
 	-moz-border-radius:4px;
 	-webkit-border-radius:4px;
 	border-radius:4px;
-	border:1px solid #94bd80;
+	border:1px solid #4b8f29;
 	display:inline-block;
 	cursor:pointer;
-	color:#ffffff;
+	color:White;
 	font-family:Arial;
 	font-size:13px;
 	padding:6px 12px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #5b8a3c;
+	text-shadow:0px 1px 0px #000000;
 }
 .myButtonThree:hover {
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #9dcf84), color-stop(1, #d9edce));
-	background:-moz-linear-gradient(top, #9dcf84 5%, #d9edce 100%);
-	background:-webkit-linear-gradient(top, #9dcf84 5%, #d9edce 100%);
-	background:-o-linear-gradient(top, #9dcf84 5%, #d9edce 100%);
-	background:-ms-linear-gradient(top, #9dcf84 5%, #d9edce 100%);
-	background:linear-gradient(to bottom, #9dcf84 5%, #d9edce 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#9dcf84', endColorstr='#d9edce',GradientType=0);
-	background-color:#9dcf84;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #86d460), color-stop(1, #cde0c3));
+	background:-moz-linear-gradient(top, #86d460 5%, #cde0c3 100%);
+	background:-webkit-linear-gradient(top, #86d460 5%, #cde0c3 100%);
+	background:-o-linear-gradient(top, #86d460 5%, #cde0c3 100%);
+	background:-ms-linear-gradient(top, #86d460 5%, #cde0c3 100%);
+	background:linear-gradient(to bottom, #86d460 5%, #cde0c3 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#86d460', endColorstr='#cde0c3',GradientType=0);
+	background-color:#86d460;
 }
 .myButtonThree:active {
 	position:relative;
