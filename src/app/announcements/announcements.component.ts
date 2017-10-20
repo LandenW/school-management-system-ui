@@ -23,8 +23,11 @@ export class AnnouncementsComponent implements OnInit {
    getAnnouncements() {
      this.dataService.getRecords("announcements")
        .subscribe(
-         announcements => this.announcements = announcements,
-         error =>  this.errorMessage = <any>error);
+         announcements => {this.announcements = announcements;
+        for (let i=0; i < this.announcements.length; i++) {
+          this.announcements[i].date = this.announcements[i].date + 28800000
+        }
+         error =>  this.errorMessage = <any>error});
    }
 
    deleteAnnouncements(id:number) {

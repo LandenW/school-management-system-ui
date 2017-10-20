@@ -53,7 +53,6 @@ import { StudentAssignmentViewComponent } from './student-assignment-view/studen
     LogOutComponent,
     AddTeachersComponent,
     StudentAssignmentViewComponent,
- 
   ],
   
   imports: [

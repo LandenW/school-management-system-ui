@@ -37,7 +37,7 @@ export class AnnouncementsFormComponent implements OnInit {
         date = new Date(date);
         var year = date.getFullYear();
         var month = date.getMonth() + 1;
-        var day = date.getDate();
+        var day = date.getDate() + 1;
         date = year + "-" + month + "-" + day
         this.announcements.date = date     
       });
@@ -52,7 +52,6 @@ export class AnnouncementsFormComponent implements OnInit {
       }
   
     saveAnnouncements(announcements: NgForm){
-      console.log(announcements.value)
       if(typeof announcements.value['announcements.id'] === "number"){
         this.dataService.editRecord("announcements", announcements.value, announcements.value['announcements.id'])
             .subscribe(
