@@ -15,18 +15,18 @@
     <!-- <th>ID</th> -->
     <th>Assignment Name</th>
     <th>Due Date</th>
-    <th>Grade</th>
     <th>Comments</th>
+    <th>Grade</th>
   </tr>
 </thead>
 
 <tbody>
-  <tr *ngFor="let assignment of assignments">
+  <tr *ngFor="let assignment of assignmentsForStudent">
     <!-- <td>{{announcement.id}}</td> -->
-    <td>{{assignment.gradeAssignmentId}}</td>
-    <td>Due Date</td>
+    <td>{{assignment.assignmentName}}</td>
+    <td>{{assignment.assignmentDueDate | date}}</td>
+    <td>{{assignment.comment}}</td>
     <td>{{assignment.letterGradeValue}}</td>
-    <td>Comments</td>
   </tr>
 </tbody>
 

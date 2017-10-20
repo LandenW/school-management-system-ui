@@ -4,7 +4,7 @@
 
 <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
 
-<button class="standardButton" routerLink="/announcements-form">Add Announcement</button>
+<button class="logButton" routerLink="/announcements-form">Add Announcement</button>
 <br/>
 <br/>
 <br/>
@@ -27,8 +27,8 @@
     <td>{{announcement.title}}</td>
     <td>{{announcement.description}}</td>
     <td class="text-center" width=30%>
-      <a class="myButton" [routerLink]="['/announcements/edit/', announcement.id]">Edit</a>&nbsp;
-      <button (click)="deleteAnnouncements(announcement.id)" class="myButtonTwo">Delete</button>
+      <button class="myButton" [routerLink]="['/announcements/edit/', announcement.id]">Edit</button>&nbsp;
+      <button (click)="deleteAnnouncements(announcement.id)" class="standardButton">Delete</button>
     </td>
   </tr>
 </tbody>

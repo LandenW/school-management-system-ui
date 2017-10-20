@@ -1,4 +1,4 @@
-<button class="standardButton" routerLink="/assignments">Return to Assignments</button>
+<button class="logButton" routerLink="/assignments">Return to Assignments</button>
 
 <h1 class="headers">Manage Assignments</h1>
 
@@ -35,7 +35,7 @@
 <input [ngModel]="currentUser?.userId" ngModel #currentUser.userId="ngModel" type="hidden" name="teacherId">
  <div class="form-group">
   <div class="col-sm-offset-2 col-sm-10">
-    <button [disabled]="!assignmentsForm.form.valid" type="submit" class="standardButton">Submit</button>
+    <button [disabled]="!assignmentsForm.form.valid" type="submit" class="logButton">Submit</button>
   </div>
 </div>
 </form>
