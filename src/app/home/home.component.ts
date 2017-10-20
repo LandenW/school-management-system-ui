@@ -10,7 +10,7 @@ import { DataService } from '../data.service'
 export class HomeComponent implements OnInit {
 
   errorMessage: string;
-  successMessage: string;
+  successMessage: string; 
   announcements: any[];
   mode = 'Observable';
 
@@ -21,7 +21,10 @@ export class HomeComponent implements OnInit {
    getAnnouncements() {
      this.dataService.getRecords("announcements")
        .subscribe(
-         announcements => this.announcements = announcements,
-         error =>  this.errorMessage = <any>error);
+         announcements => {this.announcements = announcements;
+          for (let i=0; i < this.announcements.length; i++) {
+            this.announcements[i].date = this.announcements[i].date + 28800000
+          }
+         error =>  this.errorMessage = <any>error});
    }
   }
