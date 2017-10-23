@@ -4,8 +4,8 @@
 
 <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
 
-<button class="standardButton" routerLink="/add-accounts-form/add">Add Student</button>
-<button class="standardButton" routerLink="/add-teachers/add">Add Teacher</button>
+<button class="logButton" routerLink="/add-accounts-form/add">Add Student</button>
+<button class="logButton" routerLink="/add-teachers/add">Add Teacher</button>
 <br/>
 <br/>
 <br/>
@@ -32,8 +32,8 @@
     <td>{{student.email}}</td>
     <td>{{student.gradeLevel}}</td>
     <td class="text-center" width=30%>
-      <a class="myButton" [routerLink]="['/add-accounts-form/edit/', student.userId]">Edit</a>&nbsp;
-      <button class="myButtonTwo" (click)="deleteStudent(student.userId)">Delete</button>
+      <button class="myButton" [routerLink]="['/add-accounts-form/edit/', student.userId]">Edit</button>&nbsp;
+      <button class="standardButton" (click)="deleteStudent(student.userId)">Delete</button>
     </td>
   </tr>
   <tr *ngFor="let teacher of teachers">
@@ -44,8 +44,8 @@
     <td>{{teacher.email}}</td>
     <td>{{teacher.gradeLevel}}</td>
     <td class="text-center" width=30%>
-      <a class="myButton" [routerLink]="['/add-teachers/edit/', teacher.userId]">Edit</a>&nbsp;
-      <button class="myButtonTwo" (click)="deleteTeacher(teacher.userId)">Delete</button>
+      <button class="myButton" [routerLink]="['/add-teachers/edit/', teacher.userId]">Edit</button>&nbsp;
+      <button class="standardButton" (click)="deleteTeacher(teacher.userId)">Delete</button>
     </td>
   </tr>
 </tbody>

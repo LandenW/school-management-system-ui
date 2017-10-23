@@ -5,7 +5,6 @@ import { RouterModule }   from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { MatDialogModule } from '@angular/material';
 
-
 import { AppComponent } from './app.component';
 import { GradesComponent } from './grades/grades.component';
 import { AnnouncementsComponent } from './announcements/announcements.component';
@@ -29,7 +28,7 @@ import { AddTeachersComponent } from './add-teachers/add-teachers.component';
 import { StatusMessageComponent } from './status-message/status-message.component';
 import { LogOutComponent } from './log-out/log-out.component';
 import { StudentAssignmentViewComponent } from './student-assignment-view/student-assignment-view.component';
-import { SchoolCalendarComponent } from './school-calendar/school-calendar.component';
+
 
 
 
@@ -54,7 +53,6 @@ import { SchoolCalendarComponent } from './school-calendar/school-calendar.compo
     LogOutComponent,
     AddTeachersComponent,
     StudentAssignmentViewComponent,
-    SchoolCalendarComponent
   ],
   
   imports: [

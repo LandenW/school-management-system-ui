@@ -16,7 +16,6 @@ import { NavigationComponent }   from '../navigation/navigation.component';
 import { PreferencesComponent }   from '../preferences/preferences.component';
 import { AddTeachersComponent }   from '../add-teachers/add-teachers.component';
 import { StudentAssignmentViewComponent }   from '../student-assignment-view/student-assignment-view.component';
-import { SchoolCalendarComponent }   from '../school-calendar/school-calendar.component';
 
 const routes: Routes = [
   { path: '',  component: HomeComponent},
@@ -27,7 +26,7 @@ const routes: Routes = [
   { path: 'announcements',  component: AnnouncementsComponent },
   { path: 'announcements-form',  component: AnnouncementsFormComponent },
   { path: 'calendar',  component: CalendarComponent },
-  { path: 'school-calendar',  component: SchoolCalendarComponent },
+
 
   { path: 'grades/:id',  component: GradesComponent },
   { path: 'log-in',  component: LogInComponent },
@@ -44,14 +43,10 @@ const routes: Routes = [
 
   { path: 'assignments-form/add',  component: AssignmentsFormComponent },
   { path: 'assignments-form/edit/:id',  component: AssignmentsFormComponent },
-
-  { path: 'student-assignment-view',  component: StudentAssignmentViewComponent }
-
-
-
-
-
+  { path: 'student-assignment-view',  component: StudentAssignmentViewComponent },
+  { path: 'student-assignment-view/:id',  component: StudentAssignmentViewComponent },
 ]
+
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],
   exports: [ RouterModule ]

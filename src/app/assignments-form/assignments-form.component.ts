@@ -18,14 +18,23 @@ export class AssignmentsFormComponent implements OnInit {
 
   successMessage: string;
   errorMessage: string;
-  assignments: object;
+  assignments: any;
   currentUser: User;
-  
 
   getRecordForEdit(){
+    // var dateConverter = new Date();            
     this.route.params
       .switchMap((params: Params) => this.dataService.getRecord("assignments", +params['id']))
-      .subscribe(assignments => this.assignments = assignments);
+      .subscribe(assignments => {this.assignments = assignments;
+        var date = this.assignments.assignmentDueDate
+        date = new Date(date);
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var day = date.getDate() + 1;
+        date = year + "-" + month + "-" + day
+        this.assignments.assignmentDueDate = date        
+      });
+      
   }
 
   constructor(
@@ -47,15 +56,14 @@ export class AssignmentsFormComponent implements OnInit {
   }
 
   saveAssignment(assignments: NgForm){
-    console.log(assignments.value['assignments.id'])
-    if(typeof assignments.value['assignments.id'] === "number"){
-      this.dataService.editRecord("assignments", assignments.value, assignments.value['assignments.id'])
+    if(typeof assignments.value['id'] === "number"){
+      this.dataService.editRecord("assignments", assignments.value, assignments.value['id'])
           .subscribe(
-            assignments => this.successMessage = "Record updated succesfully",
-            error =>  this.errorMessage = <any>error);
+            assignments => {this.successMessage = "Record updated succesfully",
+            error =>  this.errorMessage = <any>error});
             this.assignments = {};
     }else{
-      this.dataService.addRecord("assignments", assignments.value)
+      this.dataService.addAssignment("teachers", this.currentUser.userId, "assignments", assignments.value)
           .subscribe(       
             assignments => this.successMessage = "Record added succesfully",
             error =>  this.errorMessage = <any>error);

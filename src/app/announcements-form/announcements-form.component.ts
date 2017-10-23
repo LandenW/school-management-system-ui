@@ -19,7 +19,7 @@ export class AnnouncementsFormComponent implements OnInit {
   successMessage: string;
   errorMessage: string;
 
-  announcements: object;
+  announcements: any;
   announcement;
 
   constructor(
@@ -32,11 +32,18 @@ export class AnnouncementsFormComponent implements OnInit {
   getRecordForEdit(){
     this.route.params
       .switchMap((params: Params) => this.dataService.getRecord("announcements", +params['id']))
-      .subscribe(announcements => this.announcements = announcements);
+      .subscribe(announcements => {this.announcements = announcements
+        var date = this.announcements.date
+        date = new Date(date);
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var day = date.getDate() + 1;
+        date = year + "-" + month + "-" + day
+        this.announcements.date = date     
+      });
   }
 
     ngOnInit() {
-    
       this.route.params
         .subscribe((params: Params) => {
           (+params['id']) ? this.getRecordForEdit() : null;
@@ -45,7 +52,6 @@ export class AnnouncementsFormComponent implements OnInit {
       }
   
     saveAnnouncements(announcements: NgForm){
-      console.log(announcements.value)
       if(typeof announcements.value['announcements.id'] === "number"){
         this.dataService.editRecord("announcements", announcements.value, announcements.value['announcements.id'])
             .subscribe(

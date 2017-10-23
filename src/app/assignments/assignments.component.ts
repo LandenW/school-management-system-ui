@@ -32,14 +32,15 @@ export class AssignmentsComponent implements OnInit {
   getAssignments() {
     this.dataService.getTeacherAssignments("teachers", this.currentUser.userId, "assignments")
       .subscribe(
-        assignments => this.assignments = assignments,
-        error =>  this.errorMessage = <any>error);
+        assignments => {this.assignments = assignments;
+          for (let i=0; i < this.assignments.length; i++) {
+            this.assignments[i].assignmentDueDate = this.assignments[i].assignmentDueDate + 28800000
+          }
+        error =>  this.errorMessage = <any>error});
   }
 
   deleteAssignment(id:number) {
-    
         let dialogRef = this.dialog.open(DeleteConfirmComponent);
-    
         dialogRef.afterClosed().subscribe(result => {
           if(result){
             this.dataService.deleteRecord("assignments", id)

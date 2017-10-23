@@ -1,24 +1,47 @@
+
+
+#pageTitle {
+    background-color: White;
+    font-size: 35px;
+    color: #662200;
+    text-shadow: 2px 2px 18px #751528;
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
+    font-family: 'Julius Sans One', sans-serif;
+}
+
+#schoolName {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 10px;
+    color: #662200;
+    background-color: WhiteSmoke;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+
 #announcements {
    margin-left: 5%; 
 }
 
 hr {
     margin-right: 5%;
+    border-top: 1px solid lightgrey;
 }
 
 #date {
    display: flex;
-   padding-left: 10%; 
-   color: #662200;
-   font-family: 'Acme', sans-serif;
-   font-size: 25px;
+   padding-left: 15%; 
+   color: #00661a;
+   font-family: 'Rock Salt', cursive;
+   font-size: 15px;
 }
 
 #title {
     display: flex;
-    font-family: 'Acme', sans-serif;
-    color: #00661a;
-    font-size: 25px;
+    font-family: 'Quicksand', sans-serif;
+    color: black;
+    font-size: 20px;
 }
 
 #description {

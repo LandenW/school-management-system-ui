@@ -1,17 +1,23 @@
-<div style="text-align:center">
-  <h1>
-  <img src="https://i.pinimg.com/originals/dd/38/eb/dd38eb8641ca673862dfff2bb8849bfc.jpg" width=15% height=15%>
-    Welcome to {{title}}!
-  </h1>
-  <app-log-in *ngIf="!user"></app-log-in>
-  <p *ngIf="user">Welcome {{user.firstName}} {{user.lastName}}</p>
-  <app-log-out *ngIf="user"></app-log-out>
-  <!-- <app-log-in *ngIf="somelogic" ></app-log-in>   -->
-  <app-navigation></app-navigation>
-  <router-outlet></router-outlet>
-  <br/>
-  <br/>
-  <footer>
-    <p id="schoolName">Stop Killing Trees Elementary School<br/>123 School Rd<br/>Hometown, WA  12345<br/>Main Office: 123.456.7890</p>
-  </footer>
+<div id="centerColor">
+  <div style="text-align:center">
+    <h1 id="schoolHeader">
+    <img src="https://i.pinimg.com/originals/dd/38/eb/dd38eb8641ca673862dfff2bb8849bfc.jpg" width=15% height=15%>
+      Welcome to {{title}}!
+    </h1>
+    <app-log-in *ngIf="!user"></app-log-in>
+    <p *ngIf="user" id="userWelcome">Welcome {{user.firstName}} {{user.lastName}}!</p>
+    <app-log-out *ngIf="user"></app-log-out>
+    <br/>
+    <br/>
+    <!-- <app-log-in *ngIf="somelogic" ></app-log-in>   -->
+    <app-navigation></app-navigation>
+    <br/>
+    <br/>
+    <router-outlet></router-outlet>
+    <br/>
+    <br/>
+    <footer>
+      <p id="schoolName">Stop Killing Trees Elementary School<br/>123 School Rd<br/>Hometown, WA  12345<br/>Main Office: 123.456.7890</p>
+    </footer>
+  </div>
 </div>

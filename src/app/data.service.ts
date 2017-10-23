@@ -83,6 +83,13 @@ export class DataService {
             .map(this.extractData);
     }
 
+    addAssignment(endpoint: string, teacherId:number, endpoint2: string, record:object): Observable<any> {
+        let apiUrl = `${this.baseUrl}${endpoint}/${teacherId}/${endpoint2}`;
+        console.log(apiUrl)
+        return this.http.post(apiUrl, record)
+            .map(this.extractData);
+    }
+
     getGradesForOneRecord(endpoint: string, endpoint2: string, id): Observable<any[]> {
         let apiUrl = `${this.baseUrl}${endpoint}/${endpoint2}/${id}`;
         return this.http.get(apiUrl)
