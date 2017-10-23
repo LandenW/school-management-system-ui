@@ -5,7 +5,6 @@ import { RouterModule }   from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { MatDialogModule } from '@angular/material';
 
-
 import { AppComponent } from './app.component';
 import { GradesComponent } from './grades/grades.component';
 import { AnnouncementsComponent } from './announcements/announcements.component';
@@ -22,6 +21,7 @@ import { AddAccountsFormComponent } from './add-accounts-form/add-accounts-form.
 import { AssignmentsFormComponent } from './assignments-form/assignments-form.component';
 import { HomeComponent } from './home/home.component';
 import { DataService } from './data.service';
+import { EmailService } from './email.service';
 import { DeleteConfirmComponent } from './delete-confirm/delete-confirm.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddTeachersComponent } from './add-teachers/add-teachers.component';
@@ -65,7 +65,7 @@ import { StudentAssignmentViewComponent } from './student-assignment-view/studen
   ],
   
   entryComponents: [DeleteConfirmComponent],
-  providers: [DataService],
+  providers: [DataService, EmailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
