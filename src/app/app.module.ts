@@ -52,7 +52,7 @@ import { StudentAssignmentViewComponent } from './student-assignment-view/studen
     StatusMessageComponent,
     LogOutComponent,
     AddTeachersComponent,
-    StudentAssignmentViewComponent,
+    StudentAssignmentViewComponent
   ],
   
   imports: [
