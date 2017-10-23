@@ -16,7 +16,7 @@ import 'rxjs/add/operator/do';
 @Injectable()
 export class DataService {
   
-    private baseUrl = 'https://aqueous-everglades-19542.herokuapp.com/api/'
+    private baseUrl = 'https://aqueous-everglades-19542.herokuapp.com/api/';
 
     options = { withCredentials: true};
     private currentUser: User;
@@ -76,8 +76,8 @@ export class DataService {
     }
 
 
-    addStudentRecord(endpoint: string, teacherId:number, record:object): Observable<any> {
-        let apiUrl = `${this.baseUrl}${endpoint}/${teacherId}`;
+    addStudentRecord(endpoint: string, teacherId:number, endpoint2: string, record:object): Observable<any> {
+        let apiUrl = `${this.baseUrl}${endpoint}/${teacherId}/${endpoint2}`;
         console.log(apiUrl)
         return this.http.post(apiUrl, record)
             .map(this.extractData);

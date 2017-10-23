@@ -22,6 +22,7 @@ import { AddAccountsFormComponent } from './add-accounts-form/add-accounts-form.
 import { AssignmentsFormComponent } from './assignments-form/assignments-form.component';
 import { HomeComponent } from './home/home.component';
 import { DataService } from './data.service';
+import { EmailService } from './email.service';
 import { DeleteConfirmComponent } from './delete-confirm/delete-confirm.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddTeachersComponent } from './add-teachers/add-teachers.component';
@@ -53,7 +54,7 @@ import { SchoolCalendarComponent } from './school-calendar/school-calendar.compo
     LogOutComponent,
     AddTeachersComponent,
     StudentAssignmentViewComponent,
-    SchoolCalendarComponent,
+    SchoolCalendarComponent
   ],
   
   imports: [
@@ -66,7 +67,7 @@ import { SchoolCalendarComponent } from './school-calendar/school-calendar.compo
   ],
   
   entryComponents: [DeleteConfirmComponent],
-  providers: [DataService],
+  providers: [DataService, EmailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

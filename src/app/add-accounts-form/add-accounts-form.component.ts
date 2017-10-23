@@ -5,6 +5,9 @@ import { Location }               from '@angular/common';
 import { NgForm } from '@angular/forms';
 
 import { DataService } from '../data.service'
+import { EmailService } from '../email.service'
+
+import { environment } from '../../environments/environment'
 
 @Component({
   selector: 'app-add-accounts-form',
@@ -22,6 +25,7 @@ export class AddAccountsFormComponent implements OnInit {
   roleName: string;
   gradeLevel: number;
 
+
   getRecordForEdit(){
     this.route.params
       .switchMap((params: Params) => this.dataService.getRecord("students", +params['id']))
@@ -32,6 +36,7 @@ export class AddAccountsFormComponent implements OnInit {
     private dataService: DataService,
     private route: ActivatedRoute,
     private location: Location,  
+    private emailService: EmailService  
   ) { }
  
 
@@ -40,38 +45,46 @@ export class AddAccountsFormComponent implements OnInit {
     this.dataService.getMultRecords("grade-level", gradeLevel, "teachers")
       .subscribe(
         teachers => this.teachers = teachers,
-        error =>  this.errorMessage = <any>error);
-
-    
+        error => this.errorMessage = <any>error
+      );
   }
 
   ngOnInit() {
     this.route.params
-    .subscribe((params: Params) => {
-      (+params['id']) ? this.getRecordForEdit() : null;
-    });
+      .subscribe((params: Params) => {
+        (+params['id']) ? this.getRecordForEdit() : null;
+      })
+    console.log(environment)
   }
 
-  saveStudent(student: NgForm){
-    student.value.roleName = 'STUDENT';
-    student.value.gradeLevel = parseInt(student.value.gradeLevel);
-    const teacherId = parseInt(student.value.teacherId);
-    console.log(student.value);
-    if(typeof student.value.id === "number"){
-      this.dataService.editRecord("students", student.value, student.value.id)
+  saveStudent({ value: student }: NgForm){
+    student.roleName = 'STUDENT';
+    student.gradeLevel = parseInt(student.gradeLevel);
+    const teacherId = parseInt(student.teacherId);
+    console.log(student);
+    if(typeof student.id === "number"){
+      this.dataService.editRecord("students", student, student.id)
           .subscribe(
             student => this.successMessage = "Record updated succesfully",
-            error =>  this.errorMessage = <any>error);
-    }else{
-      this.dataService.addStudentRecord("students", teacherId, student.value)
+            error => this.errorMessage = <any>error
+          );
+    } else {
+      this.dataService
+          .addStudentRecord("teachers", teacherId, "students", student)
           .subscribe(
-            students => this.successMessage = "Record added succesfully",
-            error =>  this.errorMessage = <any>error);
-            this.students = { };
+            success => {
+              this.emailService.send(student.email)
+              this.successMessage = "Record added succesfully"
+            },
+            error => this.errorMessage = <any>error
+          );
+      this.students = { };
     }
+
 
   }
 
+  
 
   
 }

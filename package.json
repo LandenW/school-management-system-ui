@@ -5,7 +5,7 @@
   "scripts": {
     "postinstall": "ng build",
     "ng": "ng",
-    "start": "node server.js",
+    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -26,6 +26,7 @@
     "@angular/platform-browser": "^4.2.4",
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
+    "@sendgrid/mail": "^6.1.4",
     "@types/lodash": "^4.14.77",
     "angular-material": "^1.1.5",
     "core-js": "^2.4.1",
