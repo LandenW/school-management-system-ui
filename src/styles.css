@@ -89,6 +89,30 @@ form {
     padding-left: 25%;
 }
 
+#lognav {
+	position: relative;
+	width: 100%;
+}
+#login {
+	padding: 0;
+	position: absolute;
+	right: 7px;
+}
+
+#logout {
+	padding: 0;
+	position: absolute;
+	right: 7px;
+}
+
+.mat-dialog-container {
+	background-color: #ebebe0;
+	border: 0px;
+	margin: auto;
+	padding: 2px;
+	position: absolute;
+	max-height: calc(100vh - 450px);	
+}
 
 .myButton {
 	-moz-box-shadow: 0px 10px 14px -7px #3e7327;
@@ -170,8 +194,6 @@ form {
 	position:relative;
 	top:1px;
 }
-
-
 
 .myButtonThree {
 	-moz-box-shadow: 0px 10px 14px -7px #3e7327;
