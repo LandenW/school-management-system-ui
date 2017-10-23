@@ -1,3 +1,3 @@
-<form novalidate (submit)="logoutUser()" >
-    <button class="logButton">Log Out</button>            
+<form id="logout" novalidate (submit)="logoutUser()" >
+    <p id="userWelcome">Welcome {{currentUser.firstName}} {{currentUser.lastName}}! <button class="logButton">Log Out</button></p>             
 </form>
