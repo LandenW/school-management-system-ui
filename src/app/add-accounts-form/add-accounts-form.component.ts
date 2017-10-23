@@ -65,12 +65,14 @@ export class AddAccountsFormComponent implements OnInit {
     const teacherId = parseInt(student.teacherId);
     console.log(student);
     if(typeof student.id === "number"){
-      this.dataService.editRecord("students", student, student.id)
+      this.dataService.editStudentRecord("teachers", teacherId, "students", student.id, student)
           .subscribe(
             student => this.successMessage = "Record updated succesfully",
             error => this.errorMessage = <any>error
           );
     } else {
+      student.password = 'password';
+      console.log(student.value)
       this.dataService
           .addStudentRecord("teachers", teacherId, "students", student)
           .subscribe(

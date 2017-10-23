@@ -67,6 +67,13 @@ export class DataService {
             .catch(this.handleError);
     }
 
+    editStudentRecord(endpoint: string, teacherId: number, endpoint2: string, id: number, record:object): Observable<object> {
+        let apiUrl = `${this.baseUrl}${endpoint}/${teacherId}/${endpoint2}/${id}`;
+        return this.http.put(apiUrl, record)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
+
     addRecord(endpoint: string, record:object): Observable<any> {
         let apiUrl = `${this.baseUrl}${endpoint}`;
         console.log(apiUrl)

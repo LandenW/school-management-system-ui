@@ -62,6 +62,7 @@ export class AddTeachersComponent implements OnInit {
             student => this.successMessage = "Record updated succesfully",
             error =>  this.errorMessage = <any>error);
     }else{
+      teacher.value.password = 'password';
       this.dataService.addRecord("teachers", teacher.value)
           .subscribe(
             teacher => this.successMessage = "Record added succesfully",
