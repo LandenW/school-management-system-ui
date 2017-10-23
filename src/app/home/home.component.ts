@@ -27,4 +27,7 @@ export class HomeComponent implements OnInit {
           }
          error =>  this.errorMessage = <any>error});
    }
+   
+   title = 'School Management System';
+
   }

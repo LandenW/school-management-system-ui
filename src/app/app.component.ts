@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DataService } from './data.service'
+import { RouterModule, Routes, Router } from '@angular/router'
 import { User } from './user';
 
 @Component({
@@ -10,7 +11,7 @@ import { User } from './user';
 export class AppComponent implements OnInit {
 
   constructor(
-    private dataService: DataService,
+    private dataService: DataService, private router: Router,
   ) {}
 
   user: User;
