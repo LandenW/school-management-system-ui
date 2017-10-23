@@ -1,5 +1,7 @@
 #navbar {
-    font-family: 'Julius Sans One', sans-serif;  
+	font-family: 'Julius Sans One', sans-serif;  
+	position: absolute;
+	left: 0;
 }
 
 a {
