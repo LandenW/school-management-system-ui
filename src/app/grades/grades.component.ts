@@ -16,7 +16,6 @@ import 'rxjs/add/operator/toPromise';
 })
 export class GradesComponent implements OnInit {
 
-
   errorMessage: string;
   successMessage: string;
   letterGradeValue: string;
@@ -60,9 +59,9 @@ export class GradesComponent implements OnInit {
       });
   }
 
-  saveGrades(indexOfAssignment){
+  saveGrades(assignment){
     console.log(this.assignmentsWithStudent)
-    this.dataService.editRecord("grades", this.assignmentsWithStudent[indexOfAssignment], this.assignmentsWithStudent[indexOfAssignment].gradeId)
+    this.dataService.editRecord("grades", assignment, assignment.gradeId)
       .subscribe(
         assignment => this.successMessage = "Record updated succesfully",
         error => this.errorMessage = <any>error

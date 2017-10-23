@@ -31,16 +31,16 @@
     <input [ngModel]="students?.email" ngModel #email="ngModel" type="email" class="form-control" id="email" name="email" placeholder="Email" required>
   </div>
 </div>
-<div class="form-group" [hidden]="students?.userId != null">
+<div class="form-group" id="studentPasswordDiv">
   <label for="password" class="col-sm-2 control-label">Password</label>
   <div class="col-sm-10">
-    <input [ngModel]="students.password" ngModel #password="ngModel" type="password" class="form-control" id="password" name="password" placeholder="" required>
+    <input [ngModel]="students?.password" ngModel #password="ngModel" type="hidden" class="form-control" id="password" name="password" placeholder="" required>
   </div>
 </div>
 <div class="form-group">
     <label for="gradeLevel" class="col-sm-2 control-label formTitle">Grade Level</label>
       <select name="gradeLevel" id="gradeLevel" [(ngModel)]="gradeLevel" (change)="getTeachersByGrade(gradeLevel)">
-        <option selected="selected" value="{{students?.gradeLevel}}">{{students?.gradeLevel}}</option>
+        <option value="Select A Grade">Select a Grade ...</option>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>

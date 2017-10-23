@@ -1,33 +1,30 @@
 <img src="https://images.unsplash.com/photo-1453733190371-0a9bedd82893?w=1934&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D" width=20% height=20%> <br/>
 <br/>
 <button class="standardButton" routerLink="/assignments">Return to Assignments</button>
-<br/>
-<br/>
-<br/>
-<table class="table table-hover table-bordered" style="width:80%">
-    <thead>
-      <tr>
-        <th>Student Name</th>
-        <th>Grade Letter</th>
-        <th>Comments</th>
-      </tr>
-    </thead>
-        <form class="form-group">
-          <tr *ngFor="let assignment of assignmentsWithStudent; let indexOfAssignment = index">
-            <td>{{assignment.firstName}} {{assignment.lastName}}</td>
-            <td><input [(ngModel)]="assignment.gradeId" name="grade-id-{{assignment.gradeId}}" type="hidden"></td>
-            <td><input [(ngModel)]="assignment.gradeAssignmentId" name="grade-id-{{assignment.gradeAssignmentId}}" type="hidden"></td>
-            <td><input [(ngModel)]="assignment.gradeStudentId" name="grade-id-{{assignment.gradeStudentId}}" type="hidden" disabled></td>
-            <td>
-              <select name="grade-id-{{assignment.gradeId}}-{{assignment.letterGradeValue}}" [(ngModel)]="assignment.letterGradeValue" (change)="saveGrades(indexOfAssignment)">
-                <option value="Not graded.">Not graded.</option>
-                <option value="A">A</option>
-                <option value="B">B</option>
-                <option value="C">C</option>
-                <option value="D">D</option>
-                <option value="F">F</option>
-              </select>
-            <td><input [(ngModel)]="assignment.comment" type="text" name="grade-id-{{assignment.comment}}" id="comment" (keyup)="saveGrades(indexOfAssignment)"></td>
-          </tr>
-        </form>
+<table class="table table-hover table-bordered text-center" style="width:80%; margin-top: 3em;">
+  <thead>
+    <tr>
+      <th>Student</th>
+      <th>Grade Value</th>
+      <th>Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let assignment of assignmentsWithStudent">
+      <td>{{assignment.firstName}} {{assignment.lastName}}</td>
+      <td>
+        <select [(ngModel)]="assignment.letterGradeValue" (change)="saveGrades(assignment)">
+          <option value="Not graded.">Not graded.</option>
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+          <option value="D">D</option>
+          <option value="F">F</option>
+        </select>
+      </td>
+      <td>
+        <input [(ngModel)]="assignment.comment" type="text" (blur)="saveGrades(assignment)">
+      </td>
+    </tr>
+  </tbody>
 </table>
