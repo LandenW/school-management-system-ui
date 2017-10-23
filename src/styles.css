@@ -69,13 +69,13 @@ form {
 #login {
 	padding: 0;
 	position: absolute;
-	right: 0;
+	right: 7px;
 }
 
 #logout {
 	padding: 0;
 	position: absolute;
-	right: 0;
+	right: 7px;
 }
 
 .mat-dialog-container {
