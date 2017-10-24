@@ -5,7 +5,6 @@ import { Location }               from '@angular/common';
 import { NgForm } from '@angular/forms';
 
 import { DataService } from '../data.service'
-import { EmailService } from '../email.service'
 
 import { environment } from '../../environments/environment'
 
@@ -35,8 +34,7 @@ export class AddAccountsFormComponent implements OnInit {
   constructor(
     private dataService: DataService,
     private route: ActivatedRoute,
-    private location: Location,  
-    private emailService: EmailService  
+    private location: Location
   ) { }
  
 
@@ -77,7 +75,6 @@ export class AddAccountsFormComponent implements OnInit {
           .addStudentRecord("teachers", teacherId, "students", student)
           .subscribe(
             success => {
-              this.emailService.send(student.email)
               this.successMessage = "Record added succesfully"
             },
             error => this.errorMessage = <any>error

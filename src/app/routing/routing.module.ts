@@ -9,7 +9,6 @@ import { AnnouncementsComponent }   from '../announcements/announcements.compone
 import { AnnouncementsFormComponent }   from '../announcements-form/announcements-form.component';
 import { CalendarComponent }   from '../calendar/calendar.component';
 import { GradesComponent }   from '../grades/grades.component';
-import { GradesFormComponent }   from '../grades-form/grades-form.component';
 import { LogInComponent }   from '../log-in/log-in.component';
 import { LogOutComponent }   from '../log-out/log-out.component';
 import { NavigationComponent }   from '../navigation/navigation.component';
