@@ -36,6 +36,10 @@ export class LogInComponent {
                     this.route.navigate(['']);
                     console.log("Logged in Successful")
                     console.log(user)
+                    this.currentUser = user;
+                    localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
+                    console.log("User creds saved to storage")
+                   
                   } else {
                     this.message = 'Could not log in with those credentials';
                   }
@@ -49,15 +53,20 @@ export class LogInComponent {
     .logout("session")
       .subscribe(user => this.currentUser = user);
       console.log("Log Out Successful") 
+      localStorage.removeItem('currentUser');
+      console.log("User Removed from storage") 
   }
   
 
   ngOnInit() {
+    // if (localStorage.getItem('currentUser') != null ) {
+    //   this.currentUser = JSON.parse(localStorage.getItem('currentUser'))
+    //   console.log("User creds pulled from storage")
+    // }
     this.dataService
     .userChanged
     .subscribe(user => this.currentUser = user); //sets current user to user passed in
     this.currentUser = this.dataService.getCurrentUser();
-    
   }
 
 

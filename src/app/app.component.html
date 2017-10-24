@@ -6,8 +6,8 @@
     </h1>
     <div id="lognav">
       <app-navigation></app-navigation>
-      <app-log-in *ngIf="!user"></app-log-in>
-      <app-log-out *ngIf="user"></app-log-out>
+      <app-log-in *ngIf="!currentUser"></app-log-in>
+      <app-log-out *ngIf="currentUser"></app-log-out>
     </div>
     <br/>
     <br/>
