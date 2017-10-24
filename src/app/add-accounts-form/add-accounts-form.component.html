@@ -13,54 +13,63 @@
 
 <form novalidate (ngSubmit)="saveStudent(studentForm)"  #studentForm="ngForm" class="form-horizontal">
   <input [ngModel]="students?.userId" ngModel #userId="ngModel" type="hidden" name="id">
-<div class="form-group">
-  <label for="first_name" class="col-sm-2 control-label formTitle">First Name</label>
-  <div class="col-sm-10">
-    <input [ngModel]="students?.firstName" ngModel #firstName="ngModel" type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required>
+  <div class="form-group">
+    <label for="first_name" class="col-sm-2 control-label formTitle">First Name</label>
+    <div class="col-sm-10">
+      <input [ngModel]="students?.firstName" ngModel #firstName="ngModel" type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required minlength="2" maxlength="30" pattern="[A-Za-z]+">
+      <span *ngIf="formErrors.firstName" class="text-danger">
+        {{ formErrors.firstName }}
+      </span>
+    </div>
   </div>
-</div>
-<div class="form-group">
-  <label for="last_name" class="col-sm-2 control-label formTitle">Last Name</label>
-  <div class="col-sm-10">
-    <input [ngModel]="students?.lastName" ngModel #lastName="ngModel" type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required>
+  <div class="form-group">
+    <label for="last_name" class="col-sm-2 control-label formTitle">Last Name</label>
+    <div class="col-sm-10">
+      <input [ngModel]="students?.lastName" ngModel #lastName="ngModel" type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required minlength="2" maxlength="30" pattern="[A-Za-z]+">
+      <span *ngIf="formErrors.lastName" class="text-danger">
+        {{ formErrors.lastName }}
+      </span>
+    </div>
   </div>
-</div>
-<div class="form-group">
-  <label for="email" class="col-sm-2 control-label formTitle">Email</label>
-  <div class="col-sm-10">
-    <input [ngModel]="students?.email" ngModel #email="ngModel" type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+  <div class="form-group">
+    <label for="email" class="col-sm-2 control-label formTitle">Email</label>
+    <div class="col-sm-10">
+      <input [ngModel]="students?.email" ngModel #email="ngModel" type="email" class="form-control" id="email" name="email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+      <span *ngIf="formErrors.email" class="text-danger">
+        {{ formErrors.email }}
+      </span>
+    </div>
   </div>
-</div>
-<div class="form-group" id="studentPasswordDiv">
-  <label for="password" class="col-sm-2 control-label">Password</label>
-  <div class="col-sm-10">
-    <input [ngModel]="students?.password" ngModel #password="ngModel" type="hidden" class="form-control" id="password" name="password" placeholder="" required>
+  <div class="form-group" id="studentPasswordDiv">
+    <label for="password" class="col-sm-2 control-label">Password</label>
+    <div class="col-sm-10">
+      <input [ngModel]="students?.password" ngModel #password="ngModel" type="hidden" class="form-control" id="password" name="password" placeholder="" required>
+    </div>
   </div>
-</div>
-<div class="form-group">
-    <label for="gradeLevel" class="col-sm-2 control-label formTitle">Grade Level</label>
-      <select name="gradeLevel" id="gradeLevel" [(ngModel)]="gradeLevel" (change)="getTeachersByGrade(gradeLevel)">
-        <option value="Select A Grade">Select a Grade ...</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-      </select>
+  <div class="form-group">
+      <label for="gradeLevel" class="col-sm-2 control-label formTitle">Grade Level</label>
+        <select name="gradeLevel" id="gradeLevel" [(ngModel)]="gradeLevel" (change)="getTeachersByGrade(gradeLevel)" required>
+          <option value="Select A Grade" disabled>Select a Grade ...</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+        </select>
   </div>
   <div class="form-group">
     <label for="teacherId" class="col-sm-2 control-label formTitle">Teacher</label>
-      <select  name="teacherId" id="teacherId" [(ngModel)]="teacherId">
-        <option value="default">Select Teacher...</option>
+      <select  name="teacherId" id="teacherId" [(ngModel)]="teacherId" required>
+        <option value="default" disabled>Select Teacher...</option>
         <option *ngFor="let teacher of teachers" value="{{teacher.userId}}" selected="selected" name="teachers">{{teacher?.firstName}} {{teacher?.lastName}}</option>
       </select>
   </div>
- <div class="form-group">
-  <div class="col-sm-offset-2 col-sm-10">
-    <button type="submit" class="logButton">Submit</button>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="logButton">Submit</button>
+    </div>
   </div>
-</div>
 </form>
 

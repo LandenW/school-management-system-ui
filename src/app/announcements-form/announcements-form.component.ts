@@ -43,30 +43,29 @@ export class AnnouncementsFormComponent implements OnInit {
       });
   }
 
-    ngOnInit() {
-      this.route.params
-        .subscribe((params: Params) => {
-          (+params['id']) ? this.getRecordForEdit() : null;
-        });
+  ngOnInit() {
+    this.route.params
+      .subscribe((params: Params) => {
+        (+params['id']) ? this.getRecordForEdit() : null;
+      });
+  }
   
-      }
-  
-    saveAnnouncements(announcements: NgForm){
-      if(typeof announcements.value['announcements.id'] === "number"){
-        this.dataService.editRecord("announcements", announcements.value, announcements.value['announcements.id'])
-            .subscribe(
-              announcements => this.successMessage = "Record updated succesfully",
-              error =>  this.errorMessage = <any>error);
-              this.announcements = {};
-      }else{
-        this.dataService.addRecord("announcements", announcements.value)
-            .subscribe(
-              announcements => this.successMessage = "Record added succesfully",
-              error =>  this.errorMessage = <any>error);
-              this.announcements = {};
-      }
-  
+  saveAnnouncements(announcements: NgForm){
+    if(typeof announcements.value['announcements.id'] === "number"){
+      this.dataService.editRecord("announcements", announcements.value, announcements.value['announcements.id'])
+          .subscribe(
+            announcements => this.successMessage = "Record updated succesfully",
+            error =>  this.errorMessage = <any>error);
+            this.announcements = {};
+    }else{
+      this.dataService.addRecord("announcements", announcements.value)
+          .subscribe(
+            announcements => this.successMessage = "Record added succesfully",
+            error =>  this.errorMessage = <any>error);
+            this.announcements = {};
     }
+
+  }
   
     // ngAfterViewChecked() {
     //   this.formChanged();
@@ -95,5 +94,53 @@ export class AnnouncementsFormComponent implements OnInit {
   //     }
   //   }
   // }
+
+   //Validations
+
+
+  ngAfterViewChecked() {
+  this.formChanged();
+  }
+
+  formChanged() {
+  this.announcementsForm = this.currentForm;
+  this.announcementsForm.valueChanges
+    .subscribe(
+      data => this.onValueChanged(data)
+    );
+  }
+
+  onValueChanged(data?: any) {
+  let form = this.announcementsForm.form;
+
+    for (let field in this.formErrors) {
+      // clear previous error message (if any)
+      this.formErrors[field] = '';
+      const control = form.get(field);
+
+      if (control && control.dirty && !control.valid) {
+        const messages = this.validationMessages[field];
+        for (const key in control.errors) {
+          this.formErrors[field] += messages[key] + ' ';
+        }
+      }
+    }
+  }
+
+  formErrors = {
+  'title': '',
+  'date': ''
+  };
+
+  validationMessages = {
+    'title': {
+      'required': 'Title is Required.',
+      'minlength': 'First Name cannot be less than 2 characters.',
+    },
+    'date': {
+      'required': 'Date is required.',
+      'pattern': 'Date must be in the format of MM/DD/YYYY.'
+    }
+  };
 }
 

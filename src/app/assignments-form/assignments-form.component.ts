@@ -71,4 +71,53 @@ export class AssignmentsFormComponent implements OnInit {
     }
 
   }
+
+  //Validations
+
+  assignmentsForm: NgForm;
+
+  ngAfterViewChecked() {
+  this.formChanged();
+  }
+
+  formChanged() {
+  this.assignmentsForm = this.currentForm;
+  this.assignmentsForm.valueChanges
+    .subscribe(
+      data => this.onValueChanged(data)
+    );
+  }
+
+  onValueChanged(data?: any) {
+  let form = this.assignmentsForm.form;
+
+    for (let field in this.formErrors) {
+      // clear previous error message (if any)
+      this.formErrors[field] = '';
+      const control = form.get(field);
+
+      if (control && control.dirty && !control.valid) {
+        const messages = this.validationMessages[field];
+        for (const key in control.errors) {
+          this.formErrors[field] += messages[key] + ' ';
+        }
+      }
+    }
+  }
+
+  formErrors = {
+  'name': '',
+  'dueDate': ''
+  };
+
+  validationMessages = {
+    'name': {
+      'required': 'Assignment Name is Required.',
+      'minlength': 'Assignment Name cannot be less than 2 characters.',
+    },
+    'dueDate': {
+      'required': 'Due Date is required.',
+      'pattern': 'Due Date must be in the format of MM/DD/YYYY.'
+    }
+  };
 }

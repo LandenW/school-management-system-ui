@@ -1,5 +1,5 @@
 import 'rxjs/add/operator/switchMap';
-import { Component, OnInit }      from '@angular/core';
+import { Component, OnInit, ViewChild }      from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location }               from '@angular/common';
 import { NgForm } from '@angular/forms';
@@ -14,7 +14,7 @@ import { DataService } from '../data.service'
 export class AddTeachersComponent implements OnInit {
   successMessage: string;
   errorMessage: string;
-  teacher;
+  teacher: object;
   teachers;
   roleName: string;
   gradeLevel: number;
@@ -58,4 +58,64 @@ export class AddTeachersComponent implements OnInit {
     }
 
   }
+
+ //Validations
+
+  teacherForm: NgForm;
+  @ViewChild('teacherForm') currentForm: NgForm;
+
+  ngAfterViewChecked() {
+    this.formChanged();
+  }
+
+  formChanged() {
+    this.teacherForm = this.currentForm;
+    this.teacherForm.valueChanges
+      .subscribe(
+        data => this.onValueChanged(data)
+      );
+  }
+
+  onValueChanged(data?: any) {
+    let form = this.teacherForm.form;
+
+    for (let field in this.formErrors) {
+      // clear previous error message (if any)
+      this.formErrors[field] = '';
+      const control = form.get(field);
+
+      if (control && control.dirty && !control.valid) {
+        const messages = this.validationMessages[field];
+        for (const key in control.errors) {
+          this.formErrors[field] += messages[key] + ' ';
+        }
+      }
+    }
+  }
+
+  formErrors = {
+    'firstName': '',
+    'lastName': '',
+    'email': '',
+    'gradeLevel': ''
+  };
+
+  validationMessages = {
+    'firstName': {
+      'required': 'First Name is Required.',
+      'pattern': 'First Name must be letters only.',
+      'minlength': 'First Name cannot be less than 2 characters.',
+      'maxlength': 'First Name cannot be greater than 30 characters.'
+    },
+    'lastName': {
+      'required': 'Last Name is Required.',
+      'pattern': 'Last Name must be letters only.',
+      'minlength': 'Last Name cannot be less than 2 characters.',
+      'maxlength': 'Last Name cannot be greater than 30 characters.'
+    },
+    'email': {
+      'required': 'Email is required.',
+      'pattern': 'Email must be in the format of example@domain.com .'
+    }
+  };
 }
