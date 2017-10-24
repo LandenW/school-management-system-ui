@@ -1,20 +1,18 @@
+
+<h1 class="headers">Manage Teachers</h1>
+<br/>
+<img src="https://images.unsplash.com/photo-1503676685182-2531a01b5b5c?w=2255&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D" width=20% height=20%>
+<br/>
+<br/>
 <button class="logButton" routerLink="/add-accounts">Return to Accounts</button>
 <br/>
-<br/>
-
-<h1 class="headers">
-  <img src="https://images.unsplash.com/photo-1503676685182-2531a01b5b5c?w=2255&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D" width=20% height=20%> <br/>
-  <br/>
-  Manage Teachers</h1>
-<br/>
-<br/>
-
 <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
+<br/>
 
 <form novalidate (ngSubmit)="saveTeacher(teacherForm)"  #teacherForm="ngForm" class="form-horizontal">
   <input [ngModel]="teacher.userId" ngModel #userId="ngModel" type="hidden" name="userId">
   <div class="form-group">
-    <label for="firstName" class="col-sm-2 control-label formTitle">First Name</label>
+    <label for="firstName" class="col-sm-2 control-label formTitle">First Name<span class="requiredStar">*</span></label>
     <div class="col-sm-10">
       <input [(ngModel)]="teacher.firstName" ngModel #firstName="ngModel" type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required minlength="2" maxlength="30" pattern="[A-Za-z]+">
       <span *ngIf="formErrors.firstName" class="text-danger">
@@ -23,7 +21,7 @@
     </div>
   </div>
   <div class="form-group">
-    <label for="lastName" class="col-sm-2 control-label formTitle">Last Name</label>
+    <label for="lastName" class="col-sm-2 control-label formTitle">Last Name<span class="requiredStar">*</span></label>
     <div class="col-sm-10">
       <input [(ngModel)]="teacher.lastName" ngModel #lastName="ngModel" type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required minlength="2" maxlength="30" pattern="[A-Za-z]+">
       <span *ngIf="formErrors.lastName" class="text-danger">
@@ -32,7 +30,7 @@
     </div>
   </div>
   <div class="form-group">
-    <label for="email" class="col-sm-2 control-label formTitle">Email</label>
+    <label for="email" class="col-sm-2 control-label formTitle">Email<span class="requiredStar">*</span></label>
     <div class="col-sm-10">
       <input [(ngModel)]="teacher.email" ngModel #email="ngModel" type="email" class="form-control" id="email" name="email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
       <span *ngIf="formErrors.email" class="text-danger">
@@ -47,7 +45,7 @@
     </div>
   </div>
   <div class="form-group">
-      <label for="gradeLevel" class="col-sm-2 control-label formTitle">Grade Level</label>
+      <label for="gradeLevel" class="col-sm-2 control-label formTitle">Grade Level<span class="requiredStar">*</span></label>
         <select name="gradeLevel" id="gradeLevel" [(ngModel)]="teacher.gradeLevel" required>
           <option value="default" disabled>Select Grade Level...</option>
           <option value="1">1</option>

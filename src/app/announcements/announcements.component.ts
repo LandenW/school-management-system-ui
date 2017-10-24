@@ -18,31 +18,29 @@ export class AnnouncementsComponent implements OnInit {
 
   constructor(private dataService: DataService, public dialog: MatDialog) { }
 
-  ngOnInit() { this.getAnnouncements(); }
+  ngOnInit() { 
+    this.getAnnouncements();
+  }
   
-   getAnnouncements() {
-     this.dataService.getRecords("announcements")
-       .subscribe(
-         announcements => {this.announcements = announcements;
-        for (let i=0; i < this.announcements.length; i++) {
-          this.announcements[i].date = this.announcements[i].date + 28800000
-        }
-         error =>  this.errorMessage = <any>error});
-   }
-
-   deleteAnnouncements(id:number) {
-    
-        let dialogRef = this.dialog.open(DeleteConfirmComponent);
-    
-        dialogRef.afterClosed().subscribe(result => {
-          if(result){
-            this.dataService.deleteRecord("announcements", id)
-              .subscribe(
-                announcements => {this.successMessage = "Record(s) deleted succesfully"; this.getAnnouncements(); },
-                error =>  this.errorMessage = <any>error);
-          }
-        });
+  getAnnouncements() {
+    this.dataService.getRecords("announcements")
+      .subscribe(
+        announcements => {this.announcements = announcements;
+      for (let i=0; i < this.announcements.length; i++) {
+        this.announcements[i].date = this.announcements[i].date + 28800000
       }
+        error =>  this.errorMessage = <any>error});
+  }
 
-    
-    }
+  deleteAnnouncements(id:number) {
+  let dialogRef = this.dialog.open(DeleteConfirmComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      if(result){
+        this.dataService.deleteRecord("announcements", id)
+          .subscribe(
+            announcements => {this.successMessage = "Record(s) deleted succesfully"; this.getAnnouncements(); },
+            error =>  this.errorMessage = <any>error);
+      }
+    });
+  }
+}

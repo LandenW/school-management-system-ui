@@ -1,56 +1,53 @@
-<h1 class="headers">
-  <img src="https://images.unsplash.com/photo-1475092980020-2094a10518d2?w=2850&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D" width=20% height=20%> <br/>
-  <br/>
-  Accounts</h1>
+<h1 class="headers">Accounts</h1>
+<img src="https://images.unsplash.com/photo-1475092980020-2094a10518d2?w=2850&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D" width=20% height=20%>
 <br/>
 <br/>
-
-<app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
-
 <button class="logButton" routerLink="/add-accounts-form/add">Add Student</button>
 <button class="logButton" routerLink="/add-teachers/add">Add Teacher</button>
 <br/>
 <br/>
+<app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
+<br/>
 <br/>
 
 <table class="table table-hover table-bordered" style="width:80%">
-
+<br/>
   <thead>
-  <tr>
-    <th>ID</th>
-    <th>Account Type</th>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Email</th>
-    <th>Class</th>
-    <th>Admin</th>
-  </tr>
-</thead>
-<tbody>
-  <tr *ngFor="let student of students">
-    <td>{{student.userId}}</td>
-    <td>{{student.roleName}}</td>
-    <td>{{student.firstName}}</td>
-    <td>{{student.lastName}}</td>
-    <td>{{student.email}}</td>
-    <td>{{student.gradeLevel}}</td>
-    <td class="text-center" width=30%>
-      <button class="myButton" [routerLink]="['/add-accounts-form/edit/', student.userId]">Edit</button>&nbsp;
-      <button class="standardButton" (click)="deleteStudent(student.userId)">Delete</button>
-    </td>
-  </tr>
-  <tr *ngFor="let teacher of teachers">
-    <td>{{teacher.userId}}</td>
-    <td>{{teacher.roleName}}</td>
-    <td>{{teacher.firstName}}</td>
-    <td>{{teacher.lastName}}</td>
-    <td>{{teacher.email}}</td>
-    <td>{{teacher.gradeLevel}}</td>
-    <td class="text-center" width=30%>
-      <button class="myButton" [routerLink]="['/add-teachers/edit/', teacher.userId]">Edit</button>&nbsp;
-      <button class="standardButton" (click)="deleteTeacher(teacher.userId)">Delete</button>
-    </td>
-  </tr>
-</tbody>
+    <tr>
+      <th>ID</th>
+      <th>Account Type</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Class</th>
+      <th>Admin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of students">
+      <td>{{student.userId}}</td>
+      <td>{{student.roleName}}</td>
+      <td>{{student.firstName}}</td>
+      <td>{{student.lastName}}</td>
+      <td>{{student.email}}</td>
+      <td>{{student.gradeLevel}}</td>
+      <td class="text-center" width=30%>
+        <button class="myButton" [routerLink]="['/add-accounts-form/edit/', student.userId]">Edit</button>&nbsp;
+        <button class="standardButton" (click)="deleteStudent(student.userId)">Delete</button>
+      </td>
+    </tr>
+    <tr *ngFor="let teacher of teachers">
+      <td>{{teacher.userId}}</td>
+      <td>{{teacher.roleName}}</td>
+      <td>{{teacher.firstName}}</td>
+      <td>{{teacher.lastName}}</td>
+      <td>{{teacher.email}}</td>
+      <td>{{teacher.gradeLevel}}</td>
+      <td class="text-center" width=30%>
+        <button class="myButton" [routerLink]="['/add-teachers/edit/', teacher.userId]">Edit</button>&nbsp;
+        <button class="standardButton" (click)="deleteTeacher(teacher.userId)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
 </table>
 

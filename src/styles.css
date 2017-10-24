@@ -350,3 +350,7 @@ form {
 	position:relative;
 	top:1px;
 }
+.requiredStar {
+    font-weight: bold;
+    color: #FF0000;
+}

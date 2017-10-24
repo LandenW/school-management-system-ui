@@ -31,6 +31,7 @@ export class GradesComponent implements OnInit {
    
   ngOnInit() {
     this.getGradesforOneStudent();
+    this.getAssignmentName();
   }
 
 
@@ -56,16 +57,23 @@ export class GradesComponent implements OnInit {
           })
           this.assignmentsWithStudent = listOfGrades;
         })
+        
       });
   }
 
   saveGrades(assignment){
-    console.log(this.assignmentsWithStudent)
     this.dataService.editRecord("grades", assignment, assignment.gradeId)
       .subscribe(
         assignment => this.successMessage = "Record updated succesfully",
         error => this.errorMessage = <any>error
       );
   }
-}
 
+  getAssignmentName(){        
+    this.route.params
+      .switchMap((params: Params) => this.dataService.getRecord("assignments", +params['id']))
+      .subscribe(assignments => {this.assignments = assignments;
+
+      })
+  }
+}

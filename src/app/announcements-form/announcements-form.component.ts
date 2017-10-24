@@ -66,34 +66,6 @@ export class AnnouncementsFormComponent implements OnInit {
     }
 
   }
-  
-    // ngAfterViewChecked() {
-    //   this.formChanged();
-    // }
-  
-    // formChanged() {
-    //   this.announcementsForm = this.currentForm;
-    //   this.announcementsForm.valueChanges
-    //     .subscribe(
-    //       data => this.onValueChanged(data)
-    //     );
-    // }
-  
-  // onValueChanged(data?: any) {
-  //   let form = this.announcementsForm.form;
-  
-  //   for (let field in this.formErrors) {
-  //     this.formErrors[field] = '';
-  //     const control = form.get(field);
-  
-  //     if (control && control.dirty && !control.valid) {
-  //       const messages = this.validationMessages[field];
-  //       for (const key in control.errors) {
-  //         this.formErrors[field] += messages[key] + ' ';
-  //       }
-  //     }
-  //   }
-  // }
 
    //Validations
 

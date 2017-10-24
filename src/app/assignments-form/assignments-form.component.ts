@@ -21,8 +21,7 @@ export class AssignmentsFormComponent implements OnInit {
   assignments: any;
   currentUser: User;
 
-  getRecordForEdit(){
-    // var dateConverter = new Date();            
+  getRecordForEdit(){        
     this.route.params
       .switchMap((params: Params) => this.dataService.getRecord("assignments", +params['id']))
       .subscribe(assignments => {this.assignments = assignments;
@@ -49,6 +48,7 @@ export class AssignmentsFormComponent implements OnInit {
     .subscribe((params: Params) => {
       (+params['id']) ? this.getRecordForEdit() : null;
     });
+
     this.dataService
     .userChanged
     .subscribe(user => this.currentUser = user); //sets current user to user passed in
@@ -98,6 +98,7 @@ export class AssignmentsFormComponent implements OnInit {
 
       if (control && control.dirty && !control.valid) {
         const messages = this.validationMessages[field];
+
         for (const key in control.errors) {
           this.formErrors[field] += messages[key] + ' ';
         }
@@ -106,18 +107,13 @@ export class AssignmentsFormComponent implements OnInit {
   }
 
   formErrors = {
-  'name': '',
-  'dueDate': ''
+    'name': ''
   };
 
   validationMessages = {
     'name': {
       'required': 'Assignment Name is Required.',
       'minlength': 'Assignment Name cannot be less than 2 characters.',
-    },
-    'dueDate': {
-      'required': 'Due Date is required.',
-      'pattern': 'Due Date must be in the format of MM/DD/YYYY.'
     }
   };
 }

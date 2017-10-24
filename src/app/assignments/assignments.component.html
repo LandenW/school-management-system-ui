@@ -1,40 +1,39 @@
 
-<app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
-<h1 class="headers">
-  <img src="https://images.unsplash.com/photo-1496764714151-270cb7b9d59f?w=1431&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D" width=20% height=20%> <br/>
-  <br/>
-  Assignments
-</h1>
+<h1 class="headers">Assignments</h1>
+<br/>
+<img src="https://images.unsplash.com/photo-1496764714151-270cb7b9d59f?w=1431&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D" width=20% height=20%>
 <br/>
 <br/>
-
 <button class="logButton" routerLink="/assignments-form/add/">Add Assignment</button>
 <br/>
 <br/>
+<app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
 <br/>
+<br/>
+
 <table class="table table-hover table-bordered" style="width:80%">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Assignment Name</th>
-        <th>Due Date</th>
-        <th>Comments</th>
-        <th>Grade</th>
-        <th>Admin</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let assignment of assignments">
-        <td>{{assignment.assignmentId}}</td>
-        <td>{{assignment.assignmentName}}</td>
-        <td>{{assignment.assignmentDueDate | date:'MM/dd/yyyy'}}</td>
-        <td>{{assignment.assignmentDescription}}</td>
-        <td>{{assignment.assignmentComment}}</td>
-        <td class="text-center" width=30%>
-          <button class="myButtonThree" [routerLink]="['/grades/', assignment.assignmentId]">Grade</button>&nbsp;
-          <button class="myButton" [routerLink]="['/assignments-form/edit/', assignment.assignmentId]">Edit</button>&nbsp;
-          <button (click)="deleteAssignment(assignment.assignmentId)" class="standardButton">Delete</button>
-        </td>
-      </tr>
-    </tbody>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Assignment Name</th>
+      <th>Due Date</th>
+      <th>Comments</th>
+      <th>Grade</th>
+      <th>Admin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let assignment of assignments">
+      <td>{{assignment.assignmentId}}</td>
+      <td>{{assignment.assignmentName}}</td>
+      <td>{{assignment.assignmentDueDate | date:'MM/dd/yyyy'}}</td>
+      <td>{{assignment.assignmentDescription}}</td>
+      <td>{{assignment.assignmentComment}}</td>
+      <td class="text-center" width=30%>
+        <button class="myButtonThree" [routerLink]="['/grades/', assignment.assignmentId]">Grade</button>&nbsp;
+        <button class="myButton" [routerLink]="['/assignments-form/edit/', assignment.assignmentId]">Edit</button>&nbsp;
+        <button (click)="deleteAssignment(assignment.assignmentId)" class="standardButton">Delete</button>
+      </td>
+    </tr>
+  </tbody>
 </table>
