@@ -15,7 +15,11 @@ import { DataService } from '../data.service'
 export class AddTeachersComponent implements OnInit {
   successMessage: string;
   errorMessage: string;
-  teacher: any;
+  teacher: any = {
+    firstName: '',
+    lastName: '',
+    email: ''
+  };
   teachers;
   roleName: string;
   gradeLevel: number;
