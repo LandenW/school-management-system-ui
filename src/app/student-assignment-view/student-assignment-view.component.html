@@ -1,37 +1,27 @@
+<h1 class="headers">Assignments and Grades</h1>
+<br/>
+<img src="https://images.unsplash.com/photo-1498079022511-d15614cb1c02?w=2100&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D" width=20% height=20%>
+<br/>
+<br/>
+<app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
+<br/>
 <br/>
 
-
-<h1 class="headers">
-  <img src="https://images.unsplash.com/photo-1498079022511-d15614cb1c02?w=2100&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D" width=20% height=20%> <br/>
-  <br/>
-  Assignments and Grades
-</h1>
-
-<!-- <a class="btn btn-primary" routerLink="/announcements-form">Add Announcement</a> -->
-<br>
-<br>
-
-<app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
-
 <table class="table table-hover table-bordered" style="width:60%">
-<thead>
-  <tr>
-    <!-- <th>ID</th> -->
-    <th>Assignment Name</th>
-    <th>Due Date</th>
-    <th>Comments</th>
-    <th>Grade</th>
-  </tr>
-</thead>
-
-<tbody>
-  <tr *ngFor="let assignment of assignmentsForStudent">
-    <!-- <td>{{announcement.id}}</td> -->
-    <td>{{assignment.assignmentName}}</td>
-    <td>{{assignment.assignmentDueDate | date}}</td>
-    <td>{{assignment.comment}}</td>
-    <td>{{assignment.letterGradeValue}}</td>
-  </tr>
-</tbody>
-
+  <thead>
+    <tr>
+      <th>Assignment Name</th>
+      <th>Due Date</th>
+      <th>Comments</th>
+      <th>Grade</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let assignment of assignmentsForStudent">
+      <td>{{assignment.assignmentName}}</td>
+      <td>{{assignment.assignmentDueDate | date}}</td>
+      <td>{{assignment.comment}}</td>
+      <td>{{assignment.letterGradeValue}}</td>
+    </tr>
+  </tbody>
 </table>

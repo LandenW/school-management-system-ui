@@ -35,18 +35,14 @@ export class LogOutComponent {
     .logout("session")
       .subscribe(user => this.currentUser = user);
       localStorage.removeItem('currentUser');
-      this.route.navigate(['/']);
-      console.log("Log Out Successful")      
+      this.route.navigate(['/']); 
   }
   
-
   ngOnInit() {
     this.dataService
       .userChanged
       .subscribe(user => this.currentUser = user); //sets current user to user passed in
     this.currentUser = this.dataService.getCurrentUser();
   }
-
-
 }     
   

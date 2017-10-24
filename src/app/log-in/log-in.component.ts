@@ -30,34 +30,27 @@ export class LogInComponent {
   submitCredentials() {
     this.dataService
     .login("session", this.username, this.password)
-      .subscribe(
-                user => {
-                  if (user) {
-                    console.log("Logged in Successful")
-                    console.log(user)
-                    this.currentUser = user;
-                    localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
-                    console.log("User creds saved to storage")
-                    this.route.navigate(['/']);
-                  } else {
-                    this.message = 'Could not log in with those credentials';
-                  }
-                },
-                 e => this.message = 'Oops! We ran into the following error: ' + e
-              );
-   }  
+    .subscribe(
+      user => {
+        if (user) {
+          this.currentUser = user;
+          localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
+          this.route.navigate(['/']);
+        } else {
+          this.message = 'Could not log in with those credentials';
+        }
+      },
+        e => this.message = 'Oops! We ran into the following error: ' + e
+    );
+  }  
 
   ngOnInit() {
     if (localStorage.getItem('currentUser') != null ) {
       this.currentUser = JSON.parse(localStorage.getItem('currentUser'))
-      console.log("User creds pulled from storage")
     }
     this.dataService
     .userChanged
     .subscribe(user => this.currentUser = user); //sets current user to user passed in
     this.currentUser = this.dataService.getCurrentUser();
   }
-
-
 }     
-  

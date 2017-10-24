@@ -1,22 +1,19 @@
-  <button class="logButton" routerLink="/announcements">Return to Announcements</button>
-  <br/>
-  <br/>
-  <br/>
-  
-  <h1 class="headers">
-    <img src="https://images.unsplash.com/photo-1490129042164-5d8e61c1ca6c?w=2102&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D" width=20% height=20%> <br/>
-    <br/>
-    Manage Announcements
-  </h1>
-  <br/>
-  <br/>
-  
-  <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
-  
+<h1 class="headers">Manage Announcements</h1>
+<br/>
+<img src="https://images.unsplash.com/photo-1490129042164-5d8e61c1ca6c?w=2102&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D" width=20% height=20%>
+<br/>
+<br/>
+<button class="logButton" routerLink="/announcements">Return to Announcements</button>
+<br/>
+<br/>
+<app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
+<br/>
+<br/>
+
 <form novalidate (ngSubmit)="saveAnnouncements(announcementsForm)" #announcementsForm="ngForm" class="form-horizontal">
   <input [ngModel]="announcements?.id" ngModel #announcements.id="ngModel" type="hidden" name="announcements.id">
   <div class="form-group">
-    <label for="title" class="col-sm-2 control-label formTitle">Title</label>
+    <label for="title" class="col-sm-2 control-label formTitle">Title<span class="requiredStar">*</span></label>
     <div class="col-sm-10">
       <input [ngModel]="announcements?.title" ngModel #title="ngModel" type="text" class="form-control" id="title" name="title" placeholder="Title" required minlength="2">
       <span *ngIf="formErrors.title" class="text-danger">
@@ -31,9 +28,9 @@
     </div>
   </div>
   <div class="form-group">
-    <label for="date" class="col-sm-2 control-label formTitle">Date</label>
+    <label for="date" class="col-sm-2 control-label formTitle">Date<span class="requiredStar">*</span></label>
     <div class="col-sm-10">
-      <input [ngModel]="announcements?.date" ngModel #date="ngModel" type="date" class="form-control" id="date" name="date" placeholder="2017-01-01" required pattern="(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d">
+      <input [ngModel]="announcements?.date" ngModel #date="ngModel" type="date" class="form-control" id="date" name="date" placeholder="2017-01-01" required>
       <span *ngIf="formErrors.date" class="text-danger">
       {{ formErrors.date }}
       </span>

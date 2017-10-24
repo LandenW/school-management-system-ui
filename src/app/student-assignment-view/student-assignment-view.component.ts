@@ -15,11 +15,6 @@ import 'rxjs/add/operator/toPromise';
 })
 export class StudentAssignmentViewComponent implements OnInit {
 
-  // errorMessage: string;
-  // successMessage: string;
-  // assignments: any[];
-  // mode = 'Observable';
-
   errorMessage: string;
   successMessage: string;
   letterGradeValue: string;
@@ -31,15 +26,11 @@ export class StudentAssignmentViewComponent implements OnInit {
 
   constructor(private dataService: DataService, private route: ActivatedRoute ) { }
 
-  ngOnInit() { this.getGradesforOneStudent(); }
+  ngOnInit() { 
+    this.getGradesforOneStudent(); 
+  }
   
   getGradesforOneStudent(){
-  //   this.dataService.getGradesForOneRecord("grades", "students", 2)
-  //   .subscribe(
-  //     assignments => this.assignments = assignments,
-  //     error =>  this.errorMessage = <any>error);
-  // }
-  
     this.route
       .params
       .map((params: Params) => +params['id'])

@@ -22,12 +22,12 @@ export class AssignmentsComponent implements OnInit {
 
 
   ngOnInit() { 
-      this.dataService
-      .userChanged
-      .subscribe(user => this.currentUser = user); //sets current user to user passed in
-      this.currentUser = this.dataService.getCurrentUser();  
-      this.getAssignments();
-    }
+    this.dataService
+    .userChanged
+    .subscribe(user => this.currentUser = user); //sets current user to user passed in
+    this.currentUser = this.dataService.getCurrentUser();  
+    this.getAssignments();
+  }
   
   getAssignments() {
     this.dataService.getTeacherAssignments("teachers", this.currentUser.userId, "assignments")
@@ -36,19 +36,20 @@ export class AssignmentsComponent implements OnInit {
           for (let i=0; i < this.assignments.length; i++) {
             this.assignments[i].assignmentDueDate = this.assignments[i].assignmentDueDate + 28800000
           }
-        error =>  this.errorMessage = <any>error});
+          error =>  this.errorMessage = <any>error
+        });
   }
 
   deleteAssignment(id:number) {
-        let dialogRef = this.dialog.open(DeleteConfirmComponent);
-        dialogRef.afterClosed().subscribe(result => {
-          if(result){
-            this.dataService.deleteRecord("assignments", id)
-              .subscribe(
-                assignments => {this.successMessage = "Record(s) deleted succesfully"; this.getAssignments(); },
-                error =>  this.errorMessage = <any>error);
-          }
-        });
+    let dialogRef = this.dialog.open(DeleteConfirmComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      if(result){
+        this.dataService.deleteRecord("assignments", id)
+          .subscribe(
+            assignments => {this.successMessage = "Record(s) deleted succesfully"; this.getAssignments(); },
+            error =>  this.errorMessage = <any>error);
       }
+    });
   }
+}
 

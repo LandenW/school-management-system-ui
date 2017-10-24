@@ -76,23 +76,18 @@ export class DataService {
 
     addRecord(endpoint: string, record:object): Observable<any> {
         let apiUrl = `${this.baseUrl}${endpoint}`;
-        console.log(apiUrl)
-        console.log(record)
         return this.http.post(apiUrl, record)
             .map(this.extractData);
     }
 
-
     addStudentRecord(endpoint: string, teacherId:number, endpoint2: string, record:object): Observable<any> {
         let apiUrl = `${this.baseUrl}${endpoint}/${teacherId}/${endpoint2}`;
-        console.log(apiUrl)
         return this.http.post(apiUrl, record)
             .map(this.extractData);
     }
 
     addAssignment(endpoint: string, teacherId:number, endpoint2: string, record:object): Observable<any> {
         let apiUrl = `${this.baseUrl}${endpoint}/${teacherId}/${endpoint2}`;
-        console.log(apiUrl)
         return this.http.post(apiUrl, record)
             .map(this.extractData);
     }
@@ -103,6 +98,7 @@ export class DataService {
             .map(this.extractData)
             .catch(this.handleError);
     }
+
     login(endpoint: string, username: string, password: string): Observable<User>{
         let apiUrl = `${this.baseUrl}${endpoint}`;      
         const payload = { username, password }; //creates property with name email to value of the same name; like email: email, password: password              
@@ -112,7 +108,6 @@ export class DataService {
           .do(user=> this.currentUser = user) //resets current user field
           .do(user => this.userChanged.next(user));//when a user goes by - emit an event; user here is just a variable name
       }
-    
 
       logout(endpoint: string): Observable<User>{
         let apiUrl = `${this.baseUrl}${endpoint}`;        
@@ -126,8 +121,7 @@ export class DataService {
       getCurrentUser() { 
         if (localStorage.getItem('currentUser') != null ) {
             this.currentUser = JSON.parse(localStorage.getItem('currentUser'))
-            console.log("User creds pulled from storage")
-          } 
+        } 
         return this.currentUser;
       }
 
@@ -151,9 +145,6 @@ export class DataService {
                 }
             }
         }
-
         return Observable.throw(errMsg);
     }
-
-
 }

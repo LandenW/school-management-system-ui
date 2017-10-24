@@ -28,8 +28,8 @@ export class AddAccountsFormComponent implements OnInit {
 
   getRecordForEdit(){
     this.route.params
-      .switchMap((params: Params) => this.dataService.getRecord("students", +params['id']))
-      .subscribe(students => this.students = students);
+    .switchMap((params: Params) => this.dataService.getRecord("students", +params['id']))
+    .subscribe(students => this.students = students);
   }
 
   constructor(
@@ -40,9 +40,7 @@ export class AddAccountsFormComponent implements OnInit {
  
 
   getTeachersByGrade(gradeLevel) {
-    console.log(this.gradeLevel)
-    this.gradeLevel = parseInt(gradeLevel)
-    console.log(this.gradeLevel)    
+    this.gradeLevel = parseInt(gradeLevel) 
     this.dataService.getMultRecords("grade-level", gradeLevel, "teachers")
       .subscribe(
         teachers => this.teachers = teachers,
@@ -52,17 +50,15 @@ export class AddAccountsFormComponent implements OnInit {
 
   ngOnInit() {
     this.route.params
-      .subscribe((params: Params) => {
-        (+params['id']) ? this.getRecordForEdit() : null;
-      })
-    console.log(environment)
+    .subscribe((params: Params) => {
+      (+params['id']) ? this.getRecordForEdit() : null;
+    })
   }
 
   saveStudent({ value: student }: NgForm){
     student.roleName = 'STUDENT';
     student.gradeLevel = parseInt(student.gradeLevel);
     this.teacherId = parseInt(student.teacherId);
-    console.log(student);
     if(typeof student.id === "number"){
       this.dataService.editStudentRecord("teachers", this.teacherId, "students", student.id, student)
           .subscribe(
@@ -71,7 +67,6 @@ export class AddAccountsFormComponent implements OnInit {
           );
     } else {
       student.password = 'password';
-      console.log(student.value)
       this.dataService
           .addStudentRecord("teachers", this.teacherId, "students", student)
           .subscribe(
