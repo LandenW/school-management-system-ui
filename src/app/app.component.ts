@@ -23,10 +23,10 @@ export class AppComponent implements OnInit {
       console.log("User creds pulled from storage")
     } 
     console.log(this.currentUser)
-    // this.dataService
-    // .userChanged
-    // .subscribe(user => this.currentUser = user); //sets current user to user passed in
-    // this.currentUser = this.dataService.getCurrentUser();
+    this.dataService
+    .userChanged
+    .subscribe(user => this.currentUser = user); //sets current user to user passed in
+    this.currentUser = this.dataService.getCurrentUser();
   }
 
   title = 'School Management System';
