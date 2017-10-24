@@ -107,12 +107,17 @@ form {
 }
 
 .mat-dialog-container {
+	text-align: center;
 	background-color: #ebebe0;
 	border: 0px;
-	margin: auto;
+	margin: auto !important;
 	padding: 2px;
 	position: absolute;
-	max-height: calc(100vh - 450px);	
+	min-height: 250px;	
+	max-height: 250px;	
+	max-width: 50% !important;
+	display: flex !important;
+	justify-content: center !important;
 }
 
 .myButton {

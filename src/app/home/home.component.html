@@ -7,7 +7,7 @@
       <div>
         <ul *ngFor="let announcement of announcements" id="announcements">
           <li id="announcementContent">
-            <h3 id="date">{{announcement.date | date}}</h3>
+            <h3 id="date" *ngIf="announcement?.date">{{announcement.date | date}}</h3>
             <br/>
             <strong id="title">{{announcement.title}}</strong><br/>
             <br/>
