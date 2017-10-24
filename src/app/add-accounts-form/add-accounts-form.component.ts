@@ -21,6 +21,7 @@ export class AddAccountsFormComponent implements OnInit {
   errorMessage: string;
   students;
   teachers;
+  teacherId;
   roleName: string;
   gradeLevel: number;
 
@@ -60,10 +61,10 @@ export class AddAccountsFormComponent implements OnInit {
   saveStudent({ value: student }: NgForm){
     student.roleName = 'STUDENT';
     student.gradeLevel = parseInt(student.gradeLevel);
-    const teacherId = parseInt(student.teacherId);
+    this.teacherId = parseInt(student.teacherId);
     console.log(student);
     if(typeof student.id === "number"){
-      this.dataService.editStudentRecord("teachers", teacherId, "students", student.id, student)
+      this.dataService.editStudentRecord("teachers", this.teacherId, "students", student.id, student)
           .subscribe(
             student => this.successMessage = "Record updated succesfully",
             error => this.errorMessage = <any>error
@@ -72,7 +73,7 @@ export class AddAccountsFormComponent implements OnInit {
       student.password = 'password';
       console.log(student.value)
       this.dataService
-          .addStudentRecord("teachers", teacherId, "students", student)
+          .addStudentRecord("teachers", this.teacherId, "students", student)
           .subscribe(
             success => {
               this.successMessage = "Record added succesfully"
