@@ -15,7 +15,11 @@ import { DataService } from '../data.service'
 export class AddTeachersComponent implements OnInit {
   successMessage: string;
   errorMessage: string;
-  teacher: any;
+  teacher: any = {
+    firstName: '',
+    lastName: '',
+    email: ''
+  };
   teachers;
   roleName: string;
   gradeLevel: number;
@@ -44,7 +48,7 @@ export class AddTeachersComponent implements OnInit {
   saveTeacher(teacher: NgForm){
     teacher.value.roleName = 'TEACHER';
     teacher.value.gradeLevel = parseInt(teacher.value.gradeLevel);
-    console.log(teacher.value);
+
     if(typeof teacher.value.userId === "number"){
       this.dataService.editRecord("teachers", teacher.value, teacher.value.userId)
           .subscribe(
