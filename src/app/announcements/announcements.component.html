@@ -27,7 +27,7 @@
 <tbody>
   <tr *ngFor="let announcement of announcements">
     <!-- <td>{{announcement.id}}</td> -->
-    <td>{{announcement.date | date}}</td>
+    <td>{{announcement.date | date:'MM/dd/yyyy'}}</td>
     <td>{{announcement.title}}</td>
     <td>{{announcement.description}}</td>
     <td class="text-center" width=30%>

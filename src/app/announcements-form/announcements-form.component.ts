@@ -128,18 +128,13 @@ export class AnnouncementsFormComponent implements OnInit {
   }
 
   formErrors = {
-  'title': '',
-  'date': ''
+  'title': ''
   };
 
   validationMessages = {
     'title': {
       'required': 'Title is Required.',
       'minlength': 'First Name cannot be less than 2 characters.',
-    },
-    'date': {
-      'required': 'Date is required.',
-      'pattern': 'Date must be in the format of MM/DD/YYYY.'
     }
   };
 }
