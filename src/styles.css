@@ -49,6 +49,7 @@ table {
 }
 
 .headers {
+	display: block;
     color: #662200;
     font-family: 'Julius Sans One', sans-serif;
 	font-size: 30px; 

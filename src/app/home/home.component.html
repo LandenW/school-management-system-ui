@@ -1,18 +1,27 @@
-
-  <h1 class="headers">Announcements</h1>
-    <br/>
-    <div *ngFor="let announcement of announcements" id="announcements">
-      <h3 id="date">{{announcement.date | date}}</h3>
-      <strong id="title">{{announcement.title}}</strong>
-      <p id="description">{{announcement.description}}</p>
-      <hr>
-    </div>
-
-    <br/>
-    <br/>
-
-  <h1 class="headers">Calendar</h1>
-    <br/>
-    <br/>
-    <app-calendar></app-calendar>
+<div class="container">
+  <br/>
+  <br/>
+  <div id="gridOne">
+    <h1 class="headers">Announcements</h1>
+      <br/>
+      <div>
+        <ul *ngFor="let announcement of announcements" id="announcements">
+          <li id="announcementContent">
+            <h3 id="date">{{announcement.date | date}}</h3>
+            <br/>
+            <strong id="title">{{announcement.title}}</strong><br/>
+            <br/>
+            <h4 id="description">{{announcement.description}}</h4><br/>
+            <br/>
+          </li>
+          <hr>
+        </ul>
+        
+      </div>
+  </div>
+  <div id="gridTwo">
+    <h1 class="headers">Calendar</h1>
+    <!-- <app-calendar></app-calendar> -->
     <!-- <img src="'../November17Calendar.jpeg'" width="50%" height="50%"> -->
+  </div>
+</div>  
