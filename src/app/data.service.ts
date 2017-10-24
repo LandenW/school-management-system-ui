@@ -124,7 +124,11 @@ export class DataService {
       }
     
       getCurrentUser() { 
-       return this.currentUser;
+        if (localStorage.getItem('currentUser') != null ) {
+            this.currentUser = JSON.parse(localStorage.getItem('currentUser'))
+            console.log("User creds pulled from storage")
+          } 
+        return this.currentUser;
       }
 
     private extractData(res: Response) {

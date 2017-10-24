@@ -14,15 +14,19 @@ export class AppComponent implements OnInit {
     private dataService: DataService, private router: Router,
   ) {}
 
-  user: User;
+  currentUser: User;
 
 
   ngOnInit() {
+    if (localStorage.getItem('currentUser') != null ) {
+      this.currentUser = JSON.parse(localStorage.getItem('currentUser'))
+      console.log("User creds pulled from storage")
+    } 
+    console.log(this.currentUser)
     this.dataService
     .userChanged
-    .subscribe(user => this.user = user); //sets current user to user passed in
-    this.user = this.dataService.getCurrentUser();  
-    
+    .subscribe(user => this.currentUser = user); //sets current user to user passed in
+    this.currentUser = this.dataService.getCurrentUser();
   }
 
   title = 'School Management System';

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { DataService } from '../data.service'
+import { User } from "../user";
 
 @Component({
   selector: 'app-home',
@@ -13,10 +14,17 @@ export class HomeComponent implements OnInit {
   successMessage: string; 
   announcements: any[];
   mode = 'Observable';
+  currentUser: User;
 
   constructor(private dataService: DataService) { }
 
-  ngOnInit() { this.getAnnouncements(); }
+  ngOnInit() { 
+    this.getAnnouncements();
+    // if (localStorage.getItem('currentUser') != null ) {
+    //   this.currentUser = JSON.parse(localStorage.getItem('currentUser'))
+    //   console.log("User creds pulled from storage")
+    // } 
+  }
   
    getAnnouncements() {
      this.dataService.getRecords("announcements")
