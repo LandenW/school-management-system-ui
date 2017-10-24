@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { GradesComponent } from './grades/grades.component';
 import { AnnouncementsComponent } from './announcements/announcements.component';
 import { AnnouncementsFormComponent } from './announcements-form/announcements-form.component';
-import { GradesFormComponent } from './grades-form/grades-form.component';
 import { PreferencesComponent } from './preferences/preferences.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { AddAccountsComponent } from './add-accounts/add-accounts.component';
@@ -21,7 +20,6 @@ import { AddAccountsFormComponent } from './add-accounts-form/add-accounts-form.
 import { AssignmentsFormComponent } from './assignments-form/assignments-form.component';
 import { HomeComponent } from './home/home.component';
 import { DataService } from './data.service';
-import { EmailService } from './email.service';
 import { DeleteConfirmComponent } from './delete-confirm/delete-confirm.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddTeachersComponent } from './add-teachers/add-teachers.component';
@@ -38,7 +36,6 @@ import { StudentAssignmentViewComponent } from './student-assignment-view/studen
     GradesComponent,
     AnnouncementsComponent,
     AnnouncementsFormComponent,
-    GradesFormComponent,
     PreferencesComponent,
     CalendarComponent,
     AddAccountsComponent,
@@ -65,7 +62,7 @@ import { StudentAssignmentViewComponent } from './student-assignment-view/studen
   ],
   
   entryComponents: [DeleteConfirmComponent],
-  providers: [DataService, EmailService],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
