@@ -20,10 +20,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() { 
     this.getAnnouncements();
-    // if (localStorage.getItem('currentUser') != null ) {
-    //   this.currentUser = JSON.parse(localStorage.getItem('currentUser'))
-    //   console.log("User creds pulled from storage")
-    // } 
   }
   
    getAnnouncements() {
