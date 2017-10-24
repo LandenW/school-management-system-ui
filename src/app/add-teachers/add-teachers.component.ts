@@ -44,7 +44,7 @@ export class AddTeachersComponent implements OnInit {
   saveTeacher(teacher: NgForm){
     teacher.value.roleName = 'TEACHER';
     teacher.value.gradeLevel = parseInt(teacher.value.gradeLevel);
-    console.log(teacher.value);
+
     if(typeof teacher.value.userId === "number"){
       this.dataService.editRecord("teachers", teacher.value, teacher.value.userId)
           .subscribe(
