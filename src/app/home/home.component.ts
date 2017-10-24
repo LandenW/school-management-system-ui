@@ -11,27 +11,30 @@ import { User } from "../user";
 export class HomeComponent implements OnInit {
 
   errorMessage: string;
-  successMessage: string; 
+  successMessage: string;
   announcements: any[];
   mode = 'Observable';
   currentUser: User;
 
   constructor(private dataService: DataService) { }
 
-  ngOnInit() { 
+  ngOnInit() {
     this.getAnnouncements();
   }
-  
-   getAnnouncements() {
-     this.dataService.getRecords("announcements")
-       .subscribe(
-         announcements => {this.announcements = announcements;
-          for (let i=0; i < this.announcements.length; i++) {
-            this.announcements[i].date = this.announcements[i].date + 28800000
-          }
-         error =>  this.errorMessage = <any>error});
-   }
-   
-   title = 'School Management System';
 
+  getAnnouncements() {
+    this.dataService.getRecords("announcements")
+      .subscribe(
+      announcements => {
+        this.announcements = announcements;
+        for (let announcement of this.announcements) {
+          if (announcement.date) announcement.date += 28800000
+        }
+      },
+      error => this.errorMessage = <any>error
+      );
   }
+
+  title = 'School Management System';
+
+}
