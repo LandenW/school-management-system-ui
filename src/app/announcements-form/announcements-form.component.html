@@ -30,7 +30,7 @@
   <div class="form-group">
     <label for="date" class="col-sm-2 control-label formTitle">Date<span class="requiredStar">*</span></label>
     <div class="col-sm-10">
-      <input [ngModel]="announcements?.date" ngModel #date="ngModel" type="date" class="form-control" id="date" name="date" placeholder="2017-01-01" required>
+      <input [ngModel]="announcements?.date" ngModel #date="ngModel" type="date" class="form-control" id="date" name="date" placeholder="01-01-2017" required>
       <span *ngIf="formErrors.date" class="text-danger">
       {{ formErrors.date }}
       </span>

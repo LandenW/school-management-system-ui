@@ -11,6 +11,7 @@ import { DataService } from '../data.service'
   templateUrl: './add-teachers.component.html',
   styleUrls: ['./add-teachers.component.css']
 })
+
 export class AddTeachersComponent implements OnInit {
   successMessage: string;
   errorMessage: string;
@@ -19,11 +20,7 @@ export class AddTeachersComponent implements OnInit {
   roleName: string;
   gradeLevel: number;
 
-  getRecordForEdit(){
-    this.route.params
-      .switchMap((params: Params) => this.dataService.getRecord("teachers", +params['id']))
-      .subscribe(teacher => this.teacher = teacher);
-  }
+
   constructor(
     private dataService: DataService,
     private route: ActivatedRoute,
@@ -31,6 +28,11 @@ export class AddTeachersComponent implements OnInit {
     
   ) { }
  
+  getRecordForEdit(){
+    this.route.params
+      .switchMap((params: Params) => this.dataService.getRecord("teachers", +params['id']))
+      .subscribe(teacher => this.teacher = teacher);
+  }
 
   ngOnInit() {
     this.route.params
