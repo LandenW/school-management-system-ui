@@ -24,7 +24,7 @@ export class LogOutComponent {
   username: string;
   password: string;
   message: string
-  private currentUser: User;
+  currentUser: User;
 
   //subject is a specific channel of communication
   //other components can subscribe to userChanged event, listen for and act

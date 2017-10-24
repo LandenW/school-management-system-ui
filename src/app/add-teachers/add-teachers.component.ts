@@ -14,20 +14,8 @@ import { DataService } from '../data.service'
 export class AddTeachersComponent implements OnInit {
   successMessage: string;
   errorMessage: string;
-
-  student: object = {
-    firstName: '',
-    lastName: '',
-    email: ''
-  };
-  teacher: object = {
-    firstName: '',
-    lastName: '',
-    email: ''
-  };
-
+  teacher;
   teachers;
-
   roleName: string;
   gradeLevel: number;
 
@@ -45,7 +33,6 @@ export class AddTeachersComponent implements OnInit {
  
 
   ngOnInit() {
-    
     this.route.params
     .subscribe((params: Params) => {
       (+params['id']) ? this.getRecordForEdit() : null;
@@ -67,11 +54,7 @@ export class AddTeachersComponent implements OnInit {
           .subscribe(
             teacher => this.successMessage = "Record added succesfully",
             error =>  this.errorMessage = <any>error);
-            this.teacher = {
-              firstName: '',
-              lastName: '',
-              email: ''
-            };
+            this.teacher = { };
     }
 
   }

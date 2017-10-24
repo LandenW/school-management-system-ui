@@ -17,7 +17,10 @@ export class AddAccountsComponent implements OnInit {
   teachers: any[];
   mode = 'Observable';
 
-  constructor(private dataService: DataService, public dialog: MatDialog) { }
+  constructor(
+    private dataService: DataService, 
+    public dialog: MatDialog) 
+    { }
 
   ngOnInit() {
     this.getStudents();
