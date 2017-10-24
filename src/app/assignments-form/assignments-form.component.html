@@ -10,36 +10,42 @@
 
 
 <form novalidate (ngSubmit)="saveAssignment(assignmentsForm)" #assignmentsForm="ngForm" class="form-horizontal">
-<input [ngModel]="assignments?.assignmentId" ngModel #assignments.id="ngModel" type="hidden" name="id">
-<div class="form-group">
-  <label for="name" class="col-sm-2 control-label formTitle">Assignment Name</label>
-  <div class="col-sm-10">
-    <input [ngModel]="assignments?.assignmentName" ngModel #assignmentName="ngModel" type="text" class="form-control" id="name" name="name" placeholder="Assignment Name" required>
+  <input [ngModel]="assignments?.assignmentId" ngModel #assignments.id="ngModel" type="hidden" name="id">
+  <div class="form-group">
+    <label for="name" class="col-sm-2 control-label formTitle">Assignment Name</label>
+    <div class="col-sm-10">
+      <input [ngModel]="assignments?.assignmentName" ngModel #assignmentName="ngModel" type="text" class="form-control" id="name" name="name" placeholder="Assignment Name" required minlength="2">
+      <span *ngIf="formErrors.name" class="text-danger">
+        {{ formErrors.name }}
+      </span>
+    </div>
   </div>
-</div>
-<div class="form-group">
-  <label for="dueDate" class="col-sm-2 control-label formTitle">Due Date</label>
-  <div class="col-sm-10">
-    <input [ngModel]="assignments?.assignmentDueDate" ngModel #assignmentDueDate="ngModel" type="date" class="form-control" id="dueDate" name="dueDate"  placeholder="Due Date" required>
+  <div class="form-group">
+    <label for="dueDate" class="col-sm-2 control-label formTitle">Due Date</label>
+    <div class="col-sm-10">
+      <input [ngModel]="assignments?.assignmentDueDate" ngModel #assignmentDueDate="ngModel" type="date" class="form-control" id="dueDate" name="dueDate"  placeholder="Due Date" required pattern="(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d">
+      <span *ngIf="formErrors.dueDate" class="text-danger">
+        {{ formErrors.dueDate }}
+      </span>
+    </div>
   </div>
-</div>
-<div class="form-group">
+  <div class="form-group">
     <label for="comment" class="col-sm-2 control-label formTitle">Comments</label>
     <div class="col-sm-10">
-      <input [ngModel]="assignments?.assignmentComment" ngModel #assignmentComment="ngModel" type="text" class="form-control" id="comment" name="comment"  placeholder="Comment" required>
+      <input [ngModel]="assignments?.assignmentComment" ngModel #assignmentComment="ngModel" type="text" class="form-control" id="comment" name="comment"  placeholder="Comment">
     </div>
-</div>
-<div class="form-group">
+  </div>
+  <div class="form-group">
     <label for="description" class="col-sm-2 control-label formTitle">Description</label>
     <div class="col-sm-10">
-      <input [ngModel]="assignments?.assignmentDescription" ngModel #assignmentDescription="ngModel" type="text" class="form-control" id="description" name="description"  placeholder="Description" required>
+      <input [ngModel]="assignments?.assignmentDescription" ngModel #assignmentDescription="ngModel" type="text" class="form-control" id="description" name="description"  placeholder="Description">
     </div>
-</div>
-<!-- pass teacher ID in path and not in body teachers/id/assignments -->
-<input [ngModel]="currentUser?.userId" ngModel #currentUser.userId="ngModel" type="hidden" name="teacherId">
- <div class="form-group">
-  <div class="col-sm-offset-2 col-sm-10">
-    <button [disabled]="!assignmentsForm.form.valid" type="submit" class="logButton">Submit</button>
   </div>
-</div>
+  <!-- pass teacher ID in path and not in body teachers/id/assignments -->
+  <input [ngModel]="currentUser?.userId" ngModel #currentUser.userId="ngModel" type="hidden" name="teacherId">
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button [disabled]="!assignmentsForm.form.valid" type="submit" class="logButton">Submit</button>
+    </div>
+  </div>
 </form>
