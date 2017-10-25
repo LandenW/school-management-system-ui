@@ -2,7 +2,7 @@
     <ul class="nav navbar-nav">
         <li routerLinkActive="active"><a routerLink="" >Home</a></li>      
         <li *ngIf="currentUser?.roleName==='ADMIN'" routerLinkActive="active"><a routerLink="/add-accounts" >Accounts</a></li>        
-        <li *ngIf="currentUser?.roleName==='TEACHER'  || currentUser?.roleName==='ADMIN'"routerLinkActive="active"><a routerLink="/assignments" >Assignments</a></li>
+        <li *ngIf="currentUser?.roleName==='TEACHER'"routerLinkActive="active"><a routerLink="/assignments" >Assignments</a></li>
         <li *ngIf="currentUser?.roleName==='TEACHER' || currentUser?.roleName==='ADMIN'" routerLinkActive="active"><a routerLink="/announcements" >Announcements</a></li> 
         <li *ngIf="currentUser?.roleName==='STUDENT'" routerLinkActive="active"><a [routerLink]="['student-assignment-view/', currentUser.userId]" >Assignments/Grades</a></li>
         <li *ngIf="currentUser?.roleName==='TEACHER' || currentUser?.roleName==='STUDENT'" routerLinkActive="active"><a routerLink="/preferences" >Preferences</a></li>                             

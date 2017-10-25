@@ -18,7 +18,8 @@ export class AddTeachersComponent implements OnInit {
   teacher: any = {
     firstName: '',
     lastName: '',
-    email: ''
+    email: '',
+    gradeLevel: ''
   };
   teachers;
   roleName: string;
@@ -54,13 +55,24 @@ export class AddTeachersComponent implements OnInit {
           .subscribe(
             student => this.successMessage = "Record updated succesfully",
             error =>  this.errorMessage = <any>error);
+            this.teacher = {
+              firstName: '',
+              lastName: '',
+              email: '',
+              gradeLevel: ''
+            }
     }else{
       teacher.value.password = 'password';
       this.dataService.addRecord("teachers", teacher.value)
           .subscribe(
             teacher => this.successMessage = "Record added succesfully",
             error =>  this.errorMessage = <any>error);
-            this.teacher = { };
+            this.teacher = { 
+              firstName: '',
+              lastName: '',
+              email: '',
+              gradeLevel: ''
+            };
     }
 
   }
