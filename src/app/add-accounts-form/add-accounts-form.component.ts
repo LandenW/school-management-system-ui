@@ -71,7 +71,6 @@ export class AddAccountsFormComponent implements OnInit {
             student => this.successMessage = "Record updated succesfully",
             error => this.errorMessage = <any>error
           );
-        this.students = { };
     } else {
       student.password = 'password';
       this.dataService
@@ -82,9 +81,9 @@ export class AddAccountsFormComponent implements OnInit {
 
             },
             error => this.errorMessage = <any>error
-          );
-        this.students = { };
+          );  
     }
+    this.currentForm.reset();
   }
 
   //Validations
