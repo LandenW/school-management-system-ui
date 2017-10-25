@@ -33,7 +33,7 @@
   <div class="form-group">
     <label for="email" class="col-sm-2 control-label formTitle">Email<span class="requiredStar">*</span></label>
     <div class="col-sm-10">
-      <input [(ngModel)]="teacher.email" ngModel #email="ngModel" type="email" class="form-control" id="email" name="email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+      <input [(ngModel)]="teacher.email" ngModel #email="ngModel" type="email" class="form-control" id="email" name="email" placeholder="Email" required pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,3}$">
       <span *ngIf="formErrors.email" class="text-danger">
         {{ formErrors.email }}
       </span>  

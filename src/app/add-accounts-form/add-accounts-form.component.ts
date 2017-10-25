@@ -19,7 +19,13 @@ export class AddAccountsFormComponent implements OnInit {
   
   successMessage: string;
   errorMessage: string;
-  students;
+  students: any = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    gradeLevel: '',
+    teacherId: ''
+  };
   teachers;
   teacherId;
   roleName: string;
@@ -65,6 +71,7 @@ export class AddAccountsFormComponent implements OnInit {
             student => this.successMessage = "Record updated succesfully",
             error => this.errorMessage = <any>error
           );
+        this.students = { };
     } else {
       student.password = 'password';
       this.dataService
@@ -72,10 +79,11 @@ export class AddAccountsFormComponent implements OnInit {
           .subscribe(
             success => {
               this.successMessage = "Record added succesfully"
+
             },
             error => this.errorMessage = <any>error
           );
-      this.students = { };
+        this.students = { };
     }
   }
 
