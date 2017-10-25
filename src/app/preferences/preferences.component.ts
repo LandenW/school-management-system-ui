@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { DataService } from '../data.service';
 import { User } from "../user";
 import { AppComponent } from "../app.component";
@@ -11,6 +11,8 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./preferences.component.css']
 })
 export class PreferencesComponent implements OnInit {
+
+  @ViewChild('passwordForm') currentForm: NgForm;
 
   currentUser: User;
   students;
@@ -38,7 +40,7 @@ export class PreferencesComponent implements OnInit {
       else{
         this.userInfo = this.currentUser;
       }
-    (<HTMLInputElement>document.getElementById("updatePass")).disabled = true 
+    (<HTMLInputElement>document.getElementById("submitPass")).disabled = true 
   }
 
   getRecordToCompare(endpoint, userId){
@@ -51,24 +53,26 @@ export class PreferencesComponent implements OnInit {
     var nPassword = (<HTMLInputElement>document.getElementById("nPassword")).value;
     var cnPassword = (<HTMLInputElement>document.getElementById("cnPassword")).value;
     if( nPassword === cnPassword ) {
-      (<HTMLInputElement>document.getElementById("updatePass")).disabled = false    
+      (<HTMLInputElement>document.getElementById("submitPass")).disabled = false    
     }
     else {
-      (<HTMLInputElement>document.getElementById("updatePass")).disabled = true    
+      (<HTMLInputElement>document.getElementById("submitPass")).disabled = true    
     }
   }
 
   savePassword(password: NgForm){
-    // if (this.currentUser.roleName === "STUDENT") {
-    //   this.dataService.editStudentRecord("teachers", this.currentUser.teacherId , "students", this.currentUser.userId)
-    //   .subscribe(
-    //     password => this.successMessage = "Password updated succesfully",
-    //     error =>  this.errorMessage = <any>error);
-    // } else {
+    if (this.currentUser.roleName === "STUDENT") {
+      this.dataService.editStudentRecord("teachers", this.userInfo.teacherId , "students", this.currentUser.userId, password.value)
+      .subscribe(
+        password => this.successMessage = "Password updated succesfully",
+        error =>  this.errorMessage = <any>error);
+    } else {
     this.dataService.editRecord(this.endpoint, password.value, this.currentUser.userId)
       .subscribe(
         password => this.successMessage = "Password updated succesfully",
         error =>  this.errorMessage = <any>error);
-    // }
+    }
+    (<HTMLInputElement>document.getElementById("nPassword")).value = ""; 
+    (<HTMLInputElement>document.getElementById("cnPassword")).value = ""    
   }
 }
