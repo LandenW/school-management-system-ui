@@ -69,7 +69,7 @@ export class AssignmentsFormComponent implements OnInit {
             error =>  this.errorMessage = <any>error);
             this.assignments = {};
     }
-
+      this.currentForm.reset();
   }
 
   //Validations
