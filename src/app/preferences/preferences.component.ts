@@ -61,7 +61,9 @@ export class PreferencesComponent implements OnInit {
   }
 
   savePassword(password: NgForm){
-    if (this.currentUser.roleName === "STUDENT") {
+    console.log(this.userInfo.roleName)
+    if (this.currentUser.roleName == "STUDENT") {
+      console.log("made in if")
       this.dataService.editStudentRecord("teachers", this.userInfo.teacherId , "students", this.currentUser.userId, password.value)
       .subscribe(
         password => this.successMessage = "Password updated succesfully",
