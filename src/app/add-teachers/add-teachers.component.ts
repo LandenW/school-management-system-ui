@@ -74,7 +74,7 @@ export class AddTeachersComponent implements OnInit {
               gradeLevel: ''
             };
     }
-
+      this.currentForm.reset();
   }
 
  //Validations
