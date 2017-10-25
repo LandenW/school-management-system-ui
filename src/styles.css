@@ -87,8 +87,9 @@ td {
 
 form {
     padding-right: 25%;
-    padding-left: 25%;
+	padding-left: 25%;
 }
+
 
 #lognav {
 	position: relative;
@@ -114,7 +115,7 @@ form {
 	padding: 2px;
 	position: absolute;
 	min-height: 250px;	
-	max-height: 250px;	
+	max-height: 200px;	
 	max-width: 50% !important;
 	display: flex !important;
 	justify-content: center !important;

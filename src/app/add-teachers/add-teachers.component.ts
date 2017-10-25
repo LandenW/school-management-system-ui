@@ -122,6 +122,9 @@ export class AddTeachersComponent implements OnInit {
     'email': {
       'required': 'Email is required.',
       'pattern': 'Email must be in the format of example@domain.com .'
+    },
+    'gradeLevel': {
+      'required': 'Grade Level is required'
     }
   };
 }
